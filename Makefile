@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Tue Mar 24 17:43:44 2015 Jordan Chazottes
+## Last update Tue Mar 24 17:54:02 2015 Jordan Chazottes
 ##
 
 NAME_EXE	= nibbler
@@ -15,11 +15,11 @@ SRCS_EXE	= ./sources/main.cpp			\
 OBJS_EXE	= $(SRCS_EXE:.cpp=.o)
 
 NAME_LIB	= lib_nibbler_SDL.so
-SRCS_LIB	= ./sources/Lib_SDL.cpp
+SRCS_LIB	= ./sources/SDL/Lib_SDL.cpp
 OBJS_LIB	= $(SRCS_LIB:.cpp=.o)
 
 NAME_LIB2	= lib_nibbler_Qt.so
-SRCS_LIB2	= ./sources/Lib_Qt.cpp
+SRCS_LIB2	= ./sources/Qt/Lib_Qt.cpp
 OBJS_LIB2	= $(SRCS_LIB2:.cpp=.o)
 
 LDFLAGS		+= -ldl
