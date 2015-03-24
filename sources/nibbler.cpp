@@ -5,17 +5,19 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Mon Mar 23 15:48:25 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 24 11:33:54 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 24 11:49:34 2015 Sebastien Cache-Delanos
 //
 
 #include			"nibbler.hpp"
 #include			"snake.hpp"
 
-int				nibbler(int width, int height, char* lib)
+int				nibbler(unsigned int width, unsigned int height, char* lib)
 {
-  Snake				s;
+  Snake				*s = new Snake(width, height, lib);
 
-  std::cout << "Width : " << width << " Height : " << height << " Lib : "
-	    << lib << std::endl;
+  std::cout << "Width : " << s->getWidth() << " Height : " << s->getHeight() << " Lib : "
+	    << s->getLib() << std::endl;
+
+  delete s;
   return (0);
 }

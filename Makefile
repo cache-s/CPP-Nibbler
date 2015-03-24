@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Tue Mar 24 11:33:30 2015 Sebastien Cache-Delanos
+## Last update Tue Mar 24 12:33:24 2015 Sebastien Cache-Delanos
 ##
 
 NAME	= nibbler
@@ -16,7 +16,7 @@ SRCS	= ./sources/main.cpp			\
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS= -W -Wall -Wextra -Werror -I ./includes
+CPPFLAGS= -W -Wall -Wextra -Werror -ldl -I ./includes
 
 CXX	= g++
 
@@ -37,7 +37,7 @@ $(NAME): $(OBJS)
 	@echo -e $(GREEN) '$@'
 	@echo -e $(NORMAL) ' '
 
-%.o: %.c
+%.o: %.cpp
 	@echo ' '
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C Compiler'
