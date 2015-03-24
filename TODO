@@ -1,8 +1,9 @@
 Dev :
 check des arguments
 algo
-libs
+libs -> Compil .so	->	g++ -shared
+	       .cpp	->	g++ -fPIC
 
 Rendu :
 enlever le -g du makefile
-check tout les const
+check tout les const + ref
