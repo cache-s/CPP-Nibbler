@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 23 15:57:28 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 24 12:43:06 2015 Sebastien Cache-Delanos
 //
 
 #include			"nibbler.hpp"
@@ -22,7 +22,7 @@ int				checkHeight(int height)
   return (0);
 }
 
-int				checkLib(char* lib)
+int				checkLib(const std::string & lib)
 {
   (void)lib;
   return (0);
@@ -32,7 +32,7 @@ int				main(int ac, char **av)
 {
   int				height;
   int				width;
-  char*				lib;
+  std::string			lib;
 
   if (ac != 4)
     {
