@@ -1,0 +1,8 @@
+Dev :
+check des arguments
+algo
+libs
+
+Rendu :
+enlever le -g du makefile
+check tout les const

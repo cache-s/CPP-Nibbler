@@ -5,21 +5,21 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Tue Mar 24 11:29:36 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 24 11:49:06 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 24 12:35:04 2015 Sebastien Cache-Delanos
 //
 
 #include				"snake.hpp"
 
 Snake::Snake(unsigned int width, unsigned int height, const std::string & lib) : _lib(lib)
 {
-  std::cout << "Snake created" << std::endl;
+  std::cout << "Snake class instance created" << std::endl;
   _width = width;
   _height = height;
 }
 
 Snake::~Snake()
 {
-  std::cout << "Snake destroyed" << std::endl;
+  std::cout << "Snake class instance destroyed" << std::endl;
 }
 
 unsigned int				Snake::getHeight() const
