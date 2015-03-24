@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Tue Mar 24 12:33:24 2015 Sebastien Cache-Delanos
+## Last update Tue Mar 24 14:49:03 2015 Pierre Charié
 ##
 
 NAME	= nibbler
@@ -53,5 +53,11 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+
+dbg:    CPPFLAGS += -g
+dbg:    re
+
+nf:     CPPFLAGS = -ldl -I ./includes
+nf:     re
 
 re: fclean all
