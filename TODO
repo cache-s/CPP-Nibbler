@@ -1,5 +1,4 @@
 Dev :
-check des arguments
 algo
 libs -> Compil .so	->	g++ -shared
 	       .cpp	->	g++ -fPIC
@@ -7,3 +6,17 @@ libs -> Compil .so	->	g++ -shared
 Rendu :
 enlever le -g du makefile
 check tout les const + ref
+
+
+
+Liste des fonctions à faire dans chaque librairie :
+
+-init
+-keyBinding
+-moveForward
+-moveLeft
+-moveRight
+-quitGame
+-displayMap
+-popFood
+-endGame
