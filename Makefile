@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Tue Mar 24 14:49:03 2015 Pierre Charié
+## Last update Tue Mar 24 15:08:07 2015 Jordan Chazottes
 ##
 
 NAME	= nibbler
@@ -16,7 +16,7 @@ SRCS	= ./sources/main.cpp			\
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS= -W -Wall -Wextra -Werror -ldl -I ./includes
+CPPFLAGS= -W -Wall -Wextra -Werror -I ./includes
 
 CXX	= g++
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJS)
 	@echo ' '
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	$(CXX) -o $@ $^
+	$(CXX) -o $@  -ldl $^
 	@echo -n 'Finished building target:'
 	@echo -e $(GREEN) '$@'
 	@echo -e $(NORMAL) ' '
@@ -57,7 +57,7 @@ fclean: clean
 dbg:    CPPFLAGS += -g
 dbg:    re
 
-nf:     CPPFLAGS = -ldl -I ./includes
+nf:     CPPFLAGS = -I ./includes
 nf:     re
 
 re: fclean all

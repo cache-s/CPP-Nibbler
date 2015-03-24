@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Tue Mar 24 11:29:55 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 24 11:49:16 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 24 14:41:25 2015 Jordan Chazottes
 //
 
 #ifndef				SNAKE_HPP_
@@ -16,18 +16,18 @@
 class				Snake
 {
 public:
-  Snake(unsigned int width, unsigned int height, const std::string & lib);
+  Snake(unsigned int width, unsigned int height, void *lib);
   ~Snake();
 
   //GETTERS
   unsigned int			getHeight() const;
   unsigned int			getWidth() const;
-  std::string	const		getLib() const;
+  void				*getLib() const;
 
 private:
   unsigned int			_width;
   unsigned int			_height;
-  const std::string		_lib;
+  void				*_lib;
 };
 
 #endif				//SNAKE_HPP_
