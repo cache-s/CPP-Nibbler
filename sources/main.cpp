@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 24 15:05:58 2015 Jordan Chazottes
+// Last update Tue Mar 24 17:03:22 2015 Jordan Chazottes
 //
 
 #include			"nibbler.hpp"
@@ -34,7 +34,7 @@ void				*checkLib(const char *lib)
 {
   void				*dlhandle;
 
-  if ((dlhandle = dlopen(lib, RTLD_LAZY)) == NULL)
+  if ((dlhandle = dlopen(lib, RTLD_NOW)) == NULL)
     std::cout << "Error while openning the library " << lib << std::endl;
   return (dlhandle);
 }
