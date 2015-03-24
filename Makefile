@@ -5,12 +5,14 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Mon Mar 23 13:28:39 2015 Sebastien Cache-Delanos
+## Last update Tue Mar 24 11:33:30 2015 Sebastien Cache-Delanos
 ##
 
 NAME	= nibbler
 
 SRCS	= ./sources/main.cpp			\
+	  ./sources/nibbler.cpp			\
+	  ./sources/snake.cpp			\
 
 OBJS	= $(SRCS:.cpp=.o)
 
