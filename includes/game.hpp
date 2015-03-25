@@ -5,13 +5,16 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 12:25:59 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 12:37:46 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
 # define			GAME_HPP_
 
 # include			"nibbler.hpp"
+# include			"snake.hpp"
+
+# include			<vector>
 
 class				Game
 {
@@ -35,6 +38,7 @@ private:
   const int			_height;
   void*				_lib;
   int**				_map;
+  std::vector<Snake>		_snake;
 };
 
 #endif				//GAME_HPP_
