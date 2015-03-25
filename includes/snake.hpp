@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:45 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 12:37:34 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 12:48:16 2015 Sebastien Cache-Delanos
 //
 
 #ifndef					SNAKE_HPP_
@@ -17,6 +17,13 @@ public:
   Snake(int x, int y);
   ~Snake();
 
+  //SETTERS
+  void					setX(int x);
+  void					setY(int y);
+
+  //GETTERS
+  int					getX() const;
+  int					getY() const;
 private:
   int					X;
   int					Y;

@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Wed Mar 25 12:38:06 2015 Sebastien Cache-Delanos
+## Last update Wed Mar 25 12:49:33 2015 Sebastien Cache-Delanos
 ##
 
 NAME_EXE	= nibbler
@@ -41,7 +41,7 @@ all: $(NAME_LIB2) $(NAME_LIB) $(NAME_EXE)
 $(NAME_EXE): $(OBJS_EXE)
 	@echo ' '
 	@echo 'Building target: $@'
-	@echo 'Invoking: GCC C Linker'
+	@echo 'Invoking: G++ C Linker'
 	$(CXX) -o $(NAME_EXE) $(OBJS_EXE) $(LDFLAGS)
 	@echo -n 'Finished building target:'
 	@echo -e $(GREEN) '$@'
@@ -50,7 +50,7 @@ $(NAME_EXE): $(OBJS_EXE)
 $(NAME_LIB): $(OBJS_LIB)
 	@echo ' '
 	@echo 'Building target: $@'
-	@echo 'Invoking: GCC C Linker'
+	@echo 'Invoking: G++ C Linker'
 	$(CXX) -shared -o $(NAME_LIB) $(OBJS_LIB)
 	@echo -n 'Finished building target:'
 	@echo -e $(CYAN) '$@'
@@ -59,7 +59,7 @@ $(NAME_LIB): $(OBJS_LIB)
 $(NAME_LIB2): $(OBJS_LIB2)
 	@echo ' '
 	@echo 'Building target: $@'
-	@echo 'Invoking: GCC C Linker'
+	@echo 'Invoking: G++ C Linker'
 	$(CXX) -shared -o $(NAME_LIB2) $(OBJS_LIB2)
 	@echo -n 'Finished building target:'
 	@echo -e $(CYAN) '$@'
@@ -68,7 +68,7 @@ $(NAME_LIB2): $(OBJS_LIB2)
 %.o: %.cpp
 	@echo ' '
 	@echo 'Building file: $<'
-	@echo 'Invoking: GCC C Compiler'
+	@echo 'Invoking: G++ C Compiler'
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 	@echo -n 'Finished building: '
 	@echo -e $(YELLOW) '$<'
