@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 12:37:46 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 18:32:02 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -22,11 +22,20 @@ public:
   Game(int width, int height, void *lib);
   ~Game();
 
+  void				updatePath();
+  void				updateMap();
+  void				start();
+  void				move();
+
   //INIT
   void				initMap();
+  void				initSnake();
 
   //PRINT
   void				printMap() const;
+
+  //SETTERS
+  void				setDirection(int dir);
 
   //GETTERS
   int		const	&	getHeight() const;
@@ -36,9 +45,12 @@ public:
 private:
   const int			_width;
   const int			_height;
+  int				_speed;
+  Direction			_dir;
   void*				_lib;
   int**				_map;
-  std::vector<Snake>		_snake;
+  std::vector<Snake*>		_snake;
+  bool				_isAlive;
 };
 
 #endif				//GAME_HPP_

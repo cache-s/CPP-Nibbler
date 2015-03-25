@@ -4,7 +4,7 @@ algo
 Rendu :
 enlever le -g du makefile
 check tout les const + ref
-
+enlever le unistd.h pour le sleep (trouver une alternative)
 
 
 Liste des fonctions à faire dans chaque librairie :
