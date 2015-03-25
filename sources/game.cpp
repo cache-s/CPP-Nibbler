@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 12:25:29 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 16:17:01 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -24,7 +24,6 @@ Game::~Game()
   int					i;
 
   std::cout << "Game class instance destroyed" << std::endl;
-
   for(i = 0; i < _height; ++i)
     delete [] _map[i];
   delete [] _map;
@@ -37,7 +36,7 @@ void					Game::initMap()
   int					j;
 
   _map = new int*[_height];
-  for(i = 0; i < _width; ++i)
+  for(i = 0; i < _height; ++i)
     _map[i] = new int[_width];
   for (j = 0; j != _height; ++j)
     for (i = 0; i != _width; ++i)
@@ -61,7 +60,7 @@ void					Game::printMap() const
   for (j = 0; j != _height; ++j)
     {
       for (i = 0; i != _width; ++i)
-	std::cout << _map[i][j];
+	std::cout << _map[j][i];
       std::cout << "\n";
     }
 }
