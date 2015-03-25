@@ -1,7 +1,5 @@
 Dev :
 algo
-libs -> Compil .so	->	g++ -shared
-	       .cpp	->	g++ -fPIC
 
 Rendu :
 enlever le -g du makefile
