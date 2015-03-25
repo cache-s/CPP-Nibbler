@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 19:08:08 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 19:12:56 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -189,4 +189,14 @@ int		const	&		Game::getWidth() const
 void*					Game::getLib() const
 {
   return (_lib);
+}
+
+int**					Game::getMap() const
+{
+  return (_map);
+}
+
+void*					Game::getScreen() const
+{
+  return (_screen);
 }

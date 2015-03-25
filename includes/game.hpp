@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 18:32:02 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 19:12:05 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -40,6 +40,8 @@ public:
   //GETTERS
   int		const	&	getHeight() const;
   int		const	&	getWidth() const;
+  int**				getMap() const;
+  void*				getScreen() const;
   void*				getLib() const;
 
 private:
@@ -51,6 +53,7 @@ private:
   int**				_map;
   std::vector<Snake*>		_snake;
   bool				_isAlive;
+  void*				_screen;
 };
 
 #endif				//GAME_HPP_
