@@ -5,10 +5,21 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Tue Mar 24 15:43:20 2015 Jordan Chazottes
+// Last update Wed Mar 25 11:52:12 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
+
+// void		SDL::init()
+// {
+//   if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
+//     {
+//       std::cout << "Error : Init SDL : " << SDL_GetError() << std::endl;
+//       return;
+//     }
+//   TTF_Init();
+//   SDL_putenv("SDL_VIDEODRIVER=directx");
+// }
 
 void		SDL::desc() const
 {

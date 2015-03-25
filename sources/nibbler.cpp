@@ -4,8 +4,8 @@
 // Made by Sebastien Cache-Delanos
 // Login   <cache-_s@epitech.net>
 // 
-// Started on  Mon Mar 23 15:48:25 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 12:27:25 2015 Sebastien Cache-Delanos
+// Started on  Wed Mar 25 12:38:54 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 12:39:19 2015 Sebastien Cache-Delanos
 //
 
 #include			"nibbler.hpp"
@@ -25,6 +25,7 @@ int				nibbler(unsigned int width, unsigned int height, void *lib)
     if (external_creator == NULL)
     std::cout << "Problem loading external function" << std::endl;
     SDL->desc();
+    std::cout << "Width : " << s->getWidth() << " Height : " << s->getHeight() << std::endl;
   */
 
   delete s;
