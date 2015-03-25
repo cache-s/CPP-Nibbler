@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 12:09:32 2015 Sebastien Cache-Delanos
+// Last update Wed Mar 25 13:03:58 2015 Jordan Chazottes
 //
 
 #include			"nibbler.hpp"
@@ -33,8 +33,11 @@ int				checkSize(int width, int height)
 void				*checkLib(const char *lib)
 {
   void				*dlhandle;
+  std::string			_lib = lib;
 
-  if ((dlhandle = dlopen(lib, RTLD_NOW)) == NULL)
+  if (_lib.substr(0, 2) != "./" && _lib.substr(0, 1) != "/")
+    _lib = "./" + _lib;
+  if ((dlhandle = dlopen(_lib.c_str(), RTLD_NOW)) == NULL)
     std::cout << "Error while openning the library " << lib << std::endl;
   return (dlhandle);
 }
@@ -52,8 +55,7 @@ int				main(int ac, char **av)
     }
   if (checkSize((width = atoi(av[1])), (height = atoi(av[2]))) != 0)
     return (-1);
-  lib = checkLib(av[3]);
-  //  if ((lib = checkLib(av[3])) == NULL)
-  //    return (-1);
+  if ((lib = checkLib(av[3])) == NULL)
+    return (-1);
   return (nibbler(width, height, lib));
 }
