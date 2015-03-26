@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 12:44:20 2015 Jordan Chazottes
+// Last update Thu Mar 26 12:47:16 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -169,6 +169,7 @@ void					Game::initMap()
     _map[i][0] = 1;
   for (i = 0; i != _height; ++i)
     _map[i][_width - 1] = 1;
+  _map[5][32] = 5;
 }
 
 void					Game::initSnake()
