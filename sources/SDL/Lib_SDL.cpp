@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Mar 26 17:39:42 2015 Jordan Chazottes
+// Last update Thu Mar 26 18:05:03 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -108,15 +108,25 @@ int		SDL::eventHandler()
 {
   SDL_Event	event;
 
-  while (SDL_PollEvent(&event))
+  SDL_PollEvent(&event);
+  switch (event.type)
     {
-      if (event.type == SDL_QUIT || (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE))
-	return (-1);
-      if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RIGHT)
-	return (1);
-      if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_LEFT)
-	return (0);
-      return (42);
+    case SDL_QUIT:
+      return -1;
+    case SDL_KEYDOWN:
+      switch(event.key.keysym.sym)
+	{
+	case SDLK_ESCAPE:
+	  return -1;
+	case SDLK_RIGHT:
+	  return 1;
+	case SDLK_LEFT:
+	  return 0;
+	default:
+	  return 42;
+	}
+    default:
+      return 42;
     }
   return (42);
 }
