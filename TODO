@@ -1,6 +1,3 @@
-Dev :
-algo
-
 Rendu :
 enlever le -g du makefile
 check tout les const + ref
@@ -21,11 +18,12 @@ Liste des fonctions à faire dans chaque librairie :
 
 Bonus :
 
-obstacles + generation aléatoire
-tete et queue différentes du corps
+obstacles + generation aléatoire	DONE
+tete et queue différentes du corps	DONE
 musique
-Vitesse++
-score
+Vitesse++				DONE
+Boost de vitesse sur la barre espace	DONE
+score					DONE
 pause
 nombre de vie
 Change .so IG

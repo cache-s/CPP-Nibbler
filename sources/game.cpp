@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 12:47:16 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 14:18:31 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -14,9 +14,10 @@
 Game::Game(int width, int height, void *lib) : _width(width), _height(height), _lib(lib)
 {
   std::cout << "Game class instance created" << std::endl;
-  _speed = 500000;
+  _speed = 300000;
   _dir = RIGHT;
   _isAlive = true;
+  _score = 0;
   initMap();
   initSnake();
   printMap();
@@ -54,6 +55,37 @@ void					Game::updatePath()
       _snake[i]->addDir(RIGHT);
 }
 
+void					Game::addApple()
+{
+  int					i = 0;
+  int					j = 0;
+  int					k = 0;
+  int					w = _width;
+  int					h = _height;
+
+  while (_map[i][j] != 0)
+    {
+      if (++k > 200)
+	if (checkMap() == -1)
+	  return;
+      i = (rand() % h);
+      j = (rand() % w);
+    }
+  _map[i][j] = 5;
+}
+
+int					Game::checkMap()
+{
+  int					i;
+  int					j;
+
+  for (i = 0; i < _height; ++i)
+    for (j = 0; j < _width; ++j)
+      if (_map[i][j] == 0)
+	return (0);
+  return (-1);
+}
+
 int					Game::checkNext(int coordY, int coordX)
 {
   if (_map[coordY][coordX] == 0)
@@ -61,6 +93,8 @@ int					Game::checkNext(int coordY, int coordX)
   if (_map[coordY][coordX] == 5)
     {
       _map[coordY][coordX] = 0;
+      addApple();
+      ++_score;
       return (1);
     }
   return (-1);
@@ -109,12 +143,19 @@ void					Game::move()
 	}
       return;
     }
-  _isAlive = false;
+  gameOver();
+}
+
+void					Game::spaceBoost(int status)
+{
+  if (status == 0)
+    _speed -= 100000;
+  if (status == 1)
+    _speed += 100000;
 }
 
 void					Game::start()
 {
-  int					i = 0;
   ILibrary                              *(*external_creator)();
   ILibrary                              *curLib;
 
@@ -130,12 +171,8 @@ void					Game::start()
       updateMap();
       printMap();
       usleep(_speed);
-      if (++i == 5)
-	_dir = UP;
-      if (i == 10)
-	_dir = RIGHT;
-      if (i == 12)
-	_dir = DOWN;
+      if (_speed > 200000)
+	_speed -= 1000;
     }
 }
 
@@ -147,6 +184,11 @@ void					Game::updateMap()
   for (i = 1; i < _snake.size() - 1; ++i)
     _map[_snake[i]->getY()][_snake[i]->getX()] = 3;
   _map[_snake[_snake.size() - 1]->getY()][_snake[_snake.size() - 1]->getX()] = 4;
+}
+
+void					Game::gameOver()
+{
+  _isAlive = false;
 }
 
 //INIT
@@ -169,7 +211,8 @@ void					Game::initMap()
     _map[i][0] = 1;
   for (i = 0; i != _height; ++i)
     _map[i][_width - 1] = 1;
-  _map[5][32] = 5;
+  initObstacle();
+  addApple();
 }
 
 void					Game::initSnake()
@@ -185,6 +228,21 @@ void					Game::initSnake()
   _snake[3]->addDir(_dir);
   _snake[3]->addDir(_dir);
   updateMap();
+}
+
+void					Game::initObstacle()
+{
+  int					i = 0;
+  int					j = 0;
+
+  for (i = 0; i < _height; ++i)
+    {
+      for (j = 0; j < _width; ++j)
+	{
+	  if (_map[i][j] == 0 && (rand() % 100 + 1) > 98)
+	    _map[i][j] = 6;
+	}
+    }
 }
 
 //PRINT

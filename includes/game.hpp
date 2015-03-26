@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 12:44:51 2015 Jordan Chazottes
+// Last update Thu Mar 26 14:18:01 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -20,18 +20,25 @@
 class				Game
 {
 public:
+  //CONSTRUCTOR
   Game(int width, int height, void *lib);
+  //DESTRUCTOR
   ~Game();
 
   int				checkNext(int coordY, int coordX);
+  void				spaceBoost(int status);
   void				updatePath();
   void				updateMap();
+  int				checkMap();
+  void				addApple();
+  void				gameOver();
   void				start();
   void				move();
 
   //INIT
-  void				initMap();
+  void				initObstacle();
   void				initSnake();
+  void				initMap();
 
   //PRINT
   void				printMap() const;
@@ -41,21 +48,22 @@ public:
 
   //GETTERS
   int		const	&	getHeight() const;
+  void*				getScreen() const;
   int		const	&	getWidth() const;
   int**				getMap() const;
-  void*				getScreen() const;
   void*				getLib() const;
 
 private:
+  bool				_isAlive;
   const int			_width;
   const int			_height;
+  void*				_screen;
   int				_speed;
+  std::vector<Snake*>		_snake;
+  int				_score;
   Direction			_dir;
   void*				_lib;
   int**				_map;
-  std::vector<Snake*>		_snake;
-  bool				_isAlive;
-  void*				_screen;
 };
 
 #endif				//GAME_HPP_

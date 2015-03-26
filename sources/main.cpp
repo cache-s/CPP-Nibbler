@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 10:56:36 2015 Jordan Chazottes
+// Last update Thu Mar 26 12:58:36 2015 Sebastien Cache-Delanos
 //
 
 #include			"nibbler.hpp"
@@ -57,5 +57,6 @@ int				main(int ac, char **av)
     return (-1);
   if ((lib = checkLib(av[3])) == NULL)
     return (-1);
+  srand(time(NULL));
   return (nibbler(width, height, lib));
 }
