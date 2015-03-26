@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 19:12:05 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 11:09:23 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -22,6 +22,7 @@ public:
   Game(int width, int height, void *lib);
   ~Game();
 
+  int				checkNext(int coordY, int coordX);
   void				updatePath();
   void				updateMap();
   void				start();
