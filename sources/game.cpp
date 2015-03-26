@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 11:14:21 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 11:49:36 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -177,14 +177,28 @@ void					Game::printMap() const
 //SETTERS
 void					Game::setDirection(int dir)
 {
-  if (dir == 0 && _dir != UP)
-    _dir = DOWN;
-  if (dir == 1 && _dir != DOWN)
-    _dir = UP;
-  if (dir == 2 && _dir != RIGHT)
-    _dir = LEFT;
-  if (dir == 3 && _dir != LEFT)
-    _dir = RIGHT;
+  if (dir == 0)
+    {
+      if (_dir == LEFT)
+	_dir = DOWN;
+      else if (_dir == RIGHT)
+	_dir = UP;
+      else if (_dir == DOWN)
+	_dir = RIGHT;
+      else if (_dir == UP)
+	_dir = LEFT;
+    }
+  else if (dir == 1)
+    {
+      if (_dir == LEFT)
+	_dir = UP;
+      else if (_dir == RIGHT)
+	_dir = DOWN;
+      else if (_dir == DOWN)
+	_dir = LEFT;
+      else if (_dir == UP)
+	_dir = RIGHT;
+    }
 }
 
 //GETTERS
