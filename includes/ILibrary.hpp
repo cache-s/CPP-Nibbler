@@ -5,16 +5,20 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Tue Mar 24 15:39:01 2015 Jordan Chazottes
+// Last update Thu Mar 26 11:35:52 2015 Jordan Chazottes
 //
 
 #ifndef		ILIBRARY_HPP_
 # define	ILIBRARY_HPP_
 
+# include               "game.hpp"
+
 class		ILibrary
 {
 public:
-  virtual void desc() const = 0;
+  virtual void desc() = 0;
+  virtual void *init(int, int) = 0;
+  virtual void display(void*, int**, int, int) = 0;
 };
 
 #endif		//ILIBRARY_HPP_

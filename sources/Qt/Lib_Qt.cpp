@@ -5,14 +5,17 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 17:12:25 2015 Jordan Chazottes
-// Last update Tue Mar 24 17:12:28 2015 Jordan Chazottes
+// Last update Thu Mar 26 11:12:57 2015 Jordan Chazottes
 //
 
 #include	"Lib_Qt.hpp"
 
-void		Qt::desc() const
+void		*Qt::desc(int x, int y)
 {
+  (void)x;
+  (void)y;
   std::cout << "Using Qt library !" << std::endl;
+  return (NULL);
 }
 
 extern "C"

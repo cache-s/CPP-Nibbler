@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 12:42:29 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 12:44:20 2015 Jordan Chazottes
 //
 
 #include				"game.hpp"
@@ -115,9 +115,16 @@ void					Game::move()
 void					Game::start()
 {
   int					i = 0;
+  ILibrary                              *(*external_creator)();
+  ILibrary                              *curLib;
 
+  external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
+  curLib = external_creator();
+  if ((_screen = curLib->init(_width, _height)) == NULL)
+    std::cout << "Error Init Window" << std::endl;
   while (_isAlive)
     {
+      curLib->display(_screen, _map, _width, _height);
       updatePath();
       move();
       updateMap();

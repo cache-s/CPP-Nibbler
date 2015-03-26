@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Wed Mar 25 12:49:33 2015 Sebastien Cache-Delanos
+## Last update Thu Mar 26 11:11:29 2015 Jordan Chazottes
 ##
 
 NAME_EXE	= nibbler
@@ -36,7 +36,7 @@ NORMAL		= "\\033[0;39m"
 YELLOW		= "\\033[1;33m"
 CYAN		= "\\033[1;36m"
 
-all: $(NAME_LIB2) $(NAME_LIB) $(NAME_EXE)
+all: $(NAME_LIB) $(NAME_EXE)
 
 $(NAME_EXE): $(OBJS_EXE)
 	@echo ' '
@@ -51,7 +51,7 @@ $(NAME_LIB): $(OBJS_LIB)
 	@echo ' '
 	@echo 'Building target: $@'
 	@echo 'Invoking: G++ C Linker'
-	$(CXX) -shared -o $(NAME_LIB) $(OBJS_LIB)
+	$(CXX) -lSDLmain -lSDL -lSDL_image -lSDL_ttf -shared -o $(NAME_LIB) $(OBJS_LIB)
 	@echo -n 'Finished building target:'
 	@echo -e $(CYAN) '$@'
 	@echo -e $(NORMAL) ' '

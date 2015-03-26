@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 11:09:23 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 12:44:51 2015 Jordan Chazottes
 //
 
 #ifndef				GAME_HPP_
@@ -13,6 +13,7 @@
 
 # include			"nibbler.hpp"
 # include			"snake.hpp"
+# include			"ILibrary.hpp"
 
 # include			<vector>
 
