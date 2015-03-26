@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 14:18:31 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 17:41:59 2015 Jordan Chazottes
 //
 
 #include				"game.hpp"
@@ -14,7 +14,7 @@
 Game::Game(int width, int height, void *lib) : _width(width), _height(height), _lib(lib)
 {
   std::cout << "Game class instance created" << std::endl;
-  _speed = 300000;
+  _speed = 30000;
   _dir = RIGHT;
   _isAlive = true;
   _score = 0;
@@ -158,6 +158,7 @@ void					Game::start()
 {
   ILibrary                              *(*external_creator)();
   ILibrary                              *curLib;
+  int					tmp;
 
   external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
   curLib = external_creator();
@@ -170,6 +171,12 @@ void					Game::start()
       move();
       updateMap();
       printMap();
+      if ((tmp = curLib->eventHandler()) != 42)
+	{
+	  if (tmp == -1)
+	    gameOver();
+	  setDirection(tmp);
+	}
       usleep(_speed);
       if (_speed > 200000)
 	_speed -= 1000;

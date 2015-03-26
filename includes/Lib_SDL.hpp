@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Mar 26 11:35:45 2015 Jordan Chazottes
+// Last update Thu Mar 26 17:39:12 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -23,6 +23,7 @@ class SDL : public ILibrary
 public:
   virtual void	*init(int, int);
   virtual void	display(void*, int**, int, int);
+  virtual int	eventHandler();
   void		resetBackground(void*, int**, int, int);
   void		setSnake(void*, int **, int, int);
   void		applySurface(int, int, SDL_Surface*, void*, SDL_Rect*);

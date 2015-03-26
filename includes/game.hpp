@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 14:18:01 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 17:29:20 2015 Jordan Chazottes
 //
 
 #ifndef				GAME_HPP_
@@ -16,6 +16,8 @@
 # include			"ILibrary.hpp"
 
 # include			<vector>
+
+class				ILibrary;
 
 class				Game
 {

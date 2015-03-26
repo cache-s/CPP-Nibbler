@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Mar 26 12:40:54 2015 Jordan Chazottes
+// Last update Thu Mar 26 17:39:42 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -50,14 +50,13 @@ void		SDL::resetBackground(void *screen, int **map, int X, int Y)
     {
       for (int x = 0; x < X; x++)
 	{
-	  if (map[y][x] == 0)
-	    applySurface(x*32, y*32, bg, screen, &clip[1]);
+	  applySurface(x*32, y*32, bg, screen, &clip[0]);
 	  if (map[y][x] == 1)
-	    applySurface(x*32, y*32, bg, screen, &clip[0]);
-	  if (map[y][x] == 6)
-	    applySurface(x*32, y*32, bg, screen, &clip[2]);
-	  if (map[y][x] == 5)
 	    applySurface(x*32, y*32, bg, screen, &clip[3]);
+	  if (map[y][x] == 6)
+	    applySurface(x*32, y*32, bg, screen, &clip[1]);
+	  if (map[y][x] == 5)
+	    applySurface(x*32, y*32, bg, screen, &clip[2]);
 	}
     }
 }
@@ -65,22 +64,28 @@ void		SDL::resetBackground(void *screen, int **map, int X, int Y)
 void		SDL::setSnake(void *screen, int **map, int X, int Y)
 {
   SDL_Surface	*snake;
-  SDL_Rect	clip[2];
+  SDL_Rect	clip[3];
 
   if ((snake = IMG_Load("sources/SDL/sprites/snake.png")) == NULL)
-    std::cout << "Error loading Image" << std::endl;    
-  clip[0].x = clip[1].x = 0;
+    {
+      std::cout << "Error loading Image" << std::endl;    
+      exit(-1);
+    }
+  clip[0].x = clip[1].x = clip[2].x = 0;
   clip[0].y = 0;
-  clip[1].x = 32;
-  clip[0].w = clip[1].w = clip[0].h = clip[1].h = 32;
+  clip[1].y = 32;
+  clip[2].y = 64;
+  clip[0].w = clip[1].w = clip[2].w = clip[0].h = clip[1].h = clip[2].h = 32;
   for (int y = 0; y < Y; y++)
     {
       for (int x = 0; x < X; x++)
 	{
 	  if (map[y][x] == 2)
 	    applySurface(x*32, y*32, snake, screen, &clip[0]);
-	  if (map[y][x] == 3 || map[y][x] == 4)
+	  if (map[y][x] == 3)
 	    applySurface(x*32, y*32, snake, screen, &clip[1]);
+	  if (map[y][x] == 4)
+	    applySurface(x*32, y*32, snake, screen, &clip[2]);
 	}
     }
 }
@@ -97,6 +102,23 @@ void		SDL::applySurface(int x, int y, SDL_Surface *src, void *screen, SDL_Rect *
   offset.x = x;
   offset.y = y;
   SDL_BlitSurface(src, clip, (SDL_Surface*)screen, &offset);
+}
+
+int		SDL::eventHandler()
+{
+  SDL_Event	event;
+
+  while (SDL_PollEvent(&event))
+    {
+      if (event.type == SDL_QUIT || (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE))
+	return (-1);
+      if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RIGHT)
+	return (1);
+      if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_LEFT)
+	return (0);
+      return (42);
+    }
+  return (42);
 }
 
 extern "C"
