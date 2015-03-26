@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 11:49:36 2015 Sebastien Cache-Delanos
+// Last update Thu Mar 26 12:37:12 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -58,39 +58,54 @@ int					Game::checkNext(int coordY, int coordX)
 {
   if (_map[coordY][coordX] == 0)
     return (0);
+  if (_map[coordY][coordX] == 5)
+    {
+      _map[coordY][coordX] = 0;
+      return (1);
+    }
   return (-1);
 }
 
 void					Game::move()
 {
   unsigned	int			i;
+  int					y = 0;
+  int					x = 0;
   int					res = 0;
   Direction				tmp;
 
   tmp = _snake[0]->getDir();
   _map[_snake[0]->getY()][_snake[0]->getX()] = 0;
-  if (tmp == LEFT && (res = checkNext(_snake[0]->getY(), _snake[0]->getX() - 1)) == 0)
+  if (tmp == LEFT && (res = checkNext(_snake[0]->getY(), _snake[0]->getX() - 1)) != -1)
     _snake[0]->setX(_snake[0]->getX() - 1);
-  else if (tmp == RIGHT && (res = checkNext(_snake[0]->getY(), _snake[0]->getX() + 1)) == 0)
+  else if (tmp == RIGHT && (res = checkNext(_snake[0]->getY(), _snake[0]->getX() + 1)) != -1)
     _snake[0]->setX(_snake[0]->getX() + 1);
-  else if (tmp == DOWN && (res = checkNext(_snake[0]->getY() + 1, _snake[0]->getX())) == 0)
+  else if (tmp == DOWN && (res = checkNext(_snake[0]->getY() + 1, _snake[0]->getX())) != -1)
     _snake[0]->setY(_snake[0]->getY() + 1);
-  else if (tmp == UP && (res = checkNext(_snake[0]->getY() - 1, _snake[0]->getX())) == 0)
+  else if (tmp == UP && (res = checkNext(_snake[0]->getY() - 1, _snake[0]->getX())) != -1)
     _snake[0]->setY(_snake[0]->getY() - 1);
-  if (res == 0)
+  if (res == 0 || res == 1)
     {
       for (i = 1; i < _snake.size(); ++i)
 	{
 	  tmp = _snake[i]->getDir();
-	  _map[_snake[i]->getY()][_snake[i]->getX()] = 0;
+	  y = _snake[i]->getY();
+	  x = _snake[i]->getX();
+	  _map[y][x] = 0;
 	  if (tmp == LEFT)
-	    _snake[i]->setX(_snake[i]->getX() - 1);
+	    _snake[i]->setX(x - 1);
 	  if (tmp == RIGHT)
-	    _snake[i]->setX(_snake[i]->getX() + 1);
+	    _snake[i]->setX(x + 1);
 	  if (tmp == DOWN)
-	    _snake[i]->setY(_snake[i]->getY() + 1);
+	    _snake[i]->setY(y + 1);
 	  if (tmp == UP)
-	    _snake[i]->setY(_snake[i]->getY() - 1);
+	    _snake[i]->setY(y - 1);
+	}
+      if (res == 1)
+	{
+	  _snake.push_back(new Snake(x, y));
+	  _snake[_snake.size() - 1]->setDirection(_snake[_snake.size() - 2]->getDirection());
+	  _snake[_snake.size() - 1]->addDirFront(_snake[_snake.size() - 2]->getDirection()[0]);
 	}
       return;
     }
@@ -110,6 +125,10 @@ void					Game::start()
       usleep(_speed);
       if (++i == 5)
 	_dir = UP;
+      if (i == 10)
+	_dir = RIGHT;
+      if (i == 12)
+	_dir = DOWN;
     }
 }
 
@@ -143,6 +162,7 @@ void					Game::initMap()
     _map[i][0] = 1;
   for (i = 0; i != _height; ++i)
     _map[i][_width - 1] = 1;
+  _map[5][33] = 5;
 }
 
 void					Game::initSnake()
