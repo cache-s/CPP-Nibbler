@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 14:18:31 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 11:26:47 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -13,14 +13,12 @@
 //CONSTRUCTOR
 Game::Game(int width, int height, void *lib) : _width(width), _height(height), _lib(lib)
 {
-  std::cout << "Game class instance created" << std::endl;
   _speed = 300000;
   _dir = RIGHT;
   _isAlive = true;
   _score = 0;
   initMap();
   initSnake();
-  printMap();
   start();
 }
 
@@ -29,7 +27,6 @@ Game::~Game()
 {
   int					i;
 
-  std::cout << "Game class instance destroyed" << std::endl;
   for(i = 0; i < _height; ++i)
     delete [] _map[i];
   delete [] _map;
@@ -161,19 +158,18 @@ void					Game::start()
 
   external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
   curLib = external_creator();
-  if ((_screen = curLib->init(_width, _height)) == NULL)
-    std::cout << "Error Init Window" << std::endl;
+  curLib->init(_width, _height);
   while (_isAlive)
     {
-      curLib->display(_screen, _map, _width, _height);
+      curLib->display(_map, _width, _height);
       updatePath();
       move();
       updateMap();
-      printMap();
       usleep(_speed);
       if (_speed > 200000)
 	_speed -= 1000;
     }
+  curLib->quit();
 }
 
 void					Game::updateMap()
@@ -305,9 +301,4 @@ void*					Game::getLib() const
 int**					Game::getMap() const
 {
   return (_map);
-}
-
-void*					Game::getScreen() const
-{
-  return (_screen);
 }

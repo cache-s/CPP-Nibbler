@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Mar 26 11:35:45 2015 Jordan Chazottes
+// Last update Fri Mar 27 11:17:39 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -21,14 +21,16 @@
 class SDL : public ILibrary
 {
 public:
-  virtual void	*init(int, int);
-  virtual void	display(void*, int**, int, int);
-  void		resetBackground(void*, int**, int, int);
-  void		setSnake(void*, int **, int, int);
-  void		applySurface(int, int, SDL_Surface*, void*, SDL_Rect*);
-  // void		quit(void*);
-  virtual void desc();
+  virtual void	init(int, int);
+  virtual void	display(int**, int, int);
+  void		resetBackground(int**, int, int);
+  void		setSnake(int **, int, int);
+  void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
+  virtual void	quit();
+  virtual void	desc();
+
 private:
+  SDL_Surface*	_screen;
 };
 
 #endif			//LIB_SDL_HPP_
