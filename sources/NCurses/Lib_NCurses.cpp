@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 11:55:12 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 14:22:40 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -44,11 +44,12 @@ void		NCurses::init(int x, int y)
   wrefresh(_win);
 }
 
-void		NCurses::display(int **map, int w, int h)
+void		NCurses::display(int **map, int w, int h, int score)
 {
   int		i;
   int		j;
 
+  (void)score;
   wclear(_win);
   for (i = 0; i < h; ++i)
     {
@@ -61,6 +62,17 @@ void		NCurses::display(int **map, int w, int h)
 
 int		NCurses::eventHandler()
 {
+  int		ch = getch();
+
+  switch (ch)
+    {
+    case KEY_LEFT:
+      return (0);
+    case KEY_RIGHT:
+      return (1);
+    default:
+      return (42);
+    }
   return (42);
 }
 

@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Fri Mar 27 13:56:10 2015 Jordan Chazottes
+// Last update Fri Mar 27 14:14:58 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -27,7 +27,7 @@ public:
   void		resetBackground(int**, int, int);
   void		setSnake(int **, int, int);
   void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
-  virtual void	setScore(int);
+  void		setScore(int);
   virtual void	quit();
   virtual void	desc();
   virtual int	eventHandler();
