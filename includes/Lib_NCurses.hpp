@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 14:14:24 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 14:47:01 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -31,6 +31,7 @@ public:
   WINDOW*		createWin(int height, int width, int starty, int startx);
 private:
   WINDOW*		_win;
+  int			_score;
 };
 
 #endif			//LIB_NCURSES_HPP_
