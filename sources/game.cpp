@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 12:01:14 2015 Jordan Chazottes
+// Last update Fri Mar 27 13:30:56 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -13,7 +13,7 @@
 //CONSTRUCTOR
 Game::Game(int width, int height, void *lib) : _width(width), _height(height), _lib(lib)
 {
-  _speed = 200000;
+  _speed = 150000;
   _dir = RIGHT;
   _isAlive = true;
   _score = 0;
@@ -37,17 +37,18 @@ Game::~Game()
 void					Game::updatePath()
 {
   unsigned int				i;
+  Direction				tmp = _dir;
 
-  if (_dir == DOWN)
+  if (tmp == DOWN)
     for (i = 0; i < _snake.size(); ++i)
       _snake[i]->addDir(DOWN);
-  if (_dir == UP)
+  if (tmp == UP)
     for (i = 0; i < _snake.size(); ++i)
       _snake[i]->addDir(UP);
-  if (_dir == LEFT)
+  if (tmp == LEFT)
     for (i = 0; i < _snake.size(); ++i)
       _snake[i]->addDir(LEFT);
-  if (_dir == RIGHT)
+  if (tmp == RIGHT)
     for (i = 0; i < _snake.size(); ++i)
       _snake[i]->addDir(RIGHT);
 }
@@ -62,7 +63,7 @@ void					Game::addApple()
 
   while (_map[i][j] != 0)
     {
-      if (++k > 200)
+      if (++k > 1000)
 	if (checkMap() == -1)
 	  return;
       i = (rand() % h);
@@ -92,6 +93,8 @@ int					Game::checkNext(int coordY, int coordX)
       _map[coordY][coordX] = 0;
       addApple();
       ++_score;
+      if (_speed > 800000)
+	_speed -= 1000;
       return (1);
     }
   return (-1);
@@ -136,7 +139,7 @@ void					Game::move()
 	{
 	  _snake.push_back(new Snake(x, y));
 	  _snake[_snake.size() - 1]->setDirection(_snake[_snake.size() - 2]->getDirection());
-	  _snake[_snake.size() - 1]->addDirFront(_snake[_snake.size() - 2]->getDirection()[0]);
+	  _snake[_snake.size() - 1]->addDirFront(tmp);
 	}
       return;
     }
@@ -146,9 +149,9 @@ void					Game::move()
 void					Game::spaceBoost(int status)
 {
   if (status == 0)
-    _speed -= 100000;
+    _speed -= 50000;
   if (status == 1)
-    _speed += 100000;
+    _speed += 50000;
 }
 
 void					Game::start()
@@ -168,10 +171,10 @@ void					Game::start()
 	    gameOver();
 	  setDirection(tmp);
 	}
-      curLib->display(_map, _width, _height);
       updatePath();
       move();
       updateMap();
+      curLib->display(_map, _width, _height);
       if ((tmp = curLib->eventHandler()) != 42)
 	{
 	  if (tmp == -1)
@@ -179,8 +182,6 @@ void					Game::start()
 	  setDirection(tmp);
 	}
       usleep(_speed);
-      if (_speed > 200000)
-	_speed -= 1000;
     }
   curLib->quit();
 }

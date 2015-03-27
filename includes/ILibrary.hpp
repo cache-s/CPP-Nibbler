@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Fri Mar 27 11:36:54 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 11:53:11 2015 Sebastien Cache-Delanos
 //
 
 #ifndef		ILIBRARY_HPP_
