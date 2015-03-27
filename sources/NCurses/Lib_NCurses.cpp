@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 11:25:40 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 11:36:10 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -57,6 +57,11 @@ void		NCurses::display(int **map, int w, int h)
       wprintw(_win, "\n");
     }
   wrefresh(_win);
+}
+
+int		NCurses::eventHandler()
+{
+  return (42);
 }
 
 void		NCurses::desc()

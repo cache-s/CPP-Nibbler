@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Fri Mar 27 11:17:39 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 11:35:23 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -28,7 +28,7 @@ public:
   void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
   virtual void	quit();
   virtual void	desc();
-
+  virtual int	eventHandler();
 private:
   SDL_Surface*	_screen;
 };

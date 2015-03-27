@@ -4,8 +4,8 @@
 // Made by Sebastien Cache-Delanos
 // Login   <cache-_s@epitech.net>
 // 
-// Started on  Wed Mar 25 12:25:16 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 11:26:47 2015 Sebastien Cache-Delanos
+// Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 11:30:08 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -155,6 +155,7 @@ void					Game::start()
 {
   ILibrary                              *(*external_creator)();
   ILibrary                              *curLib;
+  int					tmp;
 
   external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
   curLib = external_creator();
@@ -162,6 +163,12 @@ void					Game::start()
   while (_isAlive)
     {
       curLib->display(_map, _width, _height);
+      if ((tmp = curLib->eventHandler()) != 42)
+	{
+	  if (tmp == -1)
+	    gameOver();
+	  setDirection(tmp);
+	}
       updatePath();
       move();
       updateMap();
