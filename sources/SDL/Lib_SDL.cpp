@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Fri Mar 27 11:46:25 2015 Jordan Chazottes
+// Last update Fri Mar 27 11:54:42 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -20,6 +20,10 @@ void		SDL::init(int x, int y)
   TTF_Init();
   SDL_WM_SetCaption("Nibbler", "My Nibbler");
   _screen = SDL_SetVideoMode(x*32, y*32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+  if ((_bg = IMG_Load("sources/SDL/sprites/env.png")) == NULL)
+    std::cout << "Error loading Image Env" << std::endl;
+  if ((_snake = IMG_Load("sources/SDL/sprites/snake.png")) == NULL)
+    std::cout << "Error loading Image Snake" << std::endl;
 }
 
 void		SDL::display(int **map, int w, int h)
@@ -31,11 +35,8 @@ void		SDL::display(int **map, int w, int h)
 
 void		SDL::resetBackground(int **map, int X, int Y)
 {
-  SDL_Surface	*bg;
   SDL_Rect	clip[4];
 
-  if ((bg = IMG_Load("sources/SDL/sprites/env.png")) == NULL)
-    std::cout << "Error loading Image" << std::endl;
   clip[0].x = clip[1].x = clip[2].x = clip[3].x = 0;
   clip[0].y = 0;
   clip[1].y = 32;
@@ -47,27 +48,21 @@ void		SDL::resetBackground(int **map, int X, int Y)
     {
       for (int x = 0; x < X; x++)
 	{
-	  applySurface(x*32, y*32, bg, &clip[0]);
+	  applySurface(x*32, y*32, _bg, &clip[0]);
 	  if (map[y][x] == 1)
-	    applySurface(x*32, y*32, bg, &clip[3]);
+	    applySurface(x*32, y*32, _bg, &clip[3]);
 	  if (map[y][x] == 6)
-	    applySurface(x*32, y*32, bg, &clip[1]);
+	    applySurface(x*32, y*32, _bg, &clip[1]);
 	  if (map[y][x] == 5)
-	    applySurface(x*32, y*32, bg, &clip[2]);
+	    applySurface(x*32, y*32, _bg, &clip[2]);
 	}
     }
 }
 
 void		SDL::setSnake(int **map, int X, int Y)
 {
-  SDL_Surface	*snake;
   SDL_Rect	clip[3];
 
-  if ((snake = IMG_Load("sources/SDL/sprites/snake.png")) == NULL)
-    {
-      std::cout << "Error loading Image" << std::endl;
-      exit(-1);
-    }
   clip[0].x = clip[1].x = clip[2].x = 0;
   clip[0].y = 0;
   clip[1].y = 32;
@@ -78,11 +73,11 @@ void		SDL::setSnake(int **map, int X, int Y)
       for (int x = 0; x < X; x++)
 	{
 	  if (map[y][x] == 2)
-	    applySurface(x*32, y*32, snake, &clip[0]);
+	    applySurface(x*32, y*32, _snake, &clip[0]);
 	  if (map[y][x] == 3)
-	    applySurface(x*32, y*32, snake, &clip[1]);
+	    applySurface(x*32, y*32, _snake, &clip[1]);
 	  if (map[y][x] == 4)
-	    applySurface(x*32, y*32, snake, &clip[2]);
+	    applySurface(x*32, y*32, _snake, &clip[2]);
 	}
     }
 }
@@ -138,7 +133,9 @@ extern "C"
 
 void		SDL::quit()
 {
-//   SDL_FreeSurface((SDL_Surface*)_screen);
-//   TTF_Quit();
-//   SDL_Quit();
+  SDL_FreeSurface(_bg);
+  SDL_FreeSurface(_snake);
+  SDL_FreeSurface(_screen);
+  TTF_Quit();
+  SDL_Quit();
 }

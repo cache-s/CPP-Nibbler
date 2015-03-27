@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 11:30:08 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 12:01:14 2015 Jordan Chazottes
 //
 
 #include				"game.hpp"
@@ -13,7 +13,7 @@
 //CONSTRUCTOR
 Game::Game(int width, int height, void *lib) : _width(width), _height(height), _lib(lib)
 {
-  _speed = 300000;
+  _speed = 200000;
   _dir = RIGHT;
   _isAlive = true;
   _score = 0;
@@ -162,16 +162,22 @@ void					Game::start()
   curLib->init(_width, _height);
   while (_isAlive)
     {
-      curLib->display(_map, _width, _height);
       if ((tmp = curLib->eventHandler()) != 42)
 	{
 	  if (tmp == -1)
 	    gameOver();
 	  setDirection(tmp);
 	}
+      curLib->display(_map, _width, _height);
       updatePath();
       move();
       updateMap();
+      if ((tmp = curLib->eventHandler()) != 42)
+	{
+	  if (tmp == -1)
+	    gameOver();
+	  setDirection(tmp);
+	}
       usleep(_speed);
       if (_speed > 200000)
 	_speed -= 1000;
