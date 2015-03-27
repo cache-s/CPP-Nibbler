@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Fri Mar 27 11:40:43 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 11:46:25 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -47,14 +47,13 @@ void		SDL::resetBackground(int **map, int X, int Y)
     {
       for (int x = 0; x < X; x++)
 	{
-	  if (map[y][x] == 0)
-	    applySurface(x*32, y*32, bg, &clip[1]);
+	  applySurface(x*32, y*32, bg, &clip[0]);
 	  if (map[y][x] == 1)
-	    applySurface(x*32, y*32, bg, &clip[0]);
-	  if (map[y][x] == 6)
-	    applySurface(x*32, y*32, bg, &clip[2]);
-	  if (map[y][x] == 5)
 	    applySurface(x*32, y*32, bg, &clip[3]);
+	  if (map[y][x] == 6)
+	    applySurface(x*32, y*32, bg, &clip[1]);
+	  if (map[y][x] == 5)
+	    applySurface(x*32, y*32, bg, &clip[2]);
 	}
     }
 }
