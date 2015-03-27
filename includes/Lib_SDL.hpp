@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Fri Mar 27 13:35:20 2015 Jordan Chazottes
+// Last update Fri Mar 27 13:56:10 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -15,6 +15,7 @@
 # include		<SDL/SDL.h>
 # include		<SDL/SDL_image.h>
 # include		<SDL/SDL_ttf.h>
+# include		<sstream>
 # include		"ILibrary.hpp"
 # include		"game.hpp"
 
@@ -22,14 +23,14 @@ class SDL : public ILibrary
 {
 public:
   virtual void	init(int, int);
-  virtual void	display(int**, int, int);
+  virtual void	display(int**, int, int, int);
   void		resetBackground(int**, int, int);
   void		setSnake(int **, int, int);
   void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
+  virtual void	setScore(int);
   virtual void	quit();
   virtual void	desc();
   virtual int	eventHandler();
-  void		setScore(int);
 private:
   TTF_Font	*_font;
   SDL_Surface*	_screen;

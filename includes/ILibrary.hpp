@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Fri Mar 27 11:53:11 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 13:53:24 2015 Jordan Chazottes
 //
 
 #ifndef		ILIBRARY_HPP_
@@ -20,7 +20,8 @@ class		ILibrary
 public:
   virtual void	desc() = 0;
   virtual void	init(int, int) = 0;
-  virtual void	display(int**, int, int) = 0;
+  virtual void	display(int**, int, int, int) = 0;
+  virtual void	setScore(int) = 0;
   virtual void	quit() = 0;
   virtual int	eventHandler() = 0;
 };

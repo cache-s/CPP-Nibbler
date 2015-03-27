@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 13:30:56 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 13:52:13 2015 Jordan Chazottes
 //
 
 #include				"game.hpp"
@@ -174,7 +174,7 @@ void					Game::start()
       updatePath();
       move();
       updateMap();
-      curLib->display(_map, _width, _height);
+      curLib->display(_map, _width, _height, _score);
       if ((tmp = curLib->eventHandler()) != 42)
 	{
 	  if (tmp == -1)

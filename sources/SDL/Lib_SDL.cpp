@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Fri Mar 27 13:35:40 2015 Jordan Chazottes
+// Last update Fri Mar 27 13:58:17 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -29,27 +29,28 @@ void		SDL::init(int x, int y)
   setScore(0);
 }
 
-void		SDL::display(int **map, int w, int h)
+void		SDL::display(int **map, int w, int h, int score)
 {
   resetBackground(map, w, h);
+  setScore(score);
   setSnake(map, w, h);
   SDL_Flip(_screen);
 }
 
 void		SDL::setScore(int score)
 {
-  std::string	texte;
-  SDL_Surface	*txt;
+  std::ostringstream	oss117;
   SDL_Color	color;
   SDL_Rect	pos;
+  SDL_Surface	*txt;
 
   color.r = 0;
   color.g = 0;
   color.b = 0;
-  texte = "Score : " + score;
-  txt = TTF_RenderText_Blended(_font, texte.c_str(), color);
-  pos.x = 20;
-  pos.y = 20;
+  oss117 << "Score : " << score;
+  txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
+  pos.x = 32;
+  pos.y = 32;
   SDL_BlitSurface(txt, NULL, _screen, &pos);
   SDL_Flip(_screen);
 }
