@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Thu Mar 26 18:11:17 2015 Sebastien Cache-Delanos
+## Last update Fri Mar 27 12:50:03 2015 Jordan Chazottes
 ##
 
 NAME_EXE	= nibbler
@@ -40,7 +40,7 @@ NORMAL		= "\\033[0;39m"
 YELLOW		= "\\033[1;33m"
 CYAN		= "\\033[1;36m"
 
-all: $(NAME_LIB) $(NAME_LIB3) $(NAME_EXE)
+all: $(NAME_LIB) $(NAME_EXE)
 
 $(NAME_EXE): $(OBJS_EXE)
 	@echo ' '

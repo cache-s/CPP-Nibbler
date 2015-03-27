@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Fri Mar 27 11:50:01 2015 Jordan Chazottes
+// Last update Fri Mar 27 13:35:20 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -29,7 +29,9 @@ public:
   virtual void	quit();
   virtual void	desc();
   virtual int	eventHandler();
+  void		setScore(int);
 private:
+  TTF_Font	*_font;
   SDL_Surface*	_screen;
   SDL_Surface*	_bg;
   SDL_Surface*	_snake;

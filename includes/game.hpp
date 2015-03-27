@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 11:33:48 2015 Sebastien Cache-Delanos
+// Last update Fri Mar 27 13:37:01 2015 Jordan Chazottes
 //
 
 #ifndef				GAME_HPP_
@@ -49,8 +49,8 @@ public:
   void				setDirection(int dir);
 
   //GETTERS
-  int		const	&	getHeight() const;
-  int		const	&	getWidth() const;
+  int		const&		getHeight() const;
+  int		const&		getWidth() const;
   int**				getMap() const;
   void*				getLib() const;
 
