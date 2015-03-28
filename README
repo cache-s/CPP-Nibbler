@@ -1,0 +1,24 @@
+NIBBLER PROJECT
+===============
+
+How to run the project ?
+------------------------
+
+    $> make re
+    $> ./nibbler [WIDTH] [HEIGHT] lib_nibbler_[LIB].so
+
+What is it ?
+------------
+
+     - Fully functionnal snake game with 3 graphic libraries
+
+What are the details ?
+----------------------
+
+     - Press the arrow keys to move the snake
+     - Eat randomly placed apples to grow
+     - Avoid randomly placed obstacles
+     - Your score is printed on the top of the screen
+     - Press the space bar for a speed boost
+     - The speed increases the longer the game goes
+     - Press escape to end the game

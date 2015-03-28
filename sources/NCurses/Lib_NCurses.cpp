@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 15:34:45 2015 Sebastien Cache-Delanos
+// Last update Sat Mar 28 14:11:58 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -91,17 +91,18 @@ int		NCurses::eventHandler()
   nodelay(stdscr, TRUE);
   if ((ch = getch()) == ERR)
     return (42);
-  else
+  switch (ch)
     {
-      switch (ch)
-	{
-	case KEY_LEFT:
-	  return (0);
-	case KEY_RIGHT:
-	  return (1);
-	default:
-	  return (42);
-	}
+    case KEY_LEFT:
+      return (0);
+    case KEY_RIGHT:
+      return (1);
+    case 27:
+      return (-1);
+    case 32:
+      return (4);
+    default:
+      return (42);
     }
   return (42);
 }

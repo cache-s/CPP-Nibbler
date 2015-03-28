@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Mar 27 13:52:13 2015 Jordan Chazottes
+// Last update Sat Mar 28 14:27:35 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -66,8 +66,8 @@ void					Game::addApple()
       if (++k > 1000)
 	if (checkMap() == -1)
 	  return;
-      i = (rand() % h);
-      j = (rand() % w);
+      i = (rand() % (h));
+      j = (rand() % (w));
     }
   _map[i][j] = 5;
 }
@@ -90,8 +90,8 @@ int					Game::checkNext(int coordY, int coordX)
     return (0);
   if (_map[coordY][coordX] == 5)
     {
-      _map[coordY][coordX] = 0;
       addApple();
+      _map[coordY][coordX] = 0;
       ++_score;
       if (_speed > 800000)
 	_speed -= 1000;
@@ -146,12 +146,20 @@ void					Game::move()
   gameOver();
 }
 
-void					Game::spaceBoost(int status)
+void					Game::spaceBoost()
 {
-  if (status == 0)
-    _speed -= 50000;
-  if (status == 1)
-    _speed += 50000;
+  static bool				status = false;
+
+  if (status)
+    {
+      _speed += 70000;
+      status = false;
+    }
+  else
+    {
+      _speed -= 70000;
+      status = true;
+    }
 }
 
 void					Game::start()
@@ -169,7 +177,10 @@ void					Game::start()
 	{
 	  if (tmp == -1)
 	    gameOver();
-	  setDirection(tmp);
+	  if (tmp == 0 || tmp == 1)
+	    setDirection(tmp);
+	  if (tmp == 4)
+	    spaceBoost();
 	}
       updatePath();
       move();
@@ -179,9 +190,14 @@ void					Game::start()
 	{
 	  if (tmp == -1)
 	    gameOver();
-	  setDirection(tmp);
+	  if (tmp == 0 || tmp == 1)
+	    setDirection(tmp);
+	  if (tmp == 4)
+	    spaceBoost();
 	}
       usleep(_speed);
+      if (_speed > 80000)
+	_speed -= 600;
     }
   curLib->quit();
 }
