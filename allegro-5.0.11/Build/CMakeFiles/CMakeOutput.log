@@ -1,0 +1,935 @@
+The system is: Linux - 3.11.10-17-desktop - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/2.8.11.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/2.8.11.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3279557811/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3279557811.dir/build.make CMakeFiles/cmTryCompileExec3279557811.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3279557811.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3279557811.dir/testCCompiler.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec3279557811
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3279557811.dir/link.txt --verbose=1
+/usr/bin/cc         CMakeFiles/cmTryCompileExec3279557811.dir/testCCompiler.c.o  -o cmTryCompileExec3279557811 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1539454240/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1539454240.dir/build.make CMakeFiles/cmTryCompileExec1539454240.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec1539454240
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1539454240.dir/link.txt --verbose=1
+/usr/bin/cc       -v CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1539454240 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper
+Target: x86_64-suse-linux
+Configured with: ../configure --prefix=/usr --infodir=/usr/share/info --mandir=/usr/share/man --libdir=/usr/lib64 --libexecdir=/usr/lib64 --enable-languages=c,c++,objc,fortran,obj-c++,java,ada --enable-checking=release --with-gxx-include-dir=/usr/include/c++/4.8 --enable-ssp --disable-libssp --disable-plugin --with-bugurl=http://bugs.opensuse.org/ --with-pkgversion='SUSE Linux' --disable-libgcj --disable-libmudflap --with-slibdir=/lib64 --with-system-zlib --enable-__cxa_atexit --enable-libstdcxx-allocator=new --disable-libstdcxx-pch --enable-version-specific-runtime-libs --enable-linker-build-id --program-suffix=-4.8 --enable-linux-futex --without-system-libunwind --with-arch-32=i586 --with-tune=generic --build=x86_64-suse-linux
+Thread model: posix
+gcc version 4.8.1 20130909 [gcc-4_8-branch revision 202388] (SUSE Linux) 
+COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/
+LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1539454240' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec1539454240 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/gmake "cmTryCompileExec1539454240/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1539454240.dir/build.make CMakeFiles/cmTryCompileExec1539454240.dir/build]
+  ignore line: [gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec1539454240]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1539454240.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc       -v CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1539454240 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-suse-linux]
+  ignore line: [Configured with: ../configure --prefix=/usr --infodir=/usr/share/info --mandir=/usr/share/man --libdir=/usr/lib64 --libexecdir=/usr/lib64 --enable-languages=c,c++,objc,fortran,obj-c++,java,ada --enable-checking=release --with-gxx-include-dir=/usr/include/c++/4.8 --enable-ssp --disable-libssp --disable-plugin --with-bugurl=http://bugs.opensuse.org/ --with-pkgversion='SUSE Linux' --disable-libgcj --disable-libmudflap --with-slibdir=/lib64 --with-system-zlib --enable-__cxa_atexit --enable-libstdcxx-allocator=new --disable-libstdcxx-pch --enable-version-specific-runtime-libs --enable-linker-build-id --program-suffix=-4.8 --enable-linux-futex --without-system-libunwind --with-arch-32=i586 --with-tune=generic --build=x86_64-suse-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.1 20130909 [gcc-4_8-branch revision 202388] (SUSE Linux) ]
+  ignore line: [COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1539454240' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec1539454240 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o]
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/collect2] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec1539454240] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8]
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib]
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..]
+    arg [CMakeFiles/cmTryCompileExec1539454240.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8] ==> [/usr/lib64/gcc/x86_64-suse-linux/4.8]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib] ==> [/usr/x86_64-suse-linux/lib]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..] ==> [/usr/lib64]
+  implicit libs: [c]
+  implicit dirs: [/usr/lib64/gcc/x86_64-suse-linux/4.8;/usr/lib64;/lib64;/usr/x86_64-suse-linux/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec963305345/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec963305345.dir/build.make CMakeFiles/cmTryCompileExec963305345.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec963305345.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec963305345.dir/testCXXCompiler.cxx.o -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec963305345
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec963305345.dir/link.txt --verbose=1
+/usr/bin/c++          CMakeFiles/cmTryCompileExec963305345.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec963305345 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2788901491/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2788901491.dir/build.make CMakeFiles/cmTryCompileExec2788901491.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec2788901491
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2788901491.dir/link.txt --verbose=1
+/usr/bin/c++        -v CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2788901491 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper
+Target: x86_64-suse-linux
+Configured with: ../configure --prefix=/usr --infodir=/usr/share/info --mandir=/usr/share/man --libdir=/usr/lib64 --libexecdir=/usr/lib64 --enable-languages=c,c++,objc,fortran,obj-c++,java,ada --enable-checking=release --with-gxx-include-dir=/usr/include/c++/4.8 --enable-ssp --disable-libssp --disable-plugin --with-bugurl=http://bugs.opensuse.org/ --with-pkgversion='SUSE Linux' --disable-libgcj --disable-libmudflap --with-slibdir=/lib64 --with-system-zlib --enable-__cxa_atexit --enable-libstdcxx-allocator=new --disable-libstdcxx-pch --enable-version-specific-runtime-libs --enable-linker-build-id --program-suffix=-4.8 --enable-linux-futex --without-system-libunwind --with-arch-32=i586 --with-tune=generic --build=x86_64-suse-linux
+Thread model: posix
+gcc version 4.8.1 20130909 [gcc-4_8-branch revision 202388] (SUSE Linux) 
+COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/
+LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2788901491' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec2788901491 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/gmake "cmTryCompileExec2788901491/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2788901491.dir/build.make CMakeFiles/cmTryCompileExec2788901491.dir/build]
+  ignore line: [gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec2788901491]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2788901491.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++        -v CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2788901491 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-suse-linux]
+  ignore line: [Configured with: ../configure --prefix=/usr --infodir=/usr/share/info --mandir=/usr/share/man --libdir=/usr/lib64 --libexecdir=/usr/lib64 --enable-languages=c,c++,objc,fortran,obj-c++,java,ada --enable-checking=release --with-gxx-include-dir=/usr/include/c++/4.8 --enable-ssp --disable-libssp --disable-plugin --with-bugurl=http://bugs.opensuse.org/ --with-pkgversion='SUSE Linux' --disable-libgcj --disable-libmudflap --with-slibdir=/lib64 --with-system-zlib --enable-__cxa_atexit --enable-libstdcxx-allocator=new --disable-libstdcxx-pch --enable-version-specific-runtime-libs --enable-linker-build-id --program-suffix=-4.8 --enable-linux-futex --without-system-libunwind --with-arch-32=i586 --with-tune=generic --build=x86_64-suse-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.1 20130909 [gcc-4_8-branch revision 202388] (SUSE Linux) ]
+  ignore line: [COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/4.8/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2788901491' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib64/gcc/x86_64-suse-linux/4.8/collect2 --build-id --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec2788901491 /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/4.8 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../.. CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o /usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o]
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/collect2] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2788901491] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crt1.o] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crti.o] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8]
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib]
+    arg [-L/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..]
+    arg [CMakeFiles/cmTryCompileExec2788901491.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/crtend.o] ==> ignore
+    arg [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8] ==> [/usr/lib64/gcc/x86_64-suse-linux/4.8]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/lib] ==> [/usr/x86_64-suse-linux/lib]
+  collapse library dir [/usr/lib64/gcc/x86_64-suse-linux/4.8/../../..] ==> [/usr/lib64]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/lib64/gcc/x86_64-suse-linux/4.8;/usr/lib64;/lib64;/usr/x86_64-suse-linux/lib]
+  implicit fwks: []
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec955396612/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec955396612.dir/build.make CMakeFiles/cmTryCompileExec955396612.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec955396612.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec955396612.dir/CheckIncludeFile.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec955396612
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec955396612.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec955396612.dir/CheckIncludeFile.c.o  -o cmTryCompileExec955396612 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1442072490/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1442072490.dir/build.make CMakeFiles/cmTryCompileExec1442072490.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1442072490.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec1442072490.dir/CheckIncludeFile.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec1442072490
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1442072490.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec1442072490.dir/CheckIncludeFile.c.o  -o cmTryCompileExec1442072490 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec444518221/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec444518221.dir/build.make CMakeFiles/cmTryCompileExec444518221.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec444518221.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec444518221.dir/CheckIncludeFile.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec444518221
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec444518221.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec444518221.dir/CheckIncludeFile.c.o  -o cmTryCompileExec444518221 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining size of unsigned short passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2162626855/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2162626855.dir/build.make CMakeFiles/cmTryCompileExec2162626855.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2162626855.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec2162626855.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CheckTypeSize/CMAKE_SIZEOF_UNSIGNED_SHORT.c
+Linking C executable cmTryCompileExec2162626855
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2162626855.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec2162626855.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o  -o cmTryCompileExec2162626855 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files dirent.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec24160988/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec24160988.dir/build.make CMakeFiles/cmTryCompileExec24160988.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec24160988.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec24160988.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec24160988
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec24160988.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec24160988.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec24160988 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files inttypes.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec557346988/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec557346988.dir/build.make CMakeFiles/cmTryCompileExec557346988.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec557346988.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec557346988.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec557346988
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec557346988.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec557346988.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec557346988 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/types.h;linux/joystick.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3369384484/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3369384484.dir/build.make CMakeFiles/cmTryCompileExec3369384484.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3369384484.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3369384484.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3369384484
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3369384484.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3369384484.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3369384484 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdbool.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec959083759/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec959083759.dir/build.make CMakeFiles/cmTryCompileExec959083759.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec959083759.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec959083759.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec959083759
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec959083759.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec959083759.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec959083759 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdint.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3740204471/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3740204471.dir/build.make CMakeFiles/cmTryCompileExec3740204471.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3740204471.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3740204471.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3740204471
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3740204471.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3740204471.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3740204471 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/io.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1450675508/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1450675508.dir/build.make CMakeFiles/cmTryCompileExec1450675508.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1450675508.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec1450675508.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1450675508
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1450675508.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec1450675508.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1450675508 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/stat.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3428841922/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3428841922.dir/build.make CMakeFiles/cmTryCompileExec3428841922.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3428841922.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3428841922.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3428841922
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3428841922.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3428841922.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3428841922 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/time.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3128165195/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3128165195.dir/build.make CMakeFiles/cmTryCompileExec3128165195.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3128165195.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3128165195.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3128165195
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3128165195.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3128165195.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3128165195 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files time.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1675758545/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1675758545.dir/build.make CMakeFiles/cmTryCompileExec1675758545.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1675758545.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec1675758545.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1675758545
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1675758545.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec1675758545.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1675758545 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/utsname.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3699189681/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3699189681.dir/build.make CMakeFiles/cmTryCompileExec3699189681.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3699189681.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3699189681.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3699189681
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3699189681.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3699189681.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3699189681 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/types.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1644689694/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1644689694.dir/build.make CMakeFiles/cmTryCompileExec1644689694.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1644689694.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec1644689694.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1644689694
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1644689694.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec1644689694.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1644689694 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/soundcard.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1977260011/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1977260011.dir/build.make CMakeFiles/cmTryCompileExec1977260011.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1977260011.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec1977260011.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1977260011
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1977260011.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec1977260011.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1977260011 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files linux/soundcard.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3473164611/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3473164611.dir/build.make CMakeFiles/cmTryCompileExec3473164611.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3473164611.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3473164611.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3473164611
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3473164611.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3473164611.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3473164611 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/inotify.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2257372063/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2257372063.dir/build.make CMakeFiles/cmTryCompileExec2257372063.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2257372063.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec2257372063.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2257372063
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2257372063.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec2257372063.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2257372063 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/timerfd.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3718433886/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3718433886.dir/build.make CMakeFiles/cmTryCompileExec3718433886.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3718433886.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3718433886.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3718433886
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3718433886.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3718433886.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3718433886 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function mkstemp exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec611351067/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec611351067.dir/build.make CMakeFiles/cmTryCompileExec611351067.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec611351067.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=mkstemp   -o CMakeFiles/cmTryCompileExec611351067.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec611351067
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec611351067.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=mkstemp    CMakeFiles/cmTryCompileExec611351067.dir/CheckFunctionExists.c.o  -o cmTryCompileExec611351067 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function mmap exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2621544945/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2621544945.dir/build.make CMakeFiles/cmTryCompileExec2621544945.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2621544945.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=mmap   -o CMakeFiles/cmTryCompileExec2621544945.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2621544945
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2621544945.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=mmap    CMakeFiles/cmTryCompileExec2621544945.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2621544945 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function mprotect exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3174114106/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3174114106.dir/build.make CMakeFiles/cmTryCompileExec3174114106.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3174114106.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=mprotect   -o CMakeFiles/cmTryCompileExec3174114106.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3174114106
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3174114106.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=mprotect    CMakeFiles/cmTryCompileExec3174114106.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3174114106 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function sched_yield exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3323880839/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3323880839.dir/build.make CMakeFiles/cmTryCompileExec3323880839.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3323880839.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=sched_yield   -o CMakeFiles/cmTryCompileExec3323880839.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3323880839
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3323880839.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=sched_yield    CMakeFiles/cmTryCompileExec3323880839.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3323880839 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function sysconf exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1897434836/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1897434836.dir/build.make CMakeFiles/cmTryCompileExec1897434836.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1897434836.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=sysconf   -o CMakeFiles/cmTryCompileExec1897434836.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1897434836
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1897434836.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=sysconf    CMakeFiles/cmTryCompileExec1897434836.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1897434836 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function fseeko exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec565296959/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec565296959.dir/build.make CMakeFiles/cmTryCompileExec565296959.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec565296959.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=fseeko   -o CMakeFiles/cmTryCompileExec565296959.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec565296959
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec565296959.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=fseeko    CMakeFiles/cmTryCompileExec565296959.dir/CheckFunctionExists.c.o  -o cmTryCompileExec565296959 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function ftello exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1737645389/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1737645389.dir/build.make CMakeFiles/cmTryCompileExec1737645389.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1737645389.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=ftello   -o CMakeFiles/cmTryCompileExec1737645389.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1737645389
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1737645389.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=ftello    CMakeFiles/cmTryCompileExec1737645389.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1737645389 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining size of _Bool passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec903245904/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec903245904.dir/build.make CMakeFiles/cmTryCompileExec903245904.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec903245904.dir/ALLEGRO_HAVE__BOOL.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec903245904.dir/ALLEGRO_HAVE__BOOL.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CheckTypeSize/ALLEGRO_HAVE__BOOL.c
+Linking C executable cmTryCompileExec903245904
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec903245904.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec903245904.dir/ALLEGRO_HAVE__BOOL.c.o  -o cmTryCompileExec903245904 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Performing C SOURCE FILE Test ALLEGRO_HAVE_VA_COPY succeded with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2138002366/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2138002366.dir/build.make CMakeFiles/cmTryCompileExec2138002366.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2138002366.dir/src.c.o
+/usr/bin/cc   -msse -W -Wall   -DALLEGRO_HAVE_VA_COPY   -o CMakeFiles/cmTryCompileExec2138002366.dir/src.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec2138002366
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2138002366.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DALLEGRO_HAVE_VA_COPY    CMakeFiles/cmTryCompileExec2138002366.dir/src.c.o  -o cmTryCompileExec2138002366 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include <stdarg.h>
+    int main(void) {
+        va_list a, b;
+        va_copy(a, b);
+        return 0;
+    }
+Determining if the function XOpenDisplay exists in the /usr/lib64/libX11.so;/usr/lib64/libXext.so passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec651685773/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec651685773.dir/build.make CMakeFiles/cmTryCompileExec651685773.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec651685773.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec651685773.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec651685773
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec651685773.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec651685773.dir/CheckFunctionExists.c.o  -o cmTryCompileExec651685773 -rdynamic -lX11 -lXext 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec61004571/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec61004571.dir/build.make CMakeFiles/cmTryCompileExec61004571.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec61004571.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec61004571.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec61004571
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec61004571.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec61004571.dir/CheckFunctionExists.c.o  -o cmTryCompileExec61004571 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1074744904/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1074744904.dir/build.make CMakeFiles/cmTryCompileExec1074744904.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1074744904.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec1074744904.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1074744904
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1074744904.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec1074744904.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1074744904 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2784636426/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2784636426.dir/build.make CMakeFiles/cmTryCompileExec2784636426.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2784636426.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec2784636426.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2784636426
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2784636426.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec2784636426.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2784636426 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1051103594/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1051103594.dir/build.make CMakeFiles/cmTryCompileExec1051103594.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1051103594.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec1051103594.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1051103594
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1051103594.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec1051103594.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1051103594 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3085255332/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3085255332.dir/build.make CMakeFiles/cmTryCompileExec3085255332.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3085255332.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec3085255332.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3085255332
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3085255332.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec3085255332.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3085255332 -rdynamic -lICE 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1383644425/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1383644425.dir/build.make CMakeFiles/cmTryCompileExec1383644425.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1383644425.dir/CheckIncludeFiles.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec1383644425.dir/CheckIncludeFiles.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1383644425
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1383644425.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec1383644425.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1383644425 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec978126455/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec978126455.dir/build.make CMakeFiles/cmTryCompileExec978126455.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec978126455.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec978126455.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec978126455
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec978126455.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec978126455.dir/CheckFunctionExists.c.o  -o cmTryCompileExec978126455 -rdynamic -lpthread 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XcursorImageCreate exists in the Xcursor passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec1460367393/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec1460367393.dir/build.make CMakeFiles/cmTryCompileExec1460367393.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1460367393.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XcursorImageCreate   -o CMakeFiles/cmTryCompileExec1460367393.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1460367393
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1460367393.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XcursorImageCreate    CMakeFiles/cmTryCompileExec1460367393.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1460367393 -rdynamic -lXcursor -lSM -lICE -lX11 -lXext 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XF86VidModeQueryExtension exists in the Xxf86vm passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3952248655/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3952248655.dir/build.make CMakeFiles/cmTryCompileExec3952248655.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3952248655.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XF86VidModeQueryExtension   -o CMakeFiles/cmTryCompileExec3952248655.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3952248655
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3952248655.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XF86VidModeQueryExtension    CMakeFiles/cmTryCompileExec3952248655.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3952248655 -rdynamic -lXxf86vm -lSM -lICE -lX11 -lXext 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file X11/extensions/Xinerama.h exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec179307114/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec179307114.dir/build.make CMakeFiles/cmTryCompileExec179307114.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec179307114.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec179307114.dir/CheckIncludeFile.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec179307114
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec179307114.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec179307114.dir/CheckIncludeFile.c.o  -o cmTryCompileExec179307114 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XineramaQueryExtension exists in the Xinerama passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec310034587/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec310034587.dir/build.make CMakeFiles/cmTryCompileExec310034587.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec310034587.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XineramaQueryExtension   -o CMakeFiles/cmTryCompileExec310034587.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec310034587
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec310034587.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XineramaQueryExtension    CMakeFiles/cmTryCompileExec310034587.dir/CheckFunctionExists.c.o  -o cmTryCompileExec310034587 -rdynamic -lXinerama -lSM -lICE -lX11 -lXext 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file X11/extensions/Xrandr.h exists passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3551739900/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3551739900.dir/build.make CMakeFiles/cmTryCompileExec3551739900.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3551739900.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -msse -W -Wall      -o CMakeFiles/cmTryCompileExec3551739900.dir/CheckIncludeFile.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec3551739900
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3551739900.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall       CMakeFiles/cmTryCompileExec3551739900.dir/CheckIncludeFile.c.o  -o cmTryCompileExec3551739900 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XRRQueryExtension exists in the Xrandr passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec519658692/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec519658692.dir/build.make CMakeFiles/cmTryCompileExec519658692.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec519658692.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XRRQueryExtension   -o CMakeFiles/cmTryCompileExec519658692.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec519658692
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec519658692.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XRRQueryExtension    CMakeFiles/cmTryCompileExec519658692.dir/CheckFunctionExists.c.o  -o cmTryCompileExec519658692 -rdynamic -lXrandr -lSM -lICE -lX11 -lXext 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenIM exists in the X11 passed with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2128675088/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2128675088.dir/build.make CMakeFiles/cmTryCompileExec2128675088.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2128675088.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XOpenIM   -o CMakeFiles/cmTryCompileExec2128675088.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2128675088
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2128675088.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DCHECK_FUNCTION_EXISTS=XOpenIM    CMakeFiles/cmTryCompileExec2128675088.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2128675088 -rdynamic -lX11 -lSM -lICE -lX11 -lXext 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+
+Performing C SOURCE FILE Test OSS_COMPILES succeded with the following output:
+Change Dir: /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec946040482/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec946040482.dir/build.make CMakeFiles/cmTryCompileExec946040482.dir/build
+gmake[1]: Entering directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec946040482.dir/src.c.o
+/usr/bin/cc  -DALLEGRO_HAVE_LINUX_SOUNDCARD_H -DALLEGRO_HAVE_SYS_SOUNDCARD_H -msse -W -Wall   -DOSS_COMPILES   -o CMakeFiles/cmTryCompileExec946040482.dir/src.c.o   -c /home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/src.c
+/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp/src.c:15:28: warning: unused variable ‘abi’ [-Wunused-variable]
+             audio_buf_info abi;
+                            ^
+Linking C executable cmTryCompileExec946040482
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec946040482.dir/link.txt --verbose=1
+/usr/bin/cc    -msse -W -Wall   -DOSS_COMPILES    CMakeFiles/cmTryCompileExec946040482.dir/src.c.o  -o cmTryCompileExec946040482 -rdynamic 
+gmake[1]: Leaving directory `/home/cache-_s/rendu/allegro/allegro-5.0.11/Build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+        #ifdef ALLEGRO_HAVE_SOUNDCARD_H
+        #include <soundcard.h>
+        #endif
+        #ifdef ALLEGRO_HAVE_SYS_SOUNDCARD_H
+        #include <sys/soundcard.h>
+        #endif
+        #ifdef ALLEGRO_HAVE_LINUX_SOUNDCARD_H
+        #include <linux/soundcard.h>
+        #endif
+        #ifdef ALLEGRO_HAVE_MACHINE_SOUNDCARD_H
+        #include <machine/soundcard.h>
+        #endif
+        int main(void) {
+            audio_buf_info abi;
+            return 0;
+        }
