@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Sun Mar 29 17:51:27 2015 Jordan Chazottes
+// Last update Sun Mar 29 19:15:22 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -49,8 +49,9 @@ void		SDL::init(int x, int y)
   setScore(0);
 }
 
-void		SDL::display(int **map, int score)
+void		SDL::display(int **map, int score, std::vector<int> boost)
 {
+  (void)boost;
   resetBackground(map, _width, _height);
   setScore(score);
   setSnake(map, _width, _height);

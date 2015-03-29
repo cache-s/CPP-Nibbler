@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Sun Mar 29 17:50:19 2015 Jordan Chazottes
+// Last update Sun Mar 29 19:14:58 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -24,7 +24,7 @@ class SDL : public ILibrary
 {
 public:
   virtual void	init(int, int);
-  virtual void	display(int**, int);
+  virtual void	display(int**, int, std::vector<int>);
   virtual void	quit();
   virtual void	desc();
   virtual int	eventHandler();

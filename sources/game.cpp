@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Sun Mar 29 15:20:48 2015 Jordan Chazottes
+// Last update Sun Mar 29 19:14:22 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -17,6 +17,7 @@ Game::Game(int width, int height, void *lib) : _width(width), _height(height), _
   _dir = RIGHT;
   _isAlive = true;
   _score = 0;
+  _boosted = false;
   initMap();
   initSnake();
   start();
@@ -90,11 +91,10 @@ int					Game::checkNext(int coordY, int coordX)
     return (0);
   if (_map[coordY][coordX] == 5)
     {
-      addApple();
       _map[coordY][coordX] = 0;
       ++_score;
       if (_speed > 800000)
-	_speed -= 1000;
+	_speed -= 600;
       return (1);
     }
   return (-1);
@@ -140,6 +140,7 @@ void					Game::move()
 	  _snake.push_back(new Snake(x, y));
 	  _snake[_snake.size() - 1]->setDirection(_snake[_snake.size() - 2]->getDirection());
 	  _snake[_snake.size() - 1]->addDirFront(tmp);
+	  addApple();
 	}
       return;
     }
@@ -148,18 +149,50 @@ void					Game::move()
 
 void					Game::spaceBoost()
 {
-  static bool				status = false;
-
-  if (status)
+  if (_boosted)
     {
       _speed += 70000;
-      status = false;
+      _boosted = false;
     }
   else
     {
       _speed -= 70000;
-      status = true;
+      _boosted = true;
     }
+}
+
+void					Game::handleBoost()
+{
+  unsigned int				i;
+
+  if (_boost.size() == 0)
+    for (i = 0; i < 10; ++i)
+      _boost.push_back(1);
+  if (_boosted)
+    {
+      if (_boost[0] == 0)
+	spaceBoost();
+      else
+	{
+	  for (i = 0; i < _boost.size(); ++i)
+	    {
+	      if (_boost[i] == 0)
+		_boost[i - 1] = 0;
+	      else
+		if (i + 1 == _boost.size())
+		  _boost[i] = 0;
+	    }
+	}
+    }
+  else
+    for (i = 0; i < _boost.size(); ++i)
+      {
+	if (_boost[i] == 0)
+	  {
+	    _boost[i] = 1;
+	    return;
+	  }
+      }
 }
 
 void					Game::start()
@@ -184,8 +217,9 @@ void					Game::start()
 	}
       updatePath();
       move();
+      handleBoost();
       updateMap();
-      curLib->display(_map, _score);
+      curLib->display(_map, _score, _boost);
       if ((tmp = curLib->eventHandler()) != 42)
 	{
 	  if (tmp == -1)
@@ -196,8 +230,6 @@ void					Game::start()
 	    spaceBoost();
 	}
       usleep(_speed);
-      if (_speed > 80000)
-	_speed -= 600;
     }
   curLib->quit();
 }

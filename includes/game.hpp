@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Sat Mar 28 13:42:05 2015 Sebastien Cache-Delanos
+// Last update Sun Mar 29 19:13:55 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -28,6 +28,7 @@ public:
   ~Game();
 
   int				checkNext(int coordY, int coordX);
+  void				handleBoost();
   void				spaceBoost();
   void				updatePath();
   void				updateMap();
@@ -55,6 +56,8 @@ public:
   void*				getLib() const;
 
 private:
+  bool				_boosted;
+  std::vector<int>		_boost;
   bool				_isAlive;
   const int			_width;
   const int			_height;

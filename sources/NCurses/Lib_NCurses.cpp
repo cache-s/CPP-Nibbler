@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Sun Mar 29 15:19:11 2015 Jordan Chazottes
+// Last update Sun Mar 29 19:23:50 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -48,20 +48,30 @@ void		NCurses::init(int x, int y)
   init_pair(5, COLOR_YELLOW, COLOR_YELLOW);
   init_pair(6, COLOR_RED, COLOR_GREEN);
   init_pair(7, COLOR_BLUE, COLOR_GREEN);
+  init_pair(8, COLOR_BLUE, COLOR_BLUE);
   refresh();
   _win = createWin(height, width, starty, startx);
   wclear(_win);
   wrefresh(_win);
 }
 
-void		NCurses::display(int **map, int score)
+void		NCurses::display(int **map, int score, std::vector<int> boost)
 {
   int		i;
   int		j;
 
+  (void)boost;
   _score = score;
   wclear(_win);
-  wprintw(_win, "Score : %d\n", _score);
+  wprintw(_win, "Score : %d\nBoost : ", _score);
+  for (i = 0; i < (int)boost.size(); ++i)
+    {
+      if (boost[i] == 0)
+	waddch(_win, ACS_BLOCK | COLOR_PAIR(4));
+      if (boost[i] == 1)
+	waddch(_win, ACS_BLOCK | COLOR_PAIR(8));
+    }
+  wprintw(_win, "\n");
   for (i = 0; i < _h; ++i)
     {
       for (j = 0; j < _w; ++j)

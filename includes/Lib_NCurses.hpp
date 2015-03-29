@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Sun Mar 29 15:19:31 2015 Jordan Chazottes
+// Last update Sun Mar 29 19:16:19 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -23,7 +23,7 @@ public:
   ~NCurses();
 
   virtual void		init(int x, int y);
-  virtual void		display(int** map, int score);
+  virtual void		display(int** map, int score, std::vector<int> boost);
   virtual void		desc();
   virtual void		quit();
   virtual int		eventHandler();
