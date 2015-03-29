@@ -5,10 +5,43 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Sun Mar 29 19:15:22 2015 Sebastien Cache-Delanos
+// Last update Sun Mar 29 20:09:31 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
+
+extern "C"
+{
+  ILibrary *createLib()
+  {
+    return new SDL();
+  }
+}
+
+void		SDL::init(int x, int y)
+{
+  _width = x;
+  _height = y;
+  if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
+    {
+      std::cout << "Error : Init SDL : " << SDL_GetError() << std::endl;
+      return;
+    }
+  SDL_WM_SetCaption("Nibbler", "My Nibbler");
+  _screen = SDL_SetVideoMode(x*32, y*32 + 32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+  TTF_Init();
+  initAudio();
+  initSprites();
+  initScore();
+}
+
+void		SDL::initScore()
+{
+  if ((_font = TTF_OpenFont("ressources/fonts/FKV.ttf", 20)) == NULL)
+    std::cout << "Error loading Font FKV" << std::endl;
+  _curScore = 0;
+  setScore(0);
+}
 
 void		SDL::initSprites()
 {
@@ -29,54 +62,13 @@ void		SDL::initAudio()
   Mix_AllocateChannels(2);
 }
 
-void		SDL::init(int x, int y)
-{
-  _width = x;
-  _height = y;
-  if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
-    {
-      std::cout << "Error : Init SDL : " << SDL_GetError() << std::endl;
-      return;
-    }
-  SDL_WM_SetCaption("Nibbler", "My Nibbler");
-  _screen = SDL_SetVideoMode(x*32, y*32 + 32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  initAudio();
-  initSprites();
-  TTF_Init();
-  if ((_font = TTF_OpenFont("ressources/fonts/FKV.ttf", 20)) == NULL)
-    std::cout << "Error loading Font FKV" << std::endl;
-  _curScore = 0;
-  setScore(0);
-}
-
 void		SDL::display(int **map, int score, std::vector<int> boost)
 {
   (void)boost;
   resetBackground(map, _width, _height);
-  setScore(score);
   setSnake(map, _width, _height);
+  setScore(score);
   SDL_Flip(_screen);
-}
-
-void		SDL::setScore(int score)
-{
-  std::ostringstream	oss117;
-  SDL_Color		color;
-  SDL_Rect		pos;
-  SDL_Surface		*txt;
-
-  color.r = 255;
-  color.g = 255;
-  color.b = 255;
-  oss117 << "Score : " << score;
-  txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
-  pos.x = 10;
-  pos.y = 10;
-  if (score != 0 && _curScore != score)
-    Mix_PlayChannel(1, _point, 0);
-  SDL_BlitSurface(txt, NULL, _screen, &pos);
-  SDL_Flip(_screen);
-  _curScore = score;
 }
 
 void		SDL::resetBackground(int **map, int X, int Y)
@@ -100,18 +92,16 @@ void		SDL::resetBackground(int **map, int X, int Y)
   SDL_BlitSurface(overlay, NULL, _screen, &tmp);
 
   for (int y = 0; y < Y; y++)
-    {
-      for (int x = 0; x < X; x++)
-	{
-	  applySurface(x*32, y*32 + 32, _bg, &clip[0]);
-	  if (map[y][x] == 1)
-	    applySurface(x*32, y*32 + 32, _bg, &clip[3]);
-	  if (map[y][x] == 6)
-	    applySurface(x*32, y*32 + 32, _bg, &clip[1]);
+    for (int x = 0; x < X; x++)
+      {
+	applySurface(x*32, y*32 + 32, _bg, &clip[0]);
+	if (map[y][x] == 1)
+	  applySurface(x*32, y*32 + 32, _bg, &clip[3]);
+	if (map[y][x] == 6)
+	  applySurface(x*32, y*32 + 32, _bg, &clip[1]);
 	  if (map[y][x] == 5)
 	    applySurface(x*32, y*32 + 32, _bg, &clip[2]);
-	}
-    }
+      }
 }
 
 void		SDL::setSnake(int **map, int X, int Y)
@@ -124,31 +114,36 @@ void		SDL::setSnake(int **map, int X, int Y)
   clip[2].y = 64;
   clip[0].w = clip[1].w = clip[2].w = clip[0].h = clip[1].h = clip[2].h = 32;
   for (int y = 0; y < Y; y++)
-    {
-      for (int x = 0; x < X; x++)
-	{
-	  if (map[y][x] == 2)
-	    applySurface(x*32, y*32 + 32, _snake, &clip[0]);
-	  if (map[y][x] == 3)
-	    applySurface(x*32, y*32 + 32, _snake, &clip[1]);
-	  if (map[y][x] == 4)
-	    applySurface(x*32, y*32 + 32, _snake, &clip[2]);
-	}
-    }
+    for (int x = 0; x < X; x++)
+      {
+	if (map[y][x] == 2)
+	  applySurface(x*32, y*32 + 32, _snake, &clip[0]);
+	if (map[y][x] == 3)
+	  applySurface(x*32, y*32 + 32, _snake, &clip[1]);
+	if (map[y][x] == 4)
+	  applySurface(x*32, y*32 + 32, _snake, &clip[2]);
+      }
 }
 
-void		SDL::desc()
+void		SDL::setScore(int score)
 {
-  std::cout << "Using SDL library !" << std::endl;
-}
+  std::ostringstream	oss117;
+  SDL_Color		color;
+  SDL_Rect		pos;
+  SDL_Surface		*txt;
 
-void		SDL::applySurface(int x, int y, SDL_Surface *src, SDL_Rect *clip)
-{
-  SDL_Rect	offset;
-
-  offset.x = x;
-  offset.y = y;
-  SDL_BlitSurface(src, clip, _screen, &offset);
+  color.r = 255;
+  color.g = 255;
+  color.b = 255;
+  oss117 << "Score : " << score;
+  txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
+  pos.x = 10;
+  pos.y = 10;
+  if (score != 0 && _curScore != score)
+    Mix_PlayChannel(1, _point, 0);
+  SDL_BlitSurface(txt, NULL, _screen, &pos);
+  SDL_Flip(_screen);
+  _curScore = score;
 }
 
 int		SDL::eventHandler()
@@ -180,12 +175,18 @@ int		SDL::eventHandler()
   return (42);
 }
 
-extern "C"
+void		SDL::applySurface(int x, int y, SDL_Surface *src, SDL_Rect *clip)
 {
-  ILibrary *createLib()
-  {
-    return new SDL();
-  }
+  SDL_Rect	offset;
+
+  offset.x = x;
+  offset.y = y;
+  SDL_BlitSurface(src, clip, _screen, &offset);
+}
+
+void		SDL::desc()
+{
+  std::cout << "Using SDL library !" << std::endl;
 }
 
 void		SDL::quit()

@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Sun Mar 29 19:14:58 2015 Sebastien Cache-Delanos
+// Last update Sun Mar 29 20:09:50 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -34,6 +34,7 @@ public:
   void		setScore(int);
   void		initSprites();
   void		initAudio();
+  void		initScore();
 private:
   TTF_Font	*_font;
   SDL_Surface*	_screen;
