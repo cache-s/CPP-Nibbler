@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Sat Mar 28 14:11:58 2015 Sebastien Cache-Delanos
+// Last update Sun Mar 29 15:19:11 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -34,6 +34,8 @@ void		NCurses::init(int x, int y)
   cbreak();
   keypad(stdscr, TRUE);
   curs_set(0);
+  _w = x;
+  _h = y;
   height = y + 2;
   width = x + 2;
   starty = 0;
@@ -52,7 +54,7 @@ void		NCurses::init(int x, int y)
   wrefresh(_win);
 }
 
-void		NCurses::display(int **map, int w, int h, int score)
+void		NCurses::display(int **map, int score)
 {
   int		i;
   int		j;
@@ -60,9 +62,9 @@ void		NCurses::display(int **map, int w, int h, int score)
   _score = score;
   wclear(_win);
   wprintw(_win, "Score : %d\n", _score);
-  for (i = 0; i < h; ++i)
+  for (i = 0; i < _h; ++i)
     {
-      for (j = 0; j < w; ++j)
+      for (j = 0; j < _w; ++j)
 	{
 	  if (map[i][j] == 0)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(1));

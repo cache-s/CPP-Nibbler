@@ -5,60 +5,87 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Fri Mar 27 13:58:17 2015 Jordan Chazottes
+// Last update Sun Mar 29 17:51:27 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
 
+void		SDL::initSprites()
+{
+  if ((_bg = IMG_Load("ressources/sprites/env.png")) == NULL)
+    std::cout << "Error loading Image Env" << std::endl;
+  if ((_snake = IMG_Load("ressources/sprites/snake2.png")) == NULL)
+    std::cout << "Error loading Image Snake" << std::endl;
+}
+
+void		SDL::initAudio()
+{
+  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
+    std::cout << "Error loading music mixer" << std::endl;
+  _music = Mix_LoadMUS("ressources/sounds/nyan.wav");
+  _point = Mix_LoadWAV("ressources/sounds/point.wav");
+  Mix_VolumeMusic(MIX_MAX_VOLUME/2);
+  Mix_PlayMusic(_music, -1);
+  Mix_AllocateChannels(2);
+}
+
 void		SDL::init(int x, int y)
 {
+  _width = x;
+  _height = y;
   if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
     {
       std::cout << "Error : Init SDL : " << SDL_GetError() << std::endl;
       return;
     }
-  TTF_Init();
   SDL_WM_SetCaption("Nibbler", "My Nibbler");
-  _screen = SDL_SetVideoMode(x*32, y*32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  if ((_bg = IMG_Load("ressources/sprites/env.png")) == NULL)
-    std::cout << "Error loading Image Env" << std::endl;
-  if ((_snake = IMG_Load("ressources/sprites/snake.png")) == NULL)
-    std::cout << "Error loading Image Snake" << std::endl;
-  if ((_font = TTF_OpenFont("ressources/font/FKV.ttf", 20)) == NULL)
+  _screen = SDL_SetVideoMode(x*32, y*32 + 32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+  initAudio();
+  initSprites();
+  TTF_Init();
+  if ((_font = TTF_OpenFont("ressources/fonts/FKV.ttf", 20)) == NULL)
     std::cout << "Error loading Font FKV" << std::endl;
+  _curScore = 0;
   setScore(0);
 }
 
-void		SDL::display(int **map, int w, int h, int score)
+void		SDL::display(int **map, int score)
 {
-  resetBackground(map, w, h);
+  resetBackground(map, _width, _height);
   setScore(score);
-  setSnake(map, w, h);
+  setSnake(map, _width, _height);
   SDL_Flip(_screen);
 }
 
 void		SDL::setScore(int score)
 {
   std::ostringstream	oss117;
-  SDL_Color	color;
-  SDL_Rect	pos;
-  SDL_Surface	*txt;
+  SDL_Color		color;
+  SDL_Rect		pos;
+  SDL_Surface		*txt;
 
-  color.r = 0;
-  color.g = 0;
-  color.b = 0;
+  color.r = 255;
+  color.g = 255;
+  color.b = 255;
   oss117 << "Score : " << score;
   txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
-  pos.x = 32;
-  pos.y = 32;
+  pos.x = 10;
+  pos.y = 10;
+  if (score != 0 && _curScore != score)
+    Mix_PlayChannel(1, _point, 0);
   SDL_BlitSurface(txt, NULL, _screen, &pos);
   SDL_Flip(_screen);
+  _curScore = score;
 }
 
 void		SDL::resetBackground(int **map, int X, int Y)
 {
   SDL_Rect	clip[4];
+  SDL_Surface	*overlay;
+  SDL_Rect	tmp;
 
+  tmp.x = 0;
+  tmp.y = 0;
   clip[0].x = clip[1].x = clip[2].x = clip[3].x = 0;
   clip[0].y = 0;
   clip[1].y = 32;
@@ -66,17 +93,22 @@ void		SDL::resetBackground(int **map, int X, int Y)
   clip[3].y = 96;
   clip[0].w = clip[1].w = clip[2].w = clip[3].w =
     clip[0].h = clip[1].h = clip[2].h = clip[3].h = 32;
+
+  overlay = SDL_CreateRGBSurface(SDL_HWSURFACE, X*32, 32, 32, 0, 0, 0, 0);
+  SDL_FillRect(overlay, NULL, SDL_MapRGB(_screen->format, 128, 128, 128));
+  SDL_BlitSurface(overlay, NULL, _screen, &tmp);
+
   for (int y = 0; y < Y; y++)
     {
       for (int x = 0; x < X; x++)
 	{
-	  applySurface(x*32, y*32, _bg, &clip[0]);
+	  applySurface(x*32, y*32 + 32, _bg, &clip[0]);
 	  if (map[y][x] == 1)
-	    applySurface(x*32, y*32, _bg, &clip[3]);
+	    applySurface(x*32, y*32 + 32, _bg, &clip[3]);
 	  if (map[y][x] == 6)
-	    applySurface(x*32, y*32, _bg, &clip[1]);
+	    applySurface(x*32, y*32 + 32, _bg, &clip[1]);
 	  if (map[y][x] == 5)
-	    applySurface(x*32, y*32, _bg, &clip[2]);
+	    applySurface(x*32, y*32 + 32, _bg, &clip[2]);
 	}
     }
 }
@@ -95,11 +127,11 @@ void		SDL::setSnake(int **map, int X, int Y)
       for (int x = 0; x < X; x++)
 	{
 	  if (map[y][x] == 2)
-	    applySurface(x*32, y*32, _snake, &clip[0]);
+	    applySurface(x*32, y*32 + 32, _snake, &clip[0]);
 	  if (map[y][x] == 3)
-	    applySurface(x*32, y*32, _snake, &clip[1]);
+	    applySurface(x*32, y*32 + 32, _snake, &clip[1]);
 	  if (map[y][x] == 4)
-	    applySurface(x*32, y*32, _snake, &clip[2]);
+	    applySurface(x*32, y*32 + 32, _snake, &clip[2]);
 	}
     }
 }
@@ -136,6 +168,8 @@ int		SDL::eventHandler()
 	  return 1;
 	case SDLK_LEFT:
 	  return 0;
+	case SDLK_SPACE:
+	  return 4;
 	default:
 	  return 42;
 	}
@@ -158,6 +192,8 @@ void		SDL::quit()
   SDL_FreeSurface(_bg);
   SDL_FreeSurface(_snake);
   SDL_FreeSurface(_screen);
+  Mix_FreeMusic(_music);
+  Mix_CloseAudio();
   TTF_Quit();
   SDL_Quit();
 }

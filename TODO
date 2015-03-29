@@ -8,20 +8,16 @@ Ne pas mettre d'obstacles pres du snake au débart, start apres un timer (3..2..
 Liste des fonctions à faire dans chaque librairie :
 
 -init
--keyBinding
--moveForward
--moveLeft
--moveRight
--quitGame
--displayMap
--popFood
--endGame
+-eventHandler
+-display
+-quit
+-desc(a virer)
 
 Bonus :
 
 obstacles + generation aléatoire	DONE
 tete et queue différentes du corps	DONE
-musique
+musique					DONE 4 SDL
 Vitesse++				DONE
 Boost de vitesse sur la barre espace	DONE
 score					DONE

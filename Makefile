@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Fri Mar 27 14:10:09 2015 Sebastien Cache-Delanos
+## Last update Sun Mar 29 15:24:51 2015 Jordan Chazottes
 ##
 
 NAME_EXE	= nibbler
@@ -55,7 +55,7 @@ $(NAME_LIB): $(OBJS_LIB)
 	@echo ' '
 	@echo 'Building target: $@'
 	@echo 'Invoking: G++ C Linker'
-	$(CXX) -lSDLmain -lSDL -lSDL_image -lSDL_ttf -shared -o $(NAME_LIB) $(OBJS_LIB)
+	$(CXX) -lSDLmain -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -shared -o $(NAME_LIB) $(OBJS_LIB)
 	@echo -n 'Finished building target:'
 	@echo -e $(CYAN) '$@'
 	@echo -e $(NORMAL) ' '
