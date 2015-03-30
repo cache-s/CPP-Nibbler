@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 10:53:28 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 11:33:24 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -26,20 +26,8 @@ WINDOW*		NCurses::createWin(int height, int width, int starty, int startx)
   return _win;
 }
 
-void		NCurses::init(int x, int y)
+void		NCurses::initColors()
 {
-  int startx, starty, width, height;
-
-  initscr();
-  cbreak();
-  keypad(stdscr, TRUE);
-  curs_set(0);
-  _w = x;
-  _h = y;
-  height = y + 2;
-  width = x + 2;
-  starty = 0;
-  startx = 0;
   start_color();
   init_pair(1, COLOR_GREEN, COLOR_GREEN);
   init_pair(2, COLOR_WHITE, COLOR_WHITE);
@@ -50,6 +38,24 @@ void		NCurses::init(int x, int y)
   init_pair(7, COLOR_BLUE, COLOR_GREEN);
   init_pair(8, COLOR_BLUE, COLOR_BLACK);
   init_pair(9, COLOR_WHITE, COLOR_BLACK);
+}
+
+void		NCurses::init(int x, int y)
+{
+  int startx, starty, width, height;
+
+  initscr();
+  cbreak();
+  keypad(stdscr, TRUE);
+  noecho();
+  curs_set(0);
+  _w = x;
+  _h = y;
+  height = y + 2;
+  width = x + 2;
+  starty = 0;
+  startx = 0;
+  initColors();
   refresh();
   _win = createWin(height, width, starty, startx);
   wclear(_win);
@@ -61,7 +67,6 @@ void		NCurses::display(int **map, int score, std::vector<int> boost)
   int		i;
   int		j;
 
-  (void)boost;
   _score = score;
   wclear(_win);
   wprintw(_win, "Score : %d\nBoost : ", _score);
@@ -113,12 +118,16 @@ int		NCurses::eventHandler()
     case KEY_RIGHT:
       return (1);
     case 'z':
+    case 'Z':
       return (2);
     case 'q':
+    case 'Q':
       return (3);
     case 's':
+    case 'S':
       return (4);
     case 'd':
+    case 'D':
       return (5);
     case 32:
       return (6);

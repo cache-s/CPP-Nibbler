@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 10:55:59 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 11:24:15 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -28,14 +28,15 @@ public:
   ~Game();
 
   int				checkNext(int coordY, int coordX);
+  void				play(ILibrary* curLib);
   void				handleEvent(int event);
   void				handleBoost();
   void				spaceBoost();
   void				updatePath();
   void				updateMap();
+  void				gameOver();
   int				checkMap();
   void				addApple();
-  void				gameOver();
   void				start();
   void				move();
 
@@ -43,6 +44,7 @@ public:
   void				initObstacle();
   void				initSnake();
   void				initMap();
+  void				reinit();
 
   //PRINT
   void				printMap() const;

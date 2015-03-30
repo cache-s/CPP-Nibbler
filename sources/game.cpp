@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 10:58:22 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 11:35:32 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -97,7 +97,7 @@ int					Game::checkNext(int coordY, int coordX)
     {
       _map[coordY][coordX] = 0;
       ++_score;
-      if (_speed > 800000)
+      if (_speed > 80000)
 	_speed -= 600;
       return (1);
     }
@@ -155,12 +155,12 @@ void					Game::spaceBoost()
 {
   if (_boosted)
     {
-      _speed += 75000;
+      _speed += 79000;
       _boosted = false;
     }
   else
     {
-      _speed -= 75000;
+      _speed -= 79000;
       _boosted = true;
     }
 }
@@ -208,6 +208,18 @@ void					Game::handleEvent(int event)
       if (event == 6)
 	spaceBoost();
     }
+}
+
+void					Game::reinit()
+{
+  _speed = 200000;
+  _dir = RIGHT;
+  _isAlive = true;
+  _score = 0;
+  _boosted = false;
+  initMap();
+  initSnake();
+  start();
 }
 
 void					Game::start()
