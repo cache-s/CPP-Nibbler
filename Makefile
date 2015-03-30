@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Sun Mar 29 15:24:51 2015 Jordan Chazottes
+## Last update Mon Mar 30 13:52:44 2015 Pierre Charié
 ##
 
 NAME_EXE	= nibbler
@@ -20,8 +20,8 @@ NAME_LIB	= lib_nibbler_SDL.so
 SRCS_LIB	= ./sources/SDL/Lib_SDL.cpp
 OBJS_LIB	= $(SRCS_LIB:.cpp=.o)
 
-NAME_LIB2	= lib_nibbler_Qt.so
-SRCS_LIB2	= ./sources/Qt/Lib_Qt.cpp
+NAME_LIB2	= lib_nibbler_Allegro.so
+SRCS_LIB2	= ./sources/Allegro/Lib_Allegro.cpp
 OBJS_LIB2	= $(SRCS_LIB2:.cpp=.o)
 
 NAME_LIB3	= lib_nibbler_NCurses.so
@@ -40,7 +40,7 @@ NORMAL		= "\\033[0;39m"
 YELLOW		= "\\033[1;33m"
 CYAN		= "\\033[1;36m"
 
-all: $(NAME_LIB) $(NAME_LIB3) $(NAME_EXE)
+all: $(NAME_LIB) $(NAME_LIB2) $(NAME_LIB3) $(NAME_EXE)
 
 $(NAME_EXE): $(OBJS_EXE)
 	@echo ' '

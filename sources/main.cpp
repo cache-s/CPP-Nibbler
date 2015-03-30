@@ -1,11 +1,11 @@
 //
 // main.cpp for nibbler in /home/cache-_s/rendu/cpp_nibbler
-// 
+//
 // Made by Sebastien Cache-Delanos
 // Login   <cache-_s@epitech.net>
-// 
+//
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 12:58:36 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 11:38:04 2015 Pierre Charié
 //
 
 #include			"nibbler.hpp"
