@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Sun Mar 29 20:13:57 2015 Jordan Chazottes
+// Last update Mon Mar 30 10:58:22 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -13,7 +13,7 @@
 //CONSTRUCTOR
 Game::Game(int width, int height, void *lib) : _width(width), _height(height), _lib(lib)
 {
-  _speed = 150000;
+  _speed = 200000;
   _dir = RIGHT;
   _isAlive = true;
   _score = 0;
@@ -62,7 +62,11 @@ void					Game::addApple()
   int					w = _width;
   int					h = _height;
 
-  while (_map[i][j] != 0)
+  for (i = 0; i < _height; ++i)
+    for (j = 0; j < _width; ++j)
+      if (_map[i][j] == 5)
+	return;
+  for (j = 0, i = 0; _map[i][j] != 0;)
     {
       if (++k > 1000)
 	if (checkMap() == -1)
@@ -151,12 +155,12 @@ void					Game::spaceBoost()
 {
   if (_boosted)
     {
-      _speed += 70000;
+      _speed += 75000;
       _boosted = false;
     }
   else
     {
-      _speed -= 70000;
+      _speed -= 75000;
       _boosted = true;
     }
 }
@@ -175,60 +179,55 @@ void					Game::handleBoost()
       else
 	{
 	  for (i = 0; i < _boost.size(); ++i)
-	    {
-	      if (_boost[i] == 0)
-		_boost[i - 1] = 0;
-	      else
-		if (i + 1 == _boost.size())
-		  _boost[i] = 0;
-	    }
+	    if (_boost[i] == 0)
+	      _boost[i - 1] = 0;
+	    else
+	      if (i + 1 == _boost.size())
+		_boost[i] = 0;
 	}
     }
   else
     for (i = 0; i < _boost.size(); ++i)
-      {
-	if (_boost[i] == 0)
-	  {
-	    _boost[i] = 1;
-	    return;
-	  }
-      }
+      if (_boost[i] == 0)
+	{
+	  _boost[i] = 1;
+	  return;
+	}
+}
+
+void					Game::handleEvent(int event)
+{
+  if (event != 42)
+    {
+      if (event == -1)
+	gameOver();
+      if (event == 0 || event == 1)
+	setDirection(event);
+      if (event >= 2 && event <= 5)
+	setRealDirection(event);
+      if (event == 6)
+	spaceBoost();
+    }
 }
 
 void					Game::start()
 {
   ILibrary                              *(*external_creator)();
   ILibrary                              *curLib;
-  int					tmp;
 
   external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
   curLib = external_creator();
   curLib->init(_width, _height);
   while (_isAlive)
     {
-      if ((tmp = curLib->eventHandler()) != 42)
-	{
-	  if (tmp == -1)
-	    gameOver();
-	  if (tmp == 0 || tmp == 1)
-	    setDirection(tmp);
-	  if (tmp == 4)
-	    spaceBoost();
-	}
+      handleEvent(curLib->eventHandler());
+      addApple();
       updatePath();
       move();
       handleBoost();
       updateMap();
       curLib->display(_map, _score, _boost);
-      if ((tmp = curLib->eventHandler()) != 42)
-	{
-	  if (tmp == -1)
-	    gameOver();
-	  if (tmp == 0 || tmp == 1)
-	    setDirection(tmp);
-	  if (tmp == 4)
-	    spaceBoost();
-	}
+      handleEvent(curLib->eventHandler());
       usleep(_speed);
     }
   curLib->quit();
@@ -318,6 +317,18 @@ void					Game::printMap() const
 }
 
 //SETTERS
+void					Game::setRealDirection(int dir)
+{
+  if (dir == 2 && _dir != DOWN)
+    _dir = UP;
+  else if (dir == 3 && _dir != RIGHT)
+    _dir = LEFT;
+  else if (dir == 4 && _dir != UP)
+    _dir = DOWN;
+  else if (dir == 5 && _dir != LEFT)
+    _dir = RIGHT;
+}
+
 void					Game::setDirection(int dir)
 {
   if (dir == 0)

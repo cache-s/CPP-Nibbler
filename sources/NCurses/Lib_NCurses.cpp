@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Sun Mar 29 19:23:50 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 10:53:28 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -48,7 +48,8 @@ void		NCurses::init(int x, int y)
   init_pair(5, COLOR_YELLOW, COLOR_YELLOW);
   init_pair(6, COLOR_RED, COLOR_GREEN);
   init_pair(7, COLOR_BLUE, COLOR_GREEN);
-  init_pair(8, COLOR_BLUE, COLOR_BLUE);
+  init_pair(8, COLOR_BLUE, COLOR_BLACK);
+  init_pair(9, COLOR_WHITE, COLOR_BLACK);
   refresh();
   _win = createWin(height, width, starty, startx);
   wclear(_win);
@@ -67,9 +68,9 @@ void		NCurses::display(int **map, int score, std::vector<int> boost)
   for (i = 0; i < (int)boost.size(); ++i)
     {
       if (boost[i] == 0)
-	waddch(_win, ACS_BLOCK | COLOR_PAIR(4));
+	waddch(_win, ACS_DIAMOND | COLOR_PAIR(9));
       if (boost[i] == 1)
-	waddch(_win, ACS_BLOCK | COLOR_PAIR(8));
+	waddch(_win, ACS_DIAMOND | COLOR_PAIR(8));
     }
   wprintw(_win, "\n");
   for (i = 0; i < _h; ++i)
@@ -105,14 +106,22 @@ int		NCurses::eventHandler()
     return (42);
   switch (ch)
     {
+    case 27:
+      return (-1);
     case KEY_LEFT:
       return (0);
     case KEY_RIGHT:
       return (1);
-    case 27:
-      return (-1);
-    case 32:
+    case 'z':
+      return (2);
+    case 'q':
+      return (3);
+    case 's':
       return (4);
+    case 'd':
+      return (5);
+    case 32:
+      return (6);
     default:
       return (42);
     }

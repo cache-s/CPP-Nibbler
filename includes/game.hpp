@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Sun Mar 29 19:13:55 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 10:55:59 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -28,6 +28,7 @@ public:
   ~Game();
 
   int				checkNext(int coordY, int coordX);
+  void				handleEvent(int event);
   void				handleBoost();
   void				spaceBoost();
   void				updatePath();
@@ -47,6 +48,7 @@ public:
   void				printMap() const;
 
   //SETTERS
+  void				setRealDirection(int dir);
   void				setDirection(int dir);
 
   //GETTERS
