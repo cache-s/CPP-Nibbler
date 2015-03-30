@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Sun Mar 29 22:45:43 2015 Pierre Charié
-// Last update Mon Mar 30 13:10:34 2015 Pierre Charié
+// Last update Mon Mar 30 16:08:42 2015 Sebastien Cache-Delanos
 //
 
 #ifndef		LIB_ALLEGRO_HPP_
@@ -30,7 +30,7 @@ public:
   ~Aleg();
 
   virtual void  init(int, int);
-  virtual void  display(int**, int, std::vector<int>);
+  virtual void  display(data d);
   virtual void  quit();
   virtual void  desc();
   virtual int   eventHandler();

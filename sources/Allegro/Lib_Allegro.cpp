@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Mon Mar 30 11:09:51 2015 Pierre Charié
-// Last update Mon Mar 30 13:11:03 2015 Pierre Charié
+// Last update Mon Mar 30 16:09:04 2015 Sebastien Cache-Delanos
 //
 
 #include "allegro5/Headers/allegro5/allegro.h"
@@ -28,11 +28,9 @@ void    Aleg::init(int w, int h)
   (void)h;
 }
 
-void	Aleg::display(int **map, int score, std::vector<int> boost)
+void	Aleg::display(data d)
 {
-  (void)map;
-  (void)score;
-  (void)boost;
+  (void)d;
 }
 
 void	Aleg::desc()
