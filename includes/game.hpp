@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 11:24:15 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 16:03:04 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -16,6 +16,21 @@
 # include			"ILibrary.hpp"
 
 # include			<vector>
+
+typedef struct  snk
+{
+  int           x;
+  int           y;
+  Direction     dir;
+}               snk;
+
+typedef struct  data
+{
+  int**                 map;
+  int                   score;
+  std::vector<int>      boost;
+  std::vector<snk>  snake;
+}               data;
 
 class				ILibrary;
 
@@ -34,9 +49,11 @@ public:
   void				spaceBoost();
   void				updatePath();
   void				updateMap();
+  std::vector<snk>		getSnake();
   void				gameOver();
   int				checkMap();
   void				addApple();
+  data				getData();
   void				start();
   void				move();
 

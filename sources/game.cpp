@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 12:58:18 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 16:02:53 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -227,6 +227,33 @@ void					Game::reinit()
   initMap();
 }
 
+std::vector<snk>			Game::getSnake()
+{
+  std::vector<snk>			s;
+  unsigned int				i;
+  snk					tmp;
+
+  for (i = 0; i < _snake.size(); ++i)
+    {
+      tmp.x = _snake[i]->getX();
+      tmp.y = _snake[i]->getY();
+      tmp.dir = _snake[i]->getDirection()[0];
+      s.push_back(tmp);
+    }
+  return s;
+}
+
+data					Game::getData()
+{
+  data					d;
+
+  d.map = _map;
+  d.score = _score;
+  d.boost = _boost;
+  d.snake = getSnake();
+  return d;
+}
+
 void					Game::start()
 {
   ILibrary                              *(*external_creator)();
@@ -243,7 +270,7 @@ void					Game::start()
       move();
       handleBoost();
       updateMap();
-      curLib->display(_map, _score, _boost);
+      curLib->display(getData());
       handleEvent(curLib->eventHandler());
       usleep(_speed);
     }

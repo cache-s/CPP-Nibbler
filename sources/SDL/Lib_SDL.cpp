@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Mon Mar 30 12:58:26 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 15:59:13 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -62,12 +62,11 @@ void		SDL::initAudio()
   Mix_AllocateChannels(2);
 }
 
-void		SDL::display(int **map, int score, std::vector<int> boost)
+void		SDL::display(data d)
 {
-  (void)boost;
-  resetBackground(map, _width, _height);
-  setSnake(map, _width, _height);
-  setScore(score);
+  resetBackground(d.map, _width, _height);
+  setSnake(d.map, _width, _height);
+  setScore(d.score);
   SDL_Flip(_screen);
 }
 

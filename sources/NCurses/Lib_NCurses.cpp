@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 14:03:31 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 15:59:21 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -65,21 +65,21 @@ void		NCurses::init(int x, int y)
   wrefresh(_win);
 }
 
-void		NCurses::display(int **map, int score, std::vector<int> boost)
+void		NCurses::display(data d)
 {
   int		i;
   int		j;
 
-  if (score != _score)
+  if (d.score != _score)
     beep();
-  _score = score;
+  _score = d.score;
   wclear(_win);
   wprintw(_win, "Score : %d\nBoost : ", _score);
-  for (i = 0; i < (int)boost.size(); ++i)
+  for (i = 0; i < (int)d.boost.size(); ++i)
     {
-      if (boost[i] == 0)
+      if (d.boost[i] == 0)
 	waddch(_win, ACS_DIAMOND | COLOR_PAIR(9));
-      if (boost[i] == 1)
+      if (d.boost[i] == 1)
 	waddch(_win, ACS_DIAMOND | COLOR_PAIR(8));
     }
   wprintw(_win, "\n");
@@ -87,20 +87,20 @@ void		NCurses::display(int **map, int score, std::vector<int> boost)
     {
       for (j = 0; j < _w; ++j)
 	{
-	  if (map[i][j] == 0)
+	  if (d.map[i][j] == 0)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(1));
-	  else if (map[i][j] == 1)
+	  else if (d.map[i][j] == 1)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(2));
-	  else if (map[i][j] == 2)
+	  else if (d.map[i][j] == 2)
 	    waddch(_win, ACS_PI | A_BLINK | COLOR_PAIR(3));
-	  else if (map[i][j] == 3 || map[i][j] == 4)
+	  else if (d.map[i][j] == 3 || d.map[i][j] == 4)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(5));
-	  else if (map[i][j] == 5)
+	  else if (d.map[i][j] == 5)
 	    waddch(_win, ACS_DIAMOND | COLOR_PAIR(6));
-	  else if (map[i][j] == 6)
+	  else if (d.map[i][j] == 6)
 	    waddch(_win, ACS_BOARD | A_BOLD | COLOR_PAIR(7));
 	  else
-	    wprintw(_win, "%d", map[i][j]);
+	    wprintw(_win, "%d", d.map[i][j]);
 	}
       wprintw(_win, "\n");
     }
