@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 11:29:28 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 12:58:51 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -27,6 +27,7 @@ public:
   virtual void		desc();
   virtual void		quit();
   virtual int		eventHandler();
+  virtual int		gameOver();
 
   void			initColors();
   WINDOW*		createWin(int height, int width, int starty, int startx);

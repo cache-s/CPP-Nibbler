@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 11:35:32 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 12:58:18 2015 Sebastien Cache-Delanos
 //
 
 #include				"game.hpp"
@@ -19,7 +19,6 @@ Game::Game(int width, int height, void *lib) : _width(width), _height(height), _
   _score = 0;
   _boosted = false;
   initMap();
-  initSnake();
   start();
 }
 
@@ -212,14 +211,20 @@ void					Game::handleEvent(int event)
 
 void					Game::reinit()
 {
+  int					i;
+
+  for(i = 0; i < _height; ++i)
+    delete [] _map[i];
+  delete [] _map;
+  for (i = 0; i < (int)_snake.size(); ++i)
+    delete _snake[i];
+  _snake.clear();
   _speed = 200000;
   _dir = RIGHT;
   _isAlive = true;
   _score = 0;
   _boosted = false;
   initMap();
-  initSnake();
-  start();
 }
 
 void					Game::start()
@@ -242,7 +247,13 @@ void					Game::start()
       handleEvent(curLib->eventHandler());
       usleep(_speed);
     }
-  curLib->quit();
+  if (curLib->gameOver() == 1)
+    {
+      reinit();
+      start();
+    }
+  else
+    curLib->quit();
 }
 
 void					Game::updateMap()
@@ -280,6 +291,7 @@ void					Game::initMap()
     _map[i][0] = 1;
   for (i = 0; i != _height; ++i)
     _map[i][_width - 1] = 1;
+  initSnake();
   initObstacle();
   addApple();
 }

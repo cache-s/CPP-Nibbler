@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 11:33:24 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 13:03:51 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -38,6 +38,8 @@ void		NCurses::initColors()
   init_pair(7, COLOR_BLUE, COLOR_GREEN);
   init_pair(8, COLOR_BLUE, COLOR_BLACK);
   init_pair(9, COLOR_WHITE, COLOR_BLACK);
+  init_pair(10, COLOR_GREEN, COLOR_BLACK);
+  init_pair(11, COLOR_RED, COLOR_BLACK);
 }
 
 void		NCurses::init(int x, int y)
@@ -51,10 +53,11 @@ void		NCurses::init(int x, int y)
   curs_set(0);
   _w = x;
   _h = y;
+  _score = 0;
   height = y + 2;
   width = x + 2;
-  starty = 0;
-  startx = 0;
+  starty = (LINES - height) / 2;
+  startx = (COLS - width) / 2;
   initColors();
   refresh();
   _win = createWin(height, width, starty, startx);
@@ -67,6 +70,8 @@ void		NCurses::display(int **map, int score, std::vector<int> boost)
   int		i;
   int		j;
 
+  if (score != _score)
+    beep();
   _score = score;
   wclear(_win);
   wprintw(_win, "Score : %d\nBoost : ", _score);
@@ -149,6 +154,39 @@ void		NCurses::quit()
   delwin(_win);
   curs_set(1);
   endwin();
+}
+
+int		NCurses::gameOver()
+{
+  int		ch;
+
+  wclear(_win);
+  wprintw(_win, "  Your score : %d\n\n", _score);
+  waddch(_win, ACS_DIAMOND | COLOR_PAIR(10));
+  wprintw(_win, " Press r to retry ");
+  waddch(_win, ACS_DIAMOND | COLOR_PAIR(10));
+  wprintw(_win, "\n");
+  waddch(_win, ACS_DIAMOND | COLOR_PAIR(11));
+  wprintw(_win, " Press q to quit  ");
+  waddch(_win, ACS_DIAMOND | COLOR_PAIR(11));
+  wrefresh(_win);
+  nodelay(stdscr, FALSE);
+  if ((ch = getch()) == ERR)
+    return (42);
+  while (42)
+    {
+      switch (ch)
+	{
+	case 'r':
+	case 'R':
+	  return (1);
+	case 'q':
+	case 'Q':
+	  return (0);
+	}
+    }
+  wrefresh(_win);
+  return (0);
 }
 
 extern "C"

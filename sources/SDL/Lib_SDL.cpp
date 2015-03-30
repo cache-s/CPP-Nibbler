@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Sun Mar 29 20:09:31 2015 Jordan Chazottes
+// Last update Mon Mar 30 12:58:26 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -198,4 +198,9 @@ void		SDL::quit()
   Mix_CloseAudio();
   TTF_Quit();
   SDL_Quit();
+}
+
+int		SDL::gameOver()
+{
+  return (0);
 }
