@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Mon Mar 30 13:52:44 2015 Pierre Charié
+## Last update Mon Mar 30 15:51:36 2015 Pierre Charié
 ##
 
 NAME_EXE	= nibbler
@@ -20,8 +20,8 @@ NAME_LIB	= lib_nibbler_SDL.so
 SRCS_LIB	= ./sources/SDL/Lib_SDL.cpp
 OBJS_LIB	= $(SRCS_LIB:.cpp=.o)
 
-NAME_LIB2	= lib_nibbler_Allegro.so
-SRCS_LIB2	= ./sources/Allegro/Lib_Allegro.cpp
+NAME_LIB2	= lib_nibbler_Xlib.so
+SRCS_LIB2	= ./sources/Xlib/Lib_Xlib.cpp
 OBJS_LIB2	= $(SRCS_LIB2:.cpp=.o)
 
 NAME_LIB3	= lib_nibbler_NCurses.so
@@ -64,7 +64,7 @@ $(NAME_LIB2): $(OBJS_LIB2)
 	@echo ' '
 	@echo 'Building target: $@'
 	@echo 'Invoking: G++ C Linker'
-	$(CXX) -shared -o $(NAME_LIB2) $(OBJS_LIB2)
+	$(CXX) -lX11 -shared -o $(NAME_LIB2) $(OBJS_LIB2)
 	@echo -n 'Finished building target:'
 	@echo -e $(CYAN) '$@'
 	@echo -e $(NORMAL) ' '
