@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 //
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Mon Mar 30 19:12:06 2015 Pierre Charié
+// Last update Mon Mar 30 19:30:13 2015 Pierre Charié
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -47,6 +47,7 @@ private:
   Display	*disp;
   Window	win;
   XEvent	report;
+
   Colormap	colormap;
   GC		gcGround;
   GC		gcWall;

@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Mon Mar 30 15:04:02 2015 Pierre Charié
-// Last update Mon Mar 30 19:25:02 2015 Pierre Charié
+// Last update Mon Mar 30 19:54:10 2015 Pierre Charié
 //
 
 #include	"Lib_Xlib.hpp"
@@ -101,6 +101,9 @@ void		Xlib::init(int x, int y)
       	break;
     }
 
+
+  Atom wmDelete=XInternAtom(disp, "WM_DELETE_WINDOW", True);
+  XSetWMProtocols(disp, win, &wmDelete, 1);
   //
 
   //
@@ -123,7 +126,6 @@ void		Xlib::display(data d)
   for (int y = 0; y < this->height; y++)
     for (int x = 0; x < this->width; x++)
       {
-	std::cout << "case = " << d.map[y][x] << std::endl;
         if (d.map[y][x] == 0)
 	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
 			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcGround);
@@ -131,8 +133,11 @@ void		Xlib::display(data d)
 	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
 			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcWall);
 	if (d.map[y][x] == 2)
-	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcHead);
+	  {
+	    this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+			    x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcHead);
+	    std::cout << "case = " << d.map[y][x] << std::endl;
+	  }
 	if (d.map[y][x] == 3)
 	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
 			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcBody);
@@ -158,7 +163,33 @@ void		Xlib::draw_rect(int x1, int y1, int x2, int y2, GC color)
 
 int		Xlib::eventHandler()
 {
-  return (0);
+  // while (1)
+  //   {
+  std::cout << "waitin...\n";
+      XNextEvent(this->disp, &this->report);
+  std::cout << "end!...\n";
+      switch (report.type)
+  	{
+  	case ClientMessage:
+  	  break; //TODO exception
+  	case KeyPress:
+	  std::cout << "case!\n";
+	  if (report.type == KeyPress)
+	    {
+	      if (XLookupKeysym(&report.xkey, 0) == XK_Escape)
+		break; //TODO fermeture
+	      if (XLookupKeysym(&report.xkey, 0) == XK_Left)
+		return 0;
+	      if (XLookupKeysym(&report.xkey, 0) == XK_Right)
+		return 1;
+	      return 42;
+	    }
+	default:
+	  return 42;
+  	}
+    //   break;
+    // }
+  return 42;
 }
 
 
