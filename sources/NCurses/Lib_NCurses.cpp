@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 13:03:51 2015 Sebastien Cache-Delanos
+// Last update Mon Mar 30 14:03:31 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -171,10 +171,10 @@ int		NCurses::gameOver()
   waddch(_win, ACS_DIAMOND | COLOR_PAIR(11));
   wrefresh(_win);
   nodelay(stdscr, FALSE);
-  if ((ch = getch()) == ERR)
-    return (42);
   while (42)
     {
+      if ((ch = getch()) == ERR)
+	return (42);
       switch (ch)
 	{
 	case 'r':
