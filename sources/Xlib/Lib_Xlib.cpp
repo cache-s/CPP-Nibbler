@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Mon Mar 30 15:04:02 2015 Pierre Charié
-// Last update Mon Mar 30 19:54:10 2015 Pierre Charié
+// Last update Tue Mar 31 11:28:08 2015 Pierre Charié
 //
 
 #include	"Lib_Xlib.hpp"
@@ -165,30 +165,36 @@ int		Xlib::eventHandler()
 {
   // while (1)
   //   {
-  std::cout << "waitin...\n";
-      XNextEvent(this->disp, &this->report);
-  std::cout << "end!...\n";
-      switch (report.type)
-  	{
-  	case ClientMessage:
-  	  break; //TODO exception
-  	case KeyPress:
-	  std::cout << "case!\n";
-	  if (report.type == KeyPress)
-	    {
-	      if (XLookupKeysym(&report.xkey, 0) == XK_Escape)
-		break; //TODO fermeture
-	      if (XLookupKeysym(&report.xkey, 0) == XK_Left)
-		return 0;
-	      if (XLookupKeysym(&report.xkey, 0) == XK_Right)
-		return 1;
-	      return 42;
-	    }
-	default:
-	  return 42;
-  	}
-    //   break;
-    // }
+
+  // std::cout << "waitin...\n";
+  //     XNextEvent(this->disp, &this->report);
+  // std::cout << "end!...\n";
+
+  this->report.type = Expose;
+  XCheckWindowEvent(this->disp, this->win, KeyPressMask, &this->report);
+    switch (report.type)
+      {
+      case Expose :
+	break;
+      case ClientMessage:
+	break; //TODO exception
+      case KeyPress:
+	std::cout << "case!\n";
+	if (report.type == KeyPress)
+	  {
+	    if (XLookupKeysym(&report.xkey, 0) == XK_Escape)
+	      break; //TODO fermeture
+	    if (XLookupKeysym(&report.xkey, 0) == XK_Left)
+	      return 0;
+	    if (XLookupKeysym(&report.xkey, 0) == XK_Right)
+	      return 1;
+	    return 42;
+	  }
+      default:
+	return 42;
+      }
+  //   break;
+  // }
   return 42;
 }
 
