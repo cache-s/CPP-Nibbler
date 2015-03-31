@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Tue Mar 31 11:21:01 2015 Jordan Chazottes
+// Last update Tue Mar 31 11:32:33 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -26,7 +26,6 @@ public:
   virtual void	init(int, int);
   virtual void	display(data d);
   virtual void	quit();
-  virtual void	desc();
   virtual int	eventHandler();
   virtual int	gameOver();
   int		waitPause();

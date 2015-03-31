@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Tue Mar 31 11:22:42 2015 Jordan Chazottes
+// Last update Tue Mar 31 11:34:03 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -340,11 +340,6 @@ void		SDL::applySurface(int x, int y, SDL_Surface *src, SDL_Rect *clip)
   offset.x = x;
   offset.y = y;
   SDL_BlitSurface(src, clip, _screen, &offset);
-}
-
-void		SDL::desc()
-{
-  std::cout << "Using SDL library !" << std::endl;
 }
 
 void		SDL::quit()

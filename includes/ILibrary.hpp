@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Mon Mar 30 16:00:20 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 31 11:32:17 2015 Jordan Chazottes
 //
 
 #ifndef		ILIBRARY_HPP_
@@ -23,7 +23,6 @@ class	Game;
 class		ILibrary
 {
 public:
-  virtual void	desc() = 0;
   virtual void	init(int, int) = 0;
   virtual void	display(data d) = 0;
   virtual void	quit() = 0;

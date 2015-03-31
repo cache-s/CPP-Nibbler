@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 31 10:53:30 2015 Jordan Chazottes
+// Last update Tue Mar 31 11:33:46 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -143,11 +143,6 @@ int		NCurses::eventHandler()
       return (42);
     }
   return (42);
-}
-
-void		NCurses::desc()
-{
-  std::cout << "Using NCurses library !" << std::endl;
 }
 
 void		NCurses::quit()
