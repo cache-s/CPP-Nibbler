@@ -5,8 +5,10 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Mon Mar 30 15:04:02 2015 Pierre Charié
-// Last update Tue Mar 31 11:32:05 2015 Pierre Charié
+// Last update Tue Mar 31 15:21:40 2015 Pierre Charié
 //
+
+#include	<sstream>
 
 #include	"Lib_Xlib.hpp"
 
@@ -31,26 +33,26 @@ void		Xlib::setColor()
   int	err = 0;
 
   this->gcGround = XCreateGC(this->disp, this->win, 0, 0);
-  this->gcWall = XCreateGC(this->disp, this->win, 0, 0); //X ne retiens pas les couleurs de bases : stockage;
+  this->gcWall = XCreateGC(this->disp, this->win, 0, 0);
   this->gcObst = XCreateGC(this->disp, this->win, 0, 0);
   this->gcHead = XCreateGC(this->disp, this->win, 0, 0);
   this->gcBody = XCreateGC(this->disp, this->win, 0, 0);
   this->gcTail = XCreateGC(this->disp, this->win, 0, 0);
   this->gcApple = XCreateGC(this->disp, this->win, 0, 0);
 
-  if (XParseColor(this->disp, this->colormap, "rgb:0/255/0", &colGround) == 0)
+  if (XParseColor(this->disp, this->colormap, "yellow green", &colGround) == 0)
     err++;
   if (XParseColor(this->disp, this->colormap, "rgb:0/0/0", &colWall) == 0)
     err++;
-  if (XParseColor(this->disp, this->colormap, "rgb:144/144/144", &colObst) == 0)
+  if (XParseColor(this->disp, this->colormap, "rgb:AB/AB/AB", &colObst) == 0)
     err++;
-  if ( XParseColor(this->disp, this->colormap, "rgb:255/0/0", &colHead) == 0)
+  if ( XParseColor(this->disp, this->colormap, "rgb:FF/00/FA", &colHead) == 0)
     err++;
-  if (XParseColor(this->disp, this->colormap, "rgb:200/100/0", &colBody) == 0)
+  if (XParseColor(this->disp, this->colormap, "rgb:FA/BA/0", &colBody) == 0)
     err++;
-  if (XParseColor(this->disp, this->colormap, "rgb:255/200/0", &colTail) == 0)
+  if (XParseColor(this->disp, this->colormap, "rgb:FC/FA/0", &colTail) == 0)
     err++;
-  if (XParseColor(this->disp, this->colormap, "rgb:255/0/0", &colApple) == 0)
+  if (XParseColor(this->disp, this->colormap, "rgb:FF/0/0", &colApple) == 0)
     err++;
 
   XAllocColor(this->disp, this->colormap, &colGround);
@@ -84,73 +86,71 @@ void		Xlib::init(int x, int y)
   this->disp = XOpenDisplay(NULL);
 
   int blackColor = BlackPixel(this->disp, DefaultScreen(this->disp));
-  int whiteColor = WhitePixel(this->disp, DefaultScreen(this->disp));
-  (void)whiteColor;
+  XColor bgcol;
+
+  this->colormap = DefaultColormap(this->disp, 0);
+  XParseColor(this->disp, this->colormap, "yellow green", &bgcol);
+  XAllocColor(this->disp, this->colormap, &bgcol);
 
   this->win = XCreateSimpleWindow(this->disp, RootWindow(this->disp, 0), 0, 0, this->width * PIXSIZE,
-				  this->height * PIXSIZE, 0, blackColor, blackColor);
-  this->colormap = DefaultColormap(disp, 0); //met la colormap par defaut (ecran, numero ecran)
-  XSelectInput(this->disp, this->win, ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask); //grep les touches
+				  this->height * PIXSIZE, 0, blackColor, bgcol.pixel);
+  XSelectInput(this->disp, this->win, ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask);
   XMapWindow(this->disp, this->win);
   this->setColor();
-  while (42) //on attend que la map soit prete. on boucle tant que le signal est pas le bon
+  while (42)
     {
       XEvent e;
       XNextEvent(this->disp, &e);
       if (e.type == MapNotify)
       	break;
     }
-
-
-  Atom wmDelete=XInternAtom(disp, "WM_DELETE_WINDOW", True);
-  XSetWMProtocols(disp, win, &wmDelete, 1);
-  //
-
-  //
-
-  //
-  // XSetForeground(this->disp, this->gcGround, whiteColor);
-  // XDrawLine(this->disp, this->win, this->gcApple, 10, 60, 180, 20);
-  // XFlush(this->disp);
-  //
-  //
-  // sleep(10);
+  XFlush(this->disp);
 }
 
-
-void		Xlib::display(data d)
+void            Xlib::display(data d)
 {
-  (void)d;
-  static int	i = 0;
-  i += 10;
   for (int y = 0; y < this->height; y++)
     for (int x = 0; x < this->width; x++)
       {
-        if (d.map[y][x] == 0)
-	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcGround);
-        if (d.map[y][x] == 1)
-	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcWall);
-	if (d.map[y][x] == 2)
-	  {
-	    this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			    x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcHead);
-	    std::cout << "case = " << d.map[y][x] << std::endl;
-	  }
-	if (d.map[y][x] == 3)
-	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcBody);
-	if (d.map[y][x] == 4)
-	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcTail);
-	if (d.map[y][x] == 5)
-	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcApple);
-	if (d.map[y][x] == 6)
-	  this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-			  x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcObst);
+        switch (d.map[y][x])
+          {
+          case 0:
+            this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcGround);
+	    break;
+          case 1:
+            this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcWall);
+	    break;
+          case 2:
+            this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcHead);
+	    break;
+          case 3:
+            this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcBody);
+	    break;
+          case 4:
+            this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcTail);
+	    break;
+          case 5:
+            this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcApple);
+	    break;
+          case 6:
+            this->draw_rect(x * PIXSIZE, y * PIXSIZE,
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcObst);
+	    break;
+	  default:
+	    break;
+          }
       }
+
+  std::ostringstream oss;
+
+  oss << "Score : " << d.score;
+  XDrawString(this->disp, this->win, this->gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
   XFlush(this->disp);
 }
 
@@ -158,26 +158,49 @@ void		Xlib::draw_rect(int x1, int y1, int x2, int y2, GC color)
 {
   XDrawRectangle(this->disp, this->win, color, x1, y1, x2, y2);
   XFillRectangle(this->disp, this->win, color, x1, y1, x2, y2);
+}
 
+void		Xlib::waitPause()
+{
+  while (42)
+    {
+      XEvent e;
+      XNextEvent(this->disp, &e);
+      if (e.type == KeyPress)
+      	break;
+    }
 }
 
 int		Xlib::eventHandler()
 {
   this->report.type = Expose;
   XCheckWindowEvent(this->disp, this->win, KeyPressMask, &this->report);
-    switch (report.type)
+    switch (this->report.type)
       {
       case Expose :
 	break;
       case KeyPress:
-	if (report.type == KeyPress)
+	switch (XLookupKeysym(&report.xkey, 0))
 	  {
-	    if (XLookupKeysym(&report.xkey, 0) == XK_Escape)
-	      return -1;
-	    if (XLookupKeysym(&report.xkey, 0) == XK_Left)
-	      return 0;
-	    if (XLookupKeysym(&report.xkey, 0) == XK_Right)
-	      return 1;
+	  case XK_Escape :
+	    return -1;
+	  case XK_Left :
+	    return 0;
+	  case XK_Right :
+	    return 1;
+	  case XK_space :
+	    return 6;
+	  case XK_z:
+	    return 2;
+	  case XK_q:
+	    return 3;
+	  case XK_s:
+	    return 4;
+	  case XK_d:
+	    return 5;
+	  case XK_p:
+	    this->waitPause();
+	  default:
 	    return 42;
 	  }
       default:
@@ -189,10 +212,33 @@ int		Xlib::eventHandler()
 
 void		Xlib::quit()
 {
+  XUnmapWindow(this->disp, this->win);
+  XDestroyWindow(this->disp, this->win);
+  XCloseDisplay(this->disp);
 }
 
 
 int		Xlib::gameOver()
 {
+  std::string buffer = "Game Over. Press \"r\" to try again, or any other key to leave";
+
+  XDrawString(this->disp, this->win, this->gcWall, 50, 50, buffer.c_str(), strlen(buffer.c_str()));
+  while (42)
+    {
+      XEvent e;
+      XNextEvent(this->disp, &e);
+      if (e.type == KeyPress)
+	{
+	  if (XLookupKeysym(&e.xkey, 0)  == XK_r)
+	    {
+	      XUnmapWindow(this->disp, this->win);
+	      XDestroyWindow(this->disp, this->win);
+	      XCloseDisplay(this->disp);
+	      return 1;
+	    }
+	  break;
+	}
+    }
+  XFlush(this->disp);
   return (0);
 }

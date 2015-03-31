@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 //
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Tue Mar 31 11:33:13 2015 Jordan Chazottes
+// Last update Tue Mar 31 12:48:35 2015 Pierre Charié
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -35,9 +35,9 @@ public:
   virtual int	eventHandler();
   virtual int	gameOver();
 
-  void		draw_bg(int **);
   void		setColor();
   void          draw_rect(int, int, int, int, GC);
+  void		waitPause();
 
 private:
   int		width;
