@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Tue Mar 31 11:34:03 2015 Jordan Chazottes
+// Last update Tue Mar 31 15:05:24 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -37,7 +37,7 @@ void		SDL::init(int x, int y)
 
 void		SDL::initScore()
 {
-  if ((_font = TTF_OpenFont("ressources/fonts/FKV.ttf", 20)) == NULL)
+  if ((_font = TTF_OpenFont("ressources/fonts/game_over.ttf", 64)) == NULL)
     std::cout << "Error loading Font FKV" << std::endl;
   _curScore = 0;
   setScore(0);
@@ -59,6 +59,8 @@ void		SDL::initAudio()
     std::cout << "Error loading music mixer" << std::endl;
   _music = Mix_LoadMUS("ressources/sounds/nyan.wav");
   _point = Mix_LoadWAV("ressources/sounds/point.wav");
+  _gameOver = Mix_LoadWAV("ressources/sounds/gameOver.wav");
+  _pause = Mix_LoadWAV("ressources/sounds/pause.wav");
   Mix_VolumeMusic(MIX_MAX_VOLUME/2);
   Mix_PlayMusic(_music, -1);
   Mix_AllocateChannels(2);
@@ -188,7 +190,10 @@ void		SDL::setSnake(std::vector<snk> snake)
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == DOWN)
 	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[5]);
 	    else
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[9]);
+	      if ((i + 1) == snake.size())
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[9]);
+	      else
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[6]);
 	}
       if (snake[i].dir == LEFT)
 	{
@@ -198,7 +203,10 @@ void		SDL::setSnake(std::vector<snk> snake)
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == DOWN)
 	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[15]);
 	    else
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[1]);
+	      if ((i + 1) == snake.size())
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[14]);
+	      else
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[1]);
 	}
       if (snake[i].dir == UP)
 	{
@@ -208,7 +216,10 @@ void		SDL::setSnake(std::vector<snk> snake)
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == LEFT)
 	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[13]);
 	    else
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[11]);
+	      if ((i + 1) == snake.size())
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[11]);
+	      else
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[4]);
 	}
       if (snake[i].dir == DOWN)
 	{
@@ -218,7 +229,10 @@ void		SDL::setSnake(std::vector<snk> snake)
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == LEFT)
 	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[0]);
 	    else
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[12]);
+	      if ((i + 1) == snake.size())
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[12]);
+	      else
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[3]);
 	}
     }
 }
@@ -235,8 +249,8 @@ void		SDL::setScore(int score)
   color.b = 255;
   oss117 << "Score : " << score;
   txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
-  pos.x = 10;
-  pos.y = 10;
+  pos.x = 0;
+  pos.y = 0;
   if (score != 0 && _curScore != score)
     Mix_PlayChannel(1, _point, 0);
   SDL_BlitSurface(txt, NULL, _screen, &pos);
@@ -261,7 +275,7 @@ void		SDL::setBoost(std::vector<int> boost)
   oss117 << "Boost : " << tmp;
   txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
   pos.x = 200;
-  pos.y = 10;
+  pos.y = 0;
   SDL_BlitSurface(txt, NULL, _screen, &pos);
   SDL_Flip(_screen);
 }
@@ -272,6 +286,14 @@ int		SDL::waitPause()
 {
   SDL_Event	event;
 
+  if (Mix_PausedMusic() == 1)
+    {
+    }
+  else
+    {
+      Mix_PauseMusic();
+      Mix_PlayChannel(1, _pause, -1);
+    }
   sleep(1);
   SDL_PollEvent(&event);
   switch (event.type)
@@ -282,6 +304,8 @@ int		SDL::waitPause()
       switch(event.key.keysym.sym)
 	{
 	case SDLK_p:
+	  Mix_Pause(-1);
+	  Mix_ResumeMusic();
 	  return 42;
 	case SDLK_ESCAPE:
 	  return -1;
@@ -382,21 +406,30 @@ int		SDL::checkRestart()
 
 int		SDL::gameOver()
 {
-  std::ostringstream	oss117;
-  SDL_Color		color;
-  SDL_Rect		pos;
-  SDL_Surface		*txt;
-  int			ret;
+  std::string	text = "Game Over !";
+  std::string	text2 = "Press R to Restart or Q to Quit";
+  SDL_Color	color;
+  SDL_Rect	pos[2];
+  SDL_Surface	*txt;
+  SDL_Surface	*txt2;
+  int		ret;
+
+  Mix_HaltMusic();
+  Mix_PlayChannel(1, _gameOver, 0);
 
   color.r = 255;
   color.g = 255;
   color.b = 255;
-  oss117 << "Game Over !\n Press R to Restart or Q to quit";
-  txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
-  pos.x = 100;
-  pos.y = 150;
-  SDL_BlitSurface(txt, NULL, _screen, &pos);
+  txt = TTF_RenderText_Blended(_font, text.c_str(), color);
+  txt2 = TTF_RenderText_Blended(_font, text2.c_str(), color);
+  pos[0].x = (_width*32)/2 - 70;
+  pos[0].y = (_height*32)/2;
+  pos[1].x = (_width*32)/2 - 170;
+  pos[1].y = (_height*32)/2 + 50;
+  SDL_BlitSurface(txt, NULL, _screen, &pos[0]);
+  SDL_BlitSurface(txt2, NULL, _screen, &pos[1]);
   SDL_Flip(_screen);
   while ((ret = checkRestart()) == 42);
+  Mix_Pause(-1);
   return ret;
 }

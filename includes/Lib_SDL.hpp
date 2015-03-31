@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Tue Mar 31 11:32:33 2015 Jordan Chazottes
+// Last update Tue Mar 31 13:28:30 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -46,6 +46,8 @@ private:
   SDL_Surface*	_tail;
   Mix_Music*	_music;
   Mix_Chunk*	_point;
+  Mix_Chunk*	_gameOver;
+  Mix_Chunk*	_pause;
   int		_width;
   int		_height;
   int		_curScore;

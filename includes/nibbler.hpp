@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Mon Mar 23 13:25:22 2015 Sebastien Cache-Delanos
-// Last update Wed Mar 25 18:11:05 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 31 15:05:53 2015 Jordan Chazottes
 //
 
 #ifndef				NIBBLER_HPP_
@@ -21,9 +21,9 @@
 
 /* DEFINE */
 
-# define			MIN_WIDTH	10
+# define			MIN_WIDTH	20
 # define			MAX_WIDTH	100
-# define			MIN_HEIGHT	10
+# define			MIN_HEIGHT	20
 # define			MAX_HEIGHT	100
 
 /* ENUM */
