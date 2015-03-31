@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Mon Mar 30 15:04:02 2015 Pierre Charié
-// Last update Tue Mar 31 11:28:08 2015 Pierre Charié
+// Last update Tue Mar 31 11:32:05 2015 Pierre Charié
 //
 
 #include	"Lib_Xlib.hpp"
@@ -163,27 +163,17 @@ void		Xlib::draw_rect(int x1, int y1, int x2, int y2, GC color)
 
 int		Xlib::eventHandler()
 {
-  // while (1)
-  //   {
-
-  // std::cout << "waitin...\n";
-  //     XNextEvent(this->disp, &this->report);
-  // std::cout << "end!...\n";
-
   this->report.type = Expose;
   XCheckWindowEvent(this->disp, this->win, KeyPressMask, &this->report);
     switch (report.type)
       {
       case Expose :
 	break;
-      case ClientMessage:
-	break; //TODO exception
       case KeyPress:
-	std::cout << "case!\n";
 	if (report.type == KeyPress)
 	  {
 	    if (XLookupKeysym(&report.xkey, 0) == XK_Escape)
-	      break; //TODO fermeture
+	      return -1;
 	    if (XLookupKeysym(&report.xkey, 0) == XK_Left)
 	      return 0;
 	    if (XLookupKeysym(&report.xkey, 0) == XK_Right)
@@ -193,16 +183,9 @@ int		Xlib::eventHandler()
       default:
 	return 42;
       }
-  //   break;
-  // }
   return 42;
 }
 
-
-void		Xlib::desc()
-{
-  std::cout << "Using Xlib library !" << std::endl;
-}
 
 void		Xlib::quit()
 {
