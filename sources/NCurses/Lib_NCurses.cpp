@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 15:59:21 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 31 10:53:30 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -134,6 +134,9 @@ int		NCurses::eventHandler()
     case 'd':
     case 'D':
       return (5);
+    case 'p':
+    case 'P':
+      return (7);
     case 32:
       return (6);
     default:

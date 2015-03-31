@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Mon Mar 30 15:58:50 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 31 11:21:01 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -29,10 +29,13 @@ public:
   virtual void	desc();
   virtual int	eventHandler();
   virtual int	gameOver();
+  int		waitPause();
   void		resetBackground(int**, int, int);
-  void		setSnake(int **, int, int);
+  void		setSnake(std::vector<snk> snake);
   void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
   void		setScore(int);
+  int		checkRestart();
+  void		setBoost(std::vector<int>);
   void		initSprites();
   void		initAudio();
   void		initScore();
@@ -41,6 +44,7 @@ private:
   SDL_Surface*	_screen;
   SDL_Surface*	_bg;
   SDL_Surface*	_snake;
+  SDL_Surface*	_tail;
   Mix_Music*	_music;
   Mix_Chunk*	_point;
   int		_width;

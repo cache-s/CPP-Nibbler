@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 16:03:04 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 31 11:12:47 2015 Jordan Chazottes
 //
 
 #ifndef				GAME_HPP_

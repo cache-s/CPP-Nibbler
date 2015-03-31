@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 16:02:53 2015 Sebastien Cache-Delanos
+// Last update Tue Mar 31 11:12:31 2015 Jordan Chazottes
 //
 
 #include				"game.hpp"
@@ -237,7 +237,10 @@ std::vector<snk>			Game::getSnake()
     {
       tmp.x = _snake[i]->getX();
       tmp.y = _snake[i]->getY();
-      tmp.dir = _snake[i]->getDirection()[0];
+      if (_snake[i]->getDirection().size() > 0)
+	tmp.dir = _snake[i]->getDirection()[0];
+      else
+	tmp.dir = _dir;
       s.push_back(tmp);
     }
   return s;
