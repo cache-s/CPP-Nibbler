@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Tue Mar 31 15:05:24 2015 Jordan Chazottes
+// Last update Tue Mar 31 15:26:44 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -286,10 +286,7 @@ int		SDL::waitPause()
 {
   SDL_Event	event;
 
-  if (Mix_PausedMusic() == 1)
-    {
-    }
-  else
+  if (Mix_PausedMusic() != 1)
     {
       Mix_PauseMusic();
       Mix_PlayChannel(1, _pause, -1);
@@ -340,6 +337,12 @@ int		SDL::eventHandler()
 	  return 5;
 	case SDLK_p:
 	  return waitPause();
+	case SDLK_m:
+	  if (Mix_PausedMusic() != 1)
+	    Mix_PauseMusic();
+	  else
+	    Mix_ResumeMusic();
+	  return 42;
 	case SDLK_ESCAPE:
 	  return -1;
 	case SDLK_RIGHT:
