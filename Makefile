@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Thu Apr  2 17:01:58 2015 Sebastien Cache-Delanos
+## Last update Thu Apr  2 17:53:45 2015 Jordan Chazottes
 ##
 
 NAME_EXE	= nibbler

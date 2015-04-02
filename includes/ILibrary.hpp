@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Thu Apr  2 17:13:12 2015 Jordan Chazottes
+// Last update Thu Apr  2 17:53:17 2015 Jordan Chazottes
 //
 
 #ifndef		ILIBRARY_HPP_
@@ -14,9 +14,12 @@
 # include	<vector>
 
 # include	"Game.hpp"
+# include	"Event.hpp"
 
 struct	snk;
 struct	data;
+
+class		Game;
 
 class		ILibrary
 {
@@ -24,9 +27,9 @@ public:
   virtual void		init(int, int) = 0;
   virtual void		display(data d) = 0;
   virtual void		quit() = 0;
-  virtual Game::Event	eventHandler() = 0;
+  virtual Event		eventHandler() = 0;
   virtual int		gameOver() = 0;
-  virtual Game::Event	pause() = 0;
+  virtual Event		pause() = 0;
   virtual void		muteGame() = 0;
 };
 

@@ -5,10 +5,9 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 16:34:55 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 18:01:10 2015 Jordan Chazottes
 //
 
-#include				"ILibrary.hpp"
 #include				"Game.hpp"
 
 //CONSTRUCTOR
@@ -169,6 +168,26 @@ void					Game::handleBoost()
       _boost++;
 }
 
+void					Game::loadLib(Event event)
+{
+  void					*dlhandle;
+
+  if (event == L_SDL)
+    if ((dlhandle = dlopen("./lib_nibbler_SDL.so", RTLD_LAZY)) == NULL)
+      std::cout << "Error while changing library to SDL\n";
+  if (event == L_XLIB)
+    if ((dlhandle = dlopen("./lib_nibbler_Xlib.so", RTLD_LAZY)) == NULL)
+      std::cout << "Error while changing library to Xlib\n";
+  if (event == L_NCURSES)
+    if ((dlhandle = dlopen("./lib_nibbler_NCurses.so", RTLD_LAZY)) == NULL)
+      std::cout << "Error while changing library to NCurses\n";
+  _curLib->quit();
+  _external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(dlhandle, "createLib"));
+  _curLib = _external_creator();
+  _curLib->init(_width, _height);
+
+}
+
 void					Game::handleEvent(Event event)
 {
   if (event != DEFAULT)
@@ -181,6 +200,8 @@ void					Game::handleEvent(Event event)
 	setRealDirection(event);
       if (event == BOOST)
 	spaceBoost();
+      if (event == L_SDL || event == L_XLIB || event == L_NCURSES)
+	loadLib(event);
     }
 }
 
@@ -235,31 +256,28 @@ data					Game::getData()
 
 void					Game::start()
 {
-  ILibrary                              *(*external_creator)();
-  ILibrary                              *curLib;
-
-  external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
-  curLib = external_creator();
-  curLib->init(_width, _height);
+  _external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
+  _curLib = _external_creator();
+  _curLib->init(_width, _height);
   while (_isAlive)
     {
-      handleEvent(curLib->eventHandler());
+      handleEvent(_curLib->eventHandler());
       addApple();
       updatePath();
       move();
       handleBoost();
       updateMap();
-      curLib->display(getData());
-      handleEvent(curLib->eventHandler());
+      _curLib->display(getData());
+      handleEvent(_curLib->eventHandler());
       usleep(_speed);
     }
-  if (curLib->gameOver() == 1)
+  if (_curLib->gameOver() == 1)
     {
       reinit();
       start();
     }
   else
-    curLib->quit();
+    _curLib->quit();
 }
 
 void					Game::updateMap()

@@ -5,16 +5,21 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 16:55:11 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 17:53:10 2015 Jordan Chazottes
 //
 
 #ifndef				GAME_HPP_
 # define			GAME_HPP_
 
+# include			<vector>
+
 # include			"nibbler.hpp"
 # include			"Snake.hpp"
+# include			"ILibrary.hpp"
+# include			"Event.hpp"
 
-# include			<vector>
+
+class ILibrary;
 
 typedef struct  snk
 {
@@ -39,21 +44,6 @@ public:
   //DESTRUCTOR
   ~Game();
 
-  enum			Event
-    {
-      QUIT		=	-1,
-      ARROW_LEFT	=	0,
-      ARROW_RIGHT	=	1,
-      Z_UP		=	2,
-      Q_LEFT		=	3,
-      S_DOWN		=	4,
-      D_RIGHT		=	5,
-      BOOST		=	6,
-      PAUSE		=	7,
-      DEFAULT		=	42,
-      UNKNOWN
-    };
-
   int				checkNext(int coordY, int coordX);
   void				handleEvent(Event event);
   void				handleBoost();
@@ -67,7 +57,7 @@ public:
   data				getData();
   void				start();
   void				move();
-
+  void				loadLib(Event);
   //INIT
   void				initObstacle();
   void				initSnake();
@@ -99,6 +89,8 @@ private:
   Direction			_dir;
   void*				_lib;
   int**				_map;
+  ILibrary			*(*_external_creator)();
+  ILibrary			*_curLib;
 };
 
 #endif				//GAME_HPP_

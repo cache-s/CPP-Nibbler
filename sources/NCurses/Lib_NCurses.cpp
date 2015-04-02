@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 17:28:18 2015 Jordan Chazottes
+// Last update Thu Apr  2 18:10:46 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -107,42 +107,48 @@ void		NCurses::display(data d)
   wrefresh(_win);
 }
 
-Game::Event	NCurses::eventHandler()
+Event	NCurses::eventHandler()
 {
   int		ch;
 
   nodelay(stdscr, TRUE);
   if ((ch = getch()) == ERR)
-    return (Game::DEFAULT);
+    return (DEFAULT);
   switch (ch)
     {
     case 27:
-      return (Game::QUIT);
+      return (QUIT);
     case KEY_LEFT:
-      return (Game::ARROW_LEFT);
+      return (ARROW_LEFT);
     case KEY_RIGHT:
-      return (Game::ARROW_RIGHT);
+      return (ARROW_RIGHT);
     case 'z':
     case 'Z':
-      return (Game::Z_UP);
+      return (Z_UP);
     case 'q':
     case 'Q':
-      return (Game::Q_LEFT);
+      return (Q_LEFT);
     case 's':
     case 'S':
-      return (Game::S_DOWN);
+      return (S_DOWN);
     case 'd':
     case 'D':
-      return (Game::D_RIGHT);
+      return (D_RIGHT);
     case 'p':
     case 'P':
-      return (Game::PAUSE);
+      return (PAUSE);
     case 32:
-      return (Game::BOOST);
+      return (BOOST);
+    case KEY_F(1):
+      return L_SDL;
+    case KEY_F(2):
+      return L_XLIB;
+    case KEY_F(3):
+      return L_NCURSES;
     default:
-      return (Game::DEFAULT);
+      return (DEFAULT);
     }
-  return (Game::DEFAULT);
+  return (DEFAULT);
 }
 
 void		NCurses::quit()
@@ -187,9 +193,9 @@ int		NCurses::gameOver()
   return (0);
 }
 
-Game::Event	NCurses::pause()
+Event	NCurses::pause()
 {
-  return (Game::UNKNOWN);
+  return (UNKNOWN);
 }
 
 void		NCurses::muteGame()

@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Apr  2 17:12:29 2015 Jordan Chazottes
+// Last update Thu Apr  2 18:23:13 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -27,9 +27,9 @@ public:
   virtual void	init(int, int);
   virtual void	display(data d);
   virtual void	quit();
-  virtual Game::Event	eventHandler();
+  virtual Event	eventHandler();
   virtual int	gameOver();
-  virtual Game::Event	pause();
+  virtual Event	pause();
   virtual void	muteGame();
 
 private:
@@ -57,6 +57,7 @@ private:
   SDL_Surface*	_tail;
   Mix_Music*	_music;
   Mix_Chunk*	_point;
+  Mix_Chunk*	_klaxon;
   Mix_Chunk*	_gameOver;
   Mix_Chunk*	_pause;
   int		_width;

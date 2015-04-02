@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Apr  2 17:22:29 2015 Jordan Chazottes
+// Last update Thu Apr  2 18:24:57 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -58,12 +58,13 @@ void		SDL::initAudio()
   if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
     std::cout << "Error loading music mixer" << std::endl;
   _music = Mix_LoadMUS("ressources/sounds/nyan.wav");
+  _klaxon = Mix_LoadWAV("ressources/sounds/klaxon.wav");
   _point = Mix_LoadWAV("ressources/sounds/coin.wav");
   _gameOver = Mix_LoadWAV("ressources/sounds/gameOver.wav");
   _pause = Mix_LoadWAV("ressources/sounds/pause.wav");
   Mix_VolumeMusic(MIX_MAX_VOLUME/2);
   Mix_PlayMusic(_music, -1);
-  Mix_AllocateChannels(2);
+  Mix_AllocateChannels(3);
 }
 
 void		SDL::display(data d)
@@ -305,7 +306,7 @@ void		SDL::muteGame()
     }
 }
 
-Game::Event	SDL::pause()
+Event	SDL::pause()
 {
   SDL_Event	event;
 
@@ -319,68 +320,75 @@ Game::Event	SDL::pause()
   switch (event.type)
     {
     case SDL_QUIT:
-      return Game::QUIT;
+      return QUIT;
     case SDL_KEYDOWN:
       switch(event.key.keysym.sym)
 	{
 	case SDLK_p:
 	  Mix_Pause(-1);
 	  Mix_ResumeMusic();
-	  return Game::DEFAULT;
+	  return DEFAULT;
 	case SDLK_ESCAPE:
-	  return Game::QUIT;
+	  return QUIT;
 	default:
-	  return Game::UNKNOWN;
+	  return UNKNOWN;
 	}
     default:
-      return Game::UNKNOWN;
+      return UNKNOWN;
     }
-  return Game::UNKNOWN;
+  return UNKNOWN;
 }
 
-Game::Event	SDL::eventHandler()
+Event	SDL::eventHandler()
 {
   SDL_Event	event;
-  Game::Event	ret = Game::UNKNOWN;
+  Event	ret = UNKNOWN;
 
   SDL_PollEvent(&event);
   switch (event.type)
     {
     case SDL_QUIT:
-      return Game::QUIT;
+      return QUIT;
     case SDL_KEYDOWN:
       switch(event.key.keysym.sym)
 	{
 	case SDLK_z:
-	  return Game::Z_UP;
+	  return Z_UP;
 	case SDLK_q:
-	  return Game::Q_LEFT;
+	  return Q_LEFT;
 	case SDLK_s:
-	  return Game::S_DOWN;
+	  return S_DOWN;
 	case SDLK_d:
-	  return Game::D_RIGHT;
+	  return D_RIGHT;
 	case SDLK_p:
-	  while (ret != Game::DEFAULT && ret != Game::QUIT)
+	  while (ret != DEFAULT && ret != QUIT)
 	    ret = pause();
 	  return ret;
 	case SDLK_m:
 	  muteGame();
-	  return Game::DEFAULT;
+	  return DEFAULT;
+	case SDLK_k:
+	  Mix_PlayChannel(1, _klaxon, 0);
+	  return DEFAULT;
 	case SDLK_ESCAPE:
-	  return Game::QUIT;
+	  return QUIT;
 	case SDLK_RIGHT:
-	  return Game::ARROW_RIGHT;
+	  return ARROW_RIGHT;
 	case SDLK_LEFT:
-	  return Game::ARROW_LEFT;
+	  return ARROW_LEFT;
 	case SDLK_SPACE:
-	  return Game::BOOST;
+	  return BOOST;
+	case SDLK_F2:
+	  return L_XLIB;
+	case SDLK_F3:
+	  return L_NCURSES;
 	default:
-	  return Game::DEFAULT;
+	  return DEFAULT;
 	}
     default:
-      return Game::DEFAULT;
+      return DEFAULT;
     }
-  return (Game::DEFAULT);
+  return (DEFAULT);
 }
 
 void		SDL::applySurface(int x, int y, SDL_Surface *src, SDL_Rect *clip)
