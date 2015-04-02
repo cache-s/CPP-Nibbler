@@ -1,7 +1,11 @@
 Rendu :
 enlever le -g du makefile
 check tout les const + ref
-enlever le unistd.h pour le sleep (trouver une alternative)
+enlever les .h
+int au lieu de vector d'int
+corriger algo
+rajouter des fonction interface (pause)
+escape quit
 
 Ne pas mettre d'obstacles pres du snake au débart, start apres un timer (3..2..1..0)
 

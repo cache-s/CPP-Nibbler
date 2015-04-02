@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Tue Mar 31 15:26:44 2015 Jordan Chazottes
+// Last update Thu Apr  2 11:06:11 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -258,7 +258,7 @@ void		SDL::setScore(int score)
   _curScore = score;
 }
 
-void		SDL::setBoost(std::vector<int> boost)
+void		SDL::setBoost(int boost)
 {
   std::ostringstream	oss117;
   SDL_Color		color;
@@ -269,9 +269,7 @@ void		SDL::setBoost(std::vector<int> boost)
   color.r = 255;
   color.g = 255;
   color.b = 255;
-  for (unsigned int i = 0; i < boost.size(); i++)
-    if (boost[i] == 1)
-      tmp += 10;
+  tmp = 10 * boost;
   oss117 << "Boost : " << tmp;
   txt = TTF_RenderText_Blended(_font, oss117.str().c_str(), color);
   pos.x = 200;

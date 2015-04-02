@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Wed Apr  1 12:35:28 2015 Jordan Chazottes
+// Last update Thu Apr  2 11:06:34 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -18,7 +18,7 @@
 # include		<SDL/SDL_mixer.h>
 # include		<sstream>
 # include		"ILibrary.hpp"
-# include		"game.hpp"
+# include		"Game.hpp"
 
 class SDL : public ILibrary
 {
@@ -35,7 +35,7 @@ private:
   void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
   void		setScore(int);
   int		checkRestart();
-  void		setBoost(std::vector<int>);
+  void		setBoost(int);
   void		initSprites();
   void		initAudio();
   void		initScore();

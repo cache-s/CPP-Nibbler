@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 //
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Tue Mar 31 12:48:35 2015 Pierre Charié
+// Last update Thu Apr  2 10:53:39 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -22,7 +22,7 @@
 #include <unistd.h> //TODO delete pour sleep
 
 # include		"ILibrary.hpp"
-# include		"game.hpp"
+# include		"Game.hpp"
 
 class Xlib : public ILibrary
 {

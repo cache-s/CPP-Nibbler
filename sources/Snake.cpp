@@ -5,10 +5,10 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:11 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 12:25:21 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 10:48:34 2015 Sebastien Cache-Delanos
 //
 
-#include			"snake.hpp"
+#include			"Snake.hpp"
 
 Snake::Snake(int x, int y)
 {

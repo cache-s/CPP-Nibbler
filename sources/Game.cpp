@@ -5,10 +5,10 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 31 15:53:16 2015 Pierre Charié
+// Last update Thu Apr  2 11:07:13 2015 Sebastien Cache-Delanos
 //
 
-#include				"game.hpp"
+#include				"Game.hpp"
 
 //CONSTRUCTOR
 Game::Game(int width, int height, void *lib) : _width(width), _height(height), _lib(lib)
@@ -18,8 +18,8 @@ Game::Game(int width, int height, void *lib) : _width(width), _height(height), _
   _isAlive = true;
   _score = 0;
   _boosted = false;
+  _boost = 10;
   initMap();
-  start();
 }
 
 //DESTRUCTOR
@@ -156,32 +156,16 @@ void					Game::spaceBoost()
 
 void					Game::handleBoost()
 {
-  unsigned int				i;
-
-  if (_boost.size() == 0)
-    for (i = 0; i < 10; ++i)
-      _boost.push_back(1);
   if (_boosted)
     {
-      if (_boost[0] == 0)
+      if (_boost == 0)
 	spaceBoost();
       else
-	{
-	  for (i = 0; i < _boost.size(); ++i)
-	    if (_boost[i] == 0)
-	      _boost[i - 1] = 0;
-	    else
-	      if (i + 1 == _boost.size())
-		_boost[i] = 0;
-	}
+	_boost--;
     }
   else
-    for (i = 0; i < _boost.size(); ++i)
-      if (_boost[i] == 0)
-	{
-	  _boost[i] = 1;
-	  return;
-	}
+    if (_boost < 10)
+      _boost++;
 }
 
 void					Game::handleEvent(int event)
@@ -214,6 +198,7 @@ void					Game::reinit()
   _isAlive = true;
   _score = 0;
   _boosted = false;
+  _boost = 10;
   initMap();
 }
 
