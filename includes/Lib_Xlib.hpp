@@ -1,11 +1,11 @@
 //
-// lib_SDL.hpp for nibbler in /home/chazot_a/rendu/cpp_nibbler
-//
-// Made by Jordan Chazottes
-// Login   <chazot_a@epitech.net>
-//
-// Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Apr  2 11:56:32 2015 Sebastien Cache-Delanos
+// Lib_Xlib.hpp for nibbler in /home/cache-_s/rendu/cpp_nibbler
+// 
+// Made by Sebastien Cache-Delanos
+// Login   <cache-_s@epitech.net>
+// 
+// Started on  Thu Apr  2 12:50:51 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 12:53:53 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -19,8 +19,6 @@
 # include		<X11/Xatom.h>
 # include		<X11/keysym.h>
 
-#include <unistd.h> //TODO delete pour sleep
-
 # include		"ILibrary.hpp"
 # include		"Game.hpp"
 
@@ -28,16 +26,20 @@ class Xlib : public ILibrary
 {
 public:
   Xlib();
+  Xlib(Xlib const &);
+  Xlib &operator=(const Xlib &);
   ~Xlib();
-  virtual void	init(int, int);
-  virtual void	display(data);
+
+
+  virtual void	init(const int, const int);
+  virtual void	display(const data);
   virtual void	quit();
   virtual int	eventHandler();
   virtual int	gameOver();
   virtual int	pause();
 
   void		setColor();
-  void          draw_rect(int, int, int, int, GC);
+  void          draw_rect(const int, const int, const int, const int, const GC&);
 
 private:
   int		width;
