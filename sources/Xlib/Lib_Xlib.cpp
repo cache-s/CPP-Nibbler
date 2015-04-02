@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Thu Apr  2 17:46:49 2015 Pierre Charié
+// Last update Thu Apr  2 18:11:21 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -247,6 +247,12 @@ Game::Event	Xlib::eventHandler()
 	    this->pause();
 	  default:
 	    return Game::DEFAULT;
+	  case XK_F1:
+	    return (L_SDL);
+	    break;
+	  case XK_F3:
+	    return (L_NCURSES);
+	    break;
 	  }
       default:
 	return Game::DEFAULT;
