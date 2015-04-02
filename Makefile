@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Thu Apr  2 12:27:10 2015 Pierre Charié
+## Last update Thu Apr  2 17:01:58 2015 Sebastien Cache-Delanos
 ##
 
 NAME_EXE	= nibbler
@@ -28,7 +28,7 @@ SRCS_LIB3	= ./sources/NCurses/Lib_NCurses.cpp
 OBJS_LIB3	= $(SRCS_LIB3:.cpp=.o)
 
 LDFLAGS		+= -ldl
-CXXFLAGS	+=  -W -Wall -Wextra -Werror -fPIC -I ./includes
+CXXFLAGS	+= -W -Wall -Wextra -Werror -fPIC -I ./includes
 
 CXX		= g++
 

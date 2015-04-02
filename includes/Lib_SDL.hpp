@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Apr  2 11:52:28 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 16:50:44 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -27,9 +27,9 @@ public:
   virtual void	init(int, int);
   virtual void	display(data d);
   virtual void	quit();
-  virtual int	eventHandler();
+  virtual Game::Event	eventHandler();
   virtual int	gameOver();
-  virtual int	pause();
+  virtual Game::Event	pause();
 
 private:
   void		resetBackground(int**, int, int);

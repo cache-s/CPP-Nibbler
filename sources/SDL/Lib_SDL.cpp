@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Apr  2 14:23:34 2015 Jordan Chazottes
+// Last update Thu Apr  2 16:55:03 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -278,7 +278,7 @@ void		SDL::setBoost(int boost)
   SDL_Flip(_screen);
 }
 
-int		SDL::pause()
+Game::Event	SDL::pause()
 {
   SDL_Event	event;
 
@@ -292,48 +292,48 @@ int		SDL::pause()
   switch (event.type)
     {
     case SDL_QUIT:
-      return -1;
+      return Game::QUIT;
     case SDL_KEYDOWN:
       switch(event.key.keysym.sym)
 	{
 	case SDLK_p:
 	  Mix_Pause(-1);
 	  Mix_ResumeMusic();
-	  return 42;
+	  return Game::DEFAULT;
 	case SDLK_ESCAPE:
-	  return -1;
+	  return Game::QUIT;
 	default:
-	  return 0;
+	  return Game::UNKNOWN;
 	}
     default:
-      return 0;
+      return Game::UNKNOWN;
     }
-  return 0;
+  return Game::UNKNOWN;
 }
 
-int		SDL::eventHandler()
+Game::Event	SDL::eventHandler()
 {
   SDL_Event	event;
-  int		ret = 0;
+  Game::Event	ret = Game::UNKNOWN;
 
   SDL_PollEvent(&event);
   switch (event.type)
     {
     case SDL_QUIT:
-      return -1;
+      return Game::QUIT;
     case SDL_KEYDOWN:
       switch(event.key.keysym.sym)
 	{
 	case SDLK_z:
-	  return 2;
+	  return Game::Z_UP;
 	case SDLK_q:
-	  return 3;
+	  return Game::Q_LEFT;
 	case SDLK_s:
-	  return 4;
+	  return Game::S_DOWN;
 	case SDLK_d:
-	  return 5;
+	  return Game::D_RIGHT;
 	case SDLK_p:
-	  while (ret != 42 && ret != -1)
+	  while (ret != Game::DEFAULT && ret != Game::QUIT)
 	    ret = pause();
 	  return ret;
 	case SDLK_m:
@@ -341,22 +341,22 @@ int		SDL::eventHandler()
 	    Mix_PauseMusic();
 	  else
 	    Mix_ResumeMusic();
-	  return 42;
+	  return Game::DEFAULT;
 	case SDLK_ESCAPE:
-	  return -1;
+	  return Game::QUIT;
 	case SDLK_RIGHT:
-	  return 1;
+	  return Game::ARROW_RIGHT;
 	case SDLK_LEFT:
-	  return 0;
+	  return Game::ARROW_LEFT;
 	case SDLK_SPACE:
-	  return 6;
+	  return Game::BOOST;
 	default:
-	  return 42;
+	  return Game::DEFAULT;
 	}
     default:
-      return 42;
+      return Game::DEFAULT;
     }
-  return (42);
+  return (Game::DEFAULT);
 }
 
 void		SDL::applySurface(int x, int y, SDL_Surface *src, SDL_Rect *clip)

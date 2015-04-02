@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Thu Apr  2 11:54:13 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 16:50:29 2015 Sebastien Cache-Delanos
 //
 
 #ifndef		ILIBRARY_HPP_
@@ -18,17 +18,15 @@
 struct	snk;
 struct	data;
 
-class	Game;
-
 class		ILibrary
 {
 public:
-  virtual void	init(int, int) = 0;
-  virtual void	display(data d) = 0;
-  virtual void	quit() = 0;
-  virtual int	eventHandler() = 0;
-  virtual int	gameOver() = 0;
-  virtual int	pause() = 0;
+  virtual void		init(int, int) = 0;
+  virtual void		display(data d) = 0;
+  virtual void		quit() = 0;
+  virtual Game::Event	eventHandler() = 0;
+  virtual int		gameOver() = 0;
+  virtual Game::Event	pause() = 0;
 };
 
 #endif		//ILIBRARY_HPP_
