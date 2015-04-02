@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Mon Mar 30 15:04:02 2015 Pierre Charié
-// Last update Tue Mar 31 15:21:40 2015 Pierre Charié
+// Last update Thu Apr  2 11:43:16 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -22,6 +22,55 @@ extern "C"
 
 Xlib::Xlib()
 {
+}
+
+Xlib::Xlib(Xlib const &other)
+{
+  this->width = other.width;
+  this->height = other.height;
+  this->disp = other.disp;
+  this->win = other.win;
+  this->report = other.report;
+  this->colormap = other.colormap;
+  this->gcGround = other.gcGround;
+  this->gcWall = other.gcWall;
+  this->gcObst = other.gcObst;
+  this->gcHead = other.gcHead;
+  this->gcBody = other.gcBody;
+  this->gcTail = other.gcTail;
+  this->gcApple = other.gcApple;
+  this->colGround = other.colGround;
+  this->colWall = other.colWall;
+  this->colObst = other.colObst;
+  this->colHead = other.colHead;
+  this->colBody = other.colBody;
+  this->colTail = other.colTail;
+  this->colApple = other.colApple;
+}
+
+Xlib &Xlib::operator=(const Xlib &other)
+{
+  this->width = other.width;
+  this->height = other.height;
+  this->disp = other.disp;
+  this->win = other.win;
+  this->report = other.report;
+  this->colormap = other.colormap;
+  this->gcGround = other.gcGround;
+  this->gcWall = other.gcWall;
+  this->gcObst = other.gcObst;
+  this->gcHead = other.gcHead;
+  this->gcBody = other.gcBody;
+  this->gcTail = other.gcTail;
+  this->gcApple = other.gcApple;
+  this->colGround = other.colGround;
+  this->colWall = other.colWall;
+  this->colObst = other.colObst;
+  this->colHead = other.colHead;
+  this->colBody = other.colBody;
+  this->colTail = other.colTail;
+  this->colApple = other.colApple;
+  return (*this);
 }
 
 Xlib::~Xlib()
@@ -77,7 +126,7 @@ void		Xlib::setColor()
     }
 }
 
-void		Xlib::init(int x, int y)
+void		Xlib::init(int const x, int const y)
 {
 
 
@@ -107,7 +156,7 @@ void		Xlib::init(int x, int y)
   XFlush(this->disp);
 }
 
-void            Xlib::display(data d)
+void            Xlib::display(data const d)
 {
   for (int y = 0; y < this->height; y++)
     for (int x = 0; x < this->width; x++)
@@ -116,31 +165,31 @@ void            Xlib::display(data d)
           {
           case 0:
             this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcGround);
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, this->gcGround);
 	    break;
           case 1:
             this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcWall);
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, this->gcWall);
 	    break;
           case 2:
             this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcHead);
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, this->gcHead);
 	    break;
           case 3:
             this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcBody);
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, this->gcBody);
 	    break;
           case 4:
             this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcTail);
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, this->gcTail);
 	    break;
           case 5:
             this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcApple);
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, this->gcApple);
 	    break;
           case 6:
             this->draw_rect(x * PIXSIZE, y * PIXSIZE,
-                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, gcObst);
+                            x * PIXSIZE + PIXSIZE, y * PIXSIZE + PIXSIZE, this->gcObst);
 	    break;
 	  default:
 	    break;
@@ -154,7 +203,7 @@ void            Xlib::display(data d)
   XFlush(this->disp);
 }
 
-void		Xlib::draw_rect(int x1, int y1, int x2, int y2, GC color)
+void		Xlib::draw_rect(int const x1, int const y1, int const x2, int const y2, GC const &color)
 {
   XDrawRectangle(this->disp, this->win, color, x1, y1, x2, y2);
   XFillRectangle(this->disp, this->win, color, x1, y1, x2, y2);
@@ -220,9 +269,19 @@ void		Xlib::quit()
 
 int		Xlib::gameOver()
 {
-  std::string buffer = "Game Over. Press \"r\" to try again, or any other key to leave";
+  std::string buffer = "Game Over !";
+  std::string buffer2 = "Press ";
+  std::string buffer3 = "\"r\" to try again";
+  std::string buffer4 = "or \"q\" to leave";
 
-  XDrawString(this->disp, this->win, this->gcWall, 50, 50, buffer.c_str(), strlen(buffer.c_str()));
+  XDrawString(this->disp, this->win, this->gcWall, 30, 50, " ", 1);
+  XDrawString(this->disp, this->win, this->gcWall, 30, 50, buffer.c_str(), strlen(buffer.c_str()));
+  usleep(1000);
+  XDrawString(this->disp, this->win, this->gcWall, 30, 70, buffer2.c_str(), strlen(buffer2.c_str()));
+  usleep(1000);
+  XDrawString(this->disp, this->win, this->gcWall, 30, 90, buffer3.c_str(), strlen(buffer3.c_str()));
+  XDrawString(this->disp, this->win, this->gcWall, 30, 110, buffer4.c_str(), strlen(buffer3.c_str()));
+  XFlush(this->disp);
   while (42)
     {
       XEvent e;
@@ -236,7 +295,8 @@ int		Xlib::gameOver()
 	      XCloseDisplay(this->disp);
 	      return 1;
 	    }
-	  break;
+	  if (XLookupKeysym(&e.xkey, 0)  == XK_q)
+	    break;
 	}
     }
   XFlush(this->disp);
