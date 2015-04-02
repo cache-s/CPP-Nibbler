@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 17:53:10 2015 Jordan Chazottes
+// Last update Thu Apr  2 18:47:56 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -81,6 +81,7 @@ private:
   bool				_boosted;
   int				_boost;
   bool				_isAlive;
+  bool				_quit;
   const int			_width;
   const int			_height;
   int				_speed;

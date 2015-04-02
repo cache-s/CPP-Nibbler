@@ -5,17 +5,19 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 18:10:46 2015 Jordan Chazottes
+// Last update Thu Apr  2 18:45:08 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
 
 NCurses::NCurses()
 {
+
 }
 
 NCurses::~NCurses()
 {
+
 }
 
 WINDOW*		NCurses::createWin(int height, int width, int starty, int startx)
@@ -136,7 +138,11 @@ Event	NCurses::eventHandler()
       return (D_RIGHT);
     case 'p':
     case 'P':
-      return (PAUSE);
+      return (pause());
+    case 'k':
+    case 'K':
+      beep();
+      break;
     case 32:
       return (BOOST);
     case KEY_F(1):
@@ -195,6 +201,21 @@ int		NCurses::gameOver()
 
 Event	NCurses::pause()
 {
+  int	ch;
+
+  for (;;)
+    {
+      usleep(10000);
+      ch = getch();
+      switch (ch)
+        {
+        case 27:
+          return QUIT;
+        case 'p':
+        case 'P':
+          return DEFAULT;
+        }
+    }
   return (UNKNOWN);
 }
 

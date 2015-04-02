@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 18:01:10 2015 Jordan Chazottes
+// Last update Thu Apr  2 19:00:15 2015 Sebastien Cache-Delanos
 //
 
 #include				"Game.hpp"
@@ -19,6 +19,7 @@ Game::Game(int width, int height, void *lib) : _width(width), _height(height), _
   _score = 0;
   _boosted = false;
   _boost = 10;
+  _quit = false;
   initMap();
 }
 
@@ -193,7 +194,7 @@ void					Game::handleEvent(Event event)
   if (event != DEFAULT)
     {
       if (event == QUIT)
-	gameOver();
+	_quit = true;
       if (event == ARROW_LEFT || event == ARROW_RIGHT)
 	setDirection(event);
       if (event == Z_UP || event == Q_LEFT || event == S_DOWN || event == D_RIGHT)
@@ -259,7 +260,7 @@ void					Game::start()
   _external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
   _curLib = _external_creator();
   _curLib->init(_width, _height);
-  while (_isAlive)
+  while (_isAlive && _quit == false)
     {
       handleEvent(_curLib->eventHandler());
       addApple();
@@ -271,7 +272,7 @@ void					Game::start()
       handleEvent(_curLib->eventHandler());
       usleep(_speed);
     }
-  if (_curLib->gameOver() == 1)
+  if (_quit == false && _curLib->gameOver() == 1)
     {
       reinit();
       start();
