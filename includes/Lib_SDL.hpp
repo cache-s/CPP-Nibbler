@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Apr  2 16:50:44 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 17:12:29 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -30,8 +30,14 @@ public:
   virtual Game::Event	eventHandler();
   virtual int	gameOver();
   virtual Game::Event	pause();
+  virtual void	muteGame();
 
 private:
+  typedef struct	snakeSprite
+  {
+    SDL_Rect		head[8];
+    SDL_Rect		tail[16];
+  }			snakeSprite;
   void		resetBackground(int**, int, int);
   void		setSnake(std::vector<snk> snake);
   void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
@@ -41,6 +47,9 @@ private:
   void		initSprites();
   void		initAudio();
   void		initScore();
+  void		initSnakeSprites(snakeSprite*);
+  void		initSnakeSpritesHead(snakeSprite*);
+  void		initSnakeSpritesTail(snakeSprite*);
   TTF_Font	*_font;
   SDL_Surface*	_screen;
   SDL_Surface*	_bg;

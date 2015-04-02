@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Mon Mar 23 13:25:22 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 31 15:05:53 2015 Jordan Chazottes
+// Last update Thu Apr  2 16:18:04 2015 Jordan Chazottes
 //
 
 #ifndef				NIBBLER_HPP_
@@ -30,10 +30,10 @@
 
 enum				Direction
   {
-    DOWN			= 0,
-    UP				= 1,
-    LEFT			= 2,
-    RIGHT			= 3
+    DOWN			= 7,
+    UP				= 4,
+    LEFT			= 6,
+    RIGHT			= 5
   };
 
 /* PROTOTYPES */

@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 16:51:26 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 17:28:18 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -190,6 +190,10 @@ int		NCurses::gameOver()
 Game::Event	NCurses::pause()
 {
   return (Game::UNKNOWN);
+}
+
+void		NCurses::muteGame()
+{
 }
 
 extern "C"
