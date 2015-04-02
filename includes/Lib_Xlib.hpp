@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 11:29:01 2015 Pierre Charié
-// Last update Thu Apr  2 12:16:03 2015 Pierre Charié
+// Last update Thu Apr  2 16:56:13 2015 Pierre Charié
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -38,32 +38,33 @@ public:
   virtual int	gameOver();
 
   void		setColor();
-  void          draw_rect(const int, const int, const int, const int, const GC&);
+  void          draw_rect(const int, const int, const GC&);
   void		waitPause();
 
 private:
-  int		width;
-  int		height;
+  int		_width;
+  int		_height;
+  int		_oldScore;
 
-  Display	*disp;
-  Window	win;
-  XEvent	report;
+  Display	*_disp;
+  Window	_win;
+  XEvent	_report;
 
-  Colormap	colormap;
-  GC		gcGround;
-  GC		gcWall;
-  GC		gcObst;
-  GC		gcHead;
-  GC		gcBody;
-  GC		gcTail;
-  GC		gcApple;
-  XColor	colGround;
-  XColor	colWall;
-  XColor	colObst;
-  XColor	colHead;
-  XColor	colBody;
-  XColor	colTail;
-  XColor	colApple;
+  Colormap	_colormap;
+  GC		_gcGround;
+  GC		_gcWall;
+  GC		_gcObst;
+  GC		_gcHead;
+  GC		_gcBody;
+  GC		_gcTail;
+  GC		_gcApple;
+  XColor	_colGround;
+  XColor	_colWall;
+  XColor	_colObst;
+  XColor	_colHead;
+  XColor	_colBody;
+  XColor	_colTail;
+  XColor	_colApple;
 };
 
 #endif			//LIB_Xlib_HPP_
