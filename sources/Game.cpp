@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 11:07:13 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 11:12:19 2015 Sebastien Cache-Delanos
 //
 
 #include				"Game.hpp"
@@ -87,7 +87,7 @@ int					Game::checkNext(int coordY, int coordX)
       _map[coordY][coordX] = 0;
       ++_score;
       if (_speed > 80000)
-	_speed -= 600;
+	_speed -= 1000;
       return (1);
     }
   return (-1);

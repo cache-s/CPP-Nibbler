@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 11:09:52 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 11:54:44 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -184,6 +184,11 @@ int		NCurses::gameOver()
 	}
     }
   wrefresh(_win);
+  return (0);
+}
+
+int		NCurses::pause()
+{
   return (0);
 }
 

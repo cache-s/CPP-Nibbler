@@ -1,11 +1,11 @@
 //
-// Lib_Xlib.cpp for  in /home/charie_p/rendu/cpp_nibbler/sources/Xlib
+// Lib_Xlib.cpp for  in /home/charie_p/rendu/cpp_nibbler/sources
 //
 // Made by Pierre Charié
 // Login   <charie_p@epitech.net>
 //
-// Started on  Mon Mar 30 15:04:02 2015 Pierre Charié
-// Last update Thu Apr  2 16:58:15 2015 Pierre Charié
+// Started on  Thu Apr  2 16:59:36 2015 Pierre Charié
+// Last update Thu Apr  2 17:00:28 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -200,7 +200,7 @@ void            Xlib::display(data const d)
   std::ostringstream oss;
   if (_oldScore != d.score)
   {
-    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcWall);
+    this->draw_rect(10 * PIXSIZE, 9 * PIXSIZE, _gcWall);
     oss << "Score : " << d.score;
     XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
   }
@@ -214,7 +214,7 @@ void		Xlib::draw_rect(int const x1, int const y1, GC const &color)
   XFillRectangle(_disp, _win, color, x1, y1, PIXSIZE, PIXSIZE);
 }
 
-void		Xlib::waitPause()
+int		Xlib::pause()
 {
   while (42)
     {
@@ -223,6 +223,7 @@ void		Xlib::waitPause()
       if (e.type == KeyPress)
       	break;
     }
+  return (0);
 }
 
 int		Xlib::eventHandler()
@@ -253,7 +254,7 @@ int		Xlib::eventHandler()
 	  case XK_d:
 	    return 5;
 	  case XK_p:
-	    this->waitPause();
+	    this->pause();
 	  default:
 	    return 42;
 	  }

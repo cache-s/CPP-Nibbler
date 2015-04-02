@@ -4,8 +4,8 @@
 // Made by Pierre Charié
 // Login   <charie_p@epitech.net>
 //
-// Started on  Thu Apr  2 11:29:01 2015 Pierre Charié
-// Last update Thu Apr  2 16:56:13 2015 Pierre Charié
+// Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
+// Last update Thu Apr  2 16:59:20 2015 Pierre Charié
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -36,6 +36,7 @@ public:
   virtual void	quit();
   virtual int	eventHandler();
   virtual int	gameOver();
+  virtual int	pause();
 
   void		setColor();
   void          draw_rect(const int, const int, const GC&);
