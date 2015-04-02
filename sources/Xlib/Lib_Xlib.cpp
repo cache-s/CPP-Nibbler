@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Mon Mar 30 15:04:02 2015 Pierre Charié
-// Last update Tue Mar 31 15:21:40 2015 Pierre Charié
+// Last update Thu Apr  2 11:56:10 2015 Sebastien Cache-Delanos
 //
 
 #include	<sstream>
@@ -160,7 +160,7 @@ void		Xlib::draw_rect(int x1, int y1, int x2, int y2, GC color)
   XFillRectangle(this->disp, this->win, color, x1, y1, x2, y2);
 }
 
-void		Xlib::waitPause()
+int		Xlib::pause()
 {
   while (42)
     {
@@ -169,6 +169,7 @@ void		Xlib::waitPause()
       if (e.type == KeyPress)
       	break;
     }
+  return (0);
 }
 
 int		Xlib::eventHandler()
@@ -199,7 +200,7 @@ int		Xlib::eventHandler()
 	  case XK_d:
 	    return 5;
 	  case XK_p:
-	    this->waitPause();
+	    this->pause();
 	  default:
 	    return 42;
 	  }

@@ -5,15 +5,15 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:11 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 10:48:34 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 12:23:22 2015 Sebastien Cache-Delanos
 //
 
 #include			"Snake.hpp"
 
 Snake::Snake(int x, int y)
 {
-  X = x;
-  Y = y;
+  _x = x;
+  _y = y;
 }
 
 Snake::~Snake()
@@ -43,12 +43,12 @@ void				Snake::addDirFront(Direction dir)
 //SETTERS
 void				Snake::setX(int x)
 {
-  X = x;
+  _x = x;
 }
 
 void				Snake::setY(int y)
 {
-  Y = y;
+  _y = y;
 }
 
 void				Snake::setDirection(std::deque<Direction> dir)
@@ -59,12 +59,12 @@ void				Snake::setDirection(std::deque<Direction> dir)
 //GETTERS
 int				Snake::getX() const
 {
-  return (X);
+  return (_x);
 }
 
 int				Snake::getY() const
 {
-  return (Y);
+  return (_y);
 }
 
 std::deque<Direction>		Snake::getDirection() const

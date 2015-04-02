@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Apr  2 11:06:11 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 11:51:31 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -278,9 +278,7 @@ void		SDL::setBoost(int boost)
   SDL_Flip(_screen);
 }
 
-
-
-int		SDL::waitPause()
+int		SDL::pause()
 {
   SDL_Event	event;
 
@@ -305,12 +303,12 @@ int		SDL::waitPause()
 	case SDLK_ESCAPE:
 	  return -1;
 	default:
-	  waitPause();
+	  pause();
 	}
     default:
-      return waitPause();
+      return pause();
     }
-  return waitPause();
+  return pause();
 }
 
 int		SDL::eventHandler()
@@ -334,7 +332,7 @@ int		SDL::eventHandler()
 	case SDLK_d:
 	  return 5;
 	case SDLK_p:
-	  return waitPause();
+	  return pause();
 	case SDLK_m:
 	  if (Mix_PausedMusic() != 1)
 	    Mix_PauseMusic();

@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 //
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Apr  2 10:53:39 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 11:56:32 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -34,10 +34,10 @@ public:
   virtual void	quit();
   virtual int	eventHandler();
   virtual int	gameOver();
+  virtual int	pause();
 
   void		setColor();
   void          draw_rect(int, int, int, int, GC);
-  void		waitPause();
 
 private:
   int		width;

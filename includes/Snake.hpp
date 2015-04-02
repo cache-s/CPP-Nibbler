@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:45 2015 Sebastien Cache-Delanos
-// Last update Thu Mar 26 12:25:37 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 12:23:33 2015 Sebastien Cache-Delanos
 //
 
 #ifndef					SNAKE_HPP_
@@ -35,8 +35,8 @@ public:
   int					getY() const;
   std::deque<Direction>			getDirection() const;
 private:
-  int					X;
-  int					Y;
+  int					_x;
+  int					_y;
   std::deque<Direction>			_dir;
 };
 

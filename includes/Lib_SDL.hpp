@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Thu Apr  2 11:06:34 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 11:52:28 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -23,13 +23,15 @@
 class SDL : public ILibrary
 {
 public:
+
   virtual void	init(int, int);
   virtual void	display(data d);
   virtual void	quit();
   virtual int	eventHandler();
   virtual int	gameOver();
+  virtual int	pause();
+
 private:
-  int		waitPause();
   void		resetBackground(int**, int, int);
   void		setSnake(std::vector<snk> snake);
   void		applySurface(int, int, SDL_Surface*, SDL_Rect*);
