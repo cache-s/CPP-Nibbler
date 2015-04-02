@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Thu Apr  2 16:59:20 2015 Pierre Charié
+// Last update Thu Apr  2 17:06:35 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -34,9 +34,9 @@ public:
   virtual void	init(const int, const int);
   virtual void	display(const data);
   virtual void	quit();
-  virtual int	eventHandler();
+  virtual Game::Event	eventHandler();
   virtual int	gameOver();
-  virtual int	pause();
+  virtual Game::Event	pause();
 
   void		setColor();
   void          draw_rect(const int, const int, const GC&);

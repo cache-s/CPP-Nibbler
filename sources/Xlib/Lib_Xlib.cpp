@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:36 2015 Pierre Charié
-// Last update Thu Apr  2 17:00:28 2015 Pierre Charié
+// Last update Thu Apr  2 17:05:30 2015 Sebastien Cache-Delanos
 //
 
 #include	<sstream>
@@ -214,7 +214,7 @@ void		Xlib::draw_rect(int const x1, int const y1, GC const &color)
   XFillRectangle(_disp, _win, color, x1, y1, PIXSIZE, PIXSIZE);
 }
 
-int		Xlib::pause()
+Game::Event	Xlib::pause()
 {
   while (42)
     {
@@ -223,10 +223,10 @@ int		Xlib::pause()
       if (e.type == KeyPress)
       	break;
     }
-  return (0);
+  return (Game::UNKNOWN);
 }
 
-int		Xlib::eventHandler()
+Game::Event	Xlib::eventHandler()
 {
   _report.type = Expose;
   XCheckWindowEvent(_disp, _win, KeyPressMask, &_report);
@@ -238,30 +238,30 @@ int		Xlib::eventHandler()
 	switch (XLookupKeysym(&_report.xkey, 0))
 	  {
 	  case XK_Escape :
-	    return -1;
+	    return Game::QUIT;
 	  case XK_Left :
-	    return 0;
+	    return Game::ARROW_LEFT;
 	  case XK_Right :
-	    return 1;
+	    return Game::ARROW_RIGHT;
 	  case XK_space :
-	    return 6;
+	    return Game::BOOST;
 	  case XK_z:
-	    return 2;
+	    return Game::Z_UP;
 	  case XK_q:
-	    return 3;
+	    return Game::Q_LEFT;
 	  case XK_s:
-	    return 4;
+	    return Game::S_DOWN;
 	  case XK_d:
-	    return 5;
+	    return Game::D_RIGHT;
 	  case XK_p:
 	    this->pause();
 	  default:
-	    return 42;
+	    return Game::DEFAULT;
 	  }
       default:
-	return 42;
+	return Game::DEFAULT;
       }
-  return 42;
+  return Game::DEFAULT;
 }
 
 

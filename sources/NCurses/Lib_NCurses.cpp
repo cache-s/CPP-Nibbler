@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 11:54:44 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 16:51:26 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -107,42 +107,42 @@ void		NCurses::display(data d)
   wrefresh(_win);
 }
 
-int		NCurses::eventHandler()
+Game::Event	NCurses::eventHandler()
 {
   int		ch;
 
   nodelay(stdscr, TRUE);
   if ((ch = getch()) == ERR)
-    return (42);
+    return (Game::DEFAULT);
   switch (ch)
     {
     case 27:
-      return (-1);
+      return (Game::QUIT);
     case KEY_LEFT:
-      return (0);
+      return (Game::ARROW_LEFT);
     case KEY_RIGHT:
-      return (1);
+      return (Game::ARROW_RIGHT);
     case 'z':
     case 'Z':
-      return (2);
+      return (Game::Z_UP);
     case 'q':
     case 'Q':
-      return (3);
+      return (Game::Q_LEFT);
     case 's':
     case 'S':
-      return (4);
+      return (Game::S_DOWN);
     case 'd':
     case 'D':
-      return (5);
+      return (Game::D_RIGHT);
     case 'p':
     case 'P':
-      return (7);
+      return (Game::PAUSE);
     case 32:
-      return (6);
+      return (Game::BOOST);
     default:
-      return (42);
+      return (Game::DEFAULT);
     }
-  return (42);
+  return (Game::DEFAULT);
 }
 
 void		NCurses::quit()
@@ -187,9 +187,9 @@ int		NCurses::gameOver()
   return (0);
 }
 
-int		NCurses::pause()
+Game::Event	NCurses::pause()
 {
-  return (0);
+  return (Game::UNKNOWN);
 }
 
 extern "C"

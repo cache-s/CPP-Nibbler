@@ -5,9 +5,10 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 11:12:19 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 16:34:55 2015 Sebastien Cache-Delanos
 //
 
+#include				"ILibrary.hpp"
 #include				"Game.hpp"
 
 //CONSTRUCTOR
@@ -168,17 +169,17 @@ void					Game::handleBoost()
       _boost++;
 }
 
-void					Game::handleEvent(int event)
+void					Game::handleEvent(Event event)
 {
-  if (event != 42)
+  if (event != DEFAULT)
     {
-      if (event == -1)
+      if (event == QUIT)
 	gameOver();
-      if (event == 0 || event == 1)
+      if (event == ARROW_LEFT || event == ARROW_RIGHT)
 	setDirection(event);
-      if (event >= 2 && event <= 5)
+      if (event == Z_UP || event == Q_LEFT || event == S_DOWN || event == D_RIGHT)
 	setRealDirection(event);
-      if (event == 6)
+      if (event == BOOST)
 	spaceBoost();
     }
 }
