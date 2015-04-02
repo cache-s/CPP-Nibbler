@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 11:29:01 2015 Pierre Charié
-// Last update Thu Apr  2 11:42:10 2015 Pierre Charié
+// Last update Thu Apr  2 12:16:03 2015 Pierre Charié
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -20,7 +20,7 @@
 # include		<X11/keysym.h>
 
 # include		"ILibrary.hpp"
-# include		"game.hpp"
+# include		"Game.hpp"
 
 class Xlib : public ILibrary
 {

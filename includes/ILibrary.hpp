@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Tue Mar 31 11:32:17 2015 Jordan Chazottes
+// Last update Thu Apr  2 10:53:08 2015 Sebastien Cache-Delanos
 //
 
 #ifndef		ILIBRARY_HPP_
@@ -13,7 +13,7 @@
 
 # include	<vector>
 
-# include	"game.hpp"
+# include	"Game.hpp"
 
 struct	snk;
 struct	data;

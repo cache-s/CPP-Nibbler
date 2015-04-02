@@ -5,14 +5,13 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar 23 13:21:25 2015 Sebastien Cache-Delanos
-## Last update Mon Mar 30 15:51:36 2015 Pierre Charié
+## Last update Thu Apr  2 10:52:32 2015 Sebastien Cache-Delanos
 ##
 
 NAME_EXE	= nibbler
 SRCS_EXE	= ./sources/main.cpp			\
-		  ./sources/nibbler.cpp			\
-		  ./sources/game.cpp			\
-		  ./sources/snake.cpp			\
+		  ./sources/Game.cpp			\
+		  ./sources/Snake.cpp			\
 
 OBJS_EXE	= $(SRCS_EXE:.cpp=.o)
 

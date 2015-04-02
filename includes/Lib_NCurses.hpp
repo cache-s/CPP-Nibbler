@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 31 11:32:25 2015 Jordan Chazottes
+// Last update Thu Apr  2 10:53:29 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -14,7 +14,7 @@
 # include		<iostream>
 # include		<ncurses/curses.h>
 # include		"ILibrary.hpp"
-# include		"game.hpp"
+# include		"Game.hpp"
 
 class			NCurses : public ILibrary
 {

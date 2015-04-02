@@ -5,10 +5,11 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Mon Mar 30 11:38:04 2015 Pierre Charié
+// Last update Thu Apr  2 10:52:18 2015 Sebastien Cache-Delanos
 //
 
 #include			"nibbler.hpp"
+#include			"Game.hpp"
 
 int				checkSize(int width, int height)
 {
@@ -46,7 +47,8 @@ int				main(int ac, char **av)
 {
   int				height;
   int				width;
-  void				*lib;
+  void*				lib;
+  Game*				s;
 
   if (ac != 4)
     {
@@ -58,5 +60,8 @@ int				main(int ac, char **av)
   if ((lib = checkLib(av[3])) == NULL)
     return (-1);
   srand(time(NULL));
-  return (nibbler(width, height, lib));
+  s = new Game(width, height, lib);
+  s->start();
+  delete (s);
+  return (0);
 }

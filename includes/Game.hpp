@@ -5,14 +5,14 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 31 11:12:47 2015 Jordan Chazottes
+// Last update Thu Apr  2 11:01:26 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
 # define			GAME_HPP_
 
 # include			"nibbler.hpp"
-# include			"snake.hpp"
+# include			"Snake.hpp"
 # include			"ILibrary.hpp"
 
 # include			<vector>
@@ -28,8 +28,8 @@ typedef struct  data
 {
   int**                 map;
   int                   score;
-  std::vector<int>      boost;
-  std::vector<snk>  snake;
+  int			boost;
+  std::vector<snk>	snake;
 }               data;
 
 class				ILibrary;
@@ -78,7 +78,7 @@ public:
 
 private:
   bool				_boosted;
-  std::vector<int>		_boost;
+  int				_boost;
   bool				_isAlive;
   const int			_width;
   const int			_height;
