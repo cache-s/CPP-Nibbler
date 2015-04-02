@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Thu Apr  2 17:08:54 2015 Pierre Charié
+// Last update Thu Apr  2 17:28:45 2015 Jordan Chazottes
 //
 
 #include	<sstream>
@@ -163,38 +163,37 @@ void            Xlib::display(data const d)
   for (int y = 0; y < _height; y++)
     for (int x = 0; x < _width; x++)
       {
-	    switch (d.map[y][x])
-	      {
-	      case 0:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcGround);
-	      	break;
-	      case 1:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcWall);
-	      	break;
-	      case 2:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcHead);
-	      	break;
-	      case 3:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcBody);
-	      	break;
-	      case 4:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcTail);
-	      	break;
-	      case 5:
-	      	this->draw_rect((x * PIXSIZE), (y * PIXSIZE), _gcApple);
-	      	break;
-	      case 6:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcObst);
-		break;
-	      }
-	      default:
-		break;
-	      }
-	  }
-std::ostringstream oss;
-oss << "Score : " << d.score;
-XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
-_oldScore = d.score;
+	switch (d.map[y][x])
+	  {
+	  case 0:
+	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcGround);
+	    break;
+	  case 1:
+	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcWall);
+	    break;
+	  case 2:
+	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcHead);
+	    break;
+	  case 3:
+	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcBody);
+	    break;
+	  case 4:
+	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcTail);
+	    break;
+	  case 5:
+	    this->draw_rect((x * PIXSIZE), (y * PIXSIZE), _gcApple);
+	    break;
+	  case 6:
+	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcObst);
+	    break;
+	  default:
+	    break;
+	  }   
+      }
+  std::ostringstream oss;
+  oss << "Score : " << d.score;
+  XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
+  _oldScore = d.score;
   XSync(_disp, false);
 }
 
@@ -297,4 +296,8 @@ int		Xlib::gameOver()
     }
   XFlush(_disp);
   return (0);
+}
+
+void		Xlib::muteGame()
+{
 }

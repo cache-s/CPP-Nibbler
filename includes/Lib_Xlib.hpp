@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Thu Apr  2 17:06:35 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 17:14:20 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -31,18 +31,18 @@ public:
   ~Xlib();
 
 
-  virtual void	init(const int, const int);
-  virtual void	display(const data);
-  virtual void	quit();
+  virtual void		init(const int, const int);
+  virtual void		display(const data);
+  virtual void		quit();
   virtual Game::Event	eventHandler();
-  virtual int	gameOver();
+  virtual int		gameOver();
   virtual Game::Event	pause();
-
-  void		setColor();
-  void          draw_rect(const int, const int, const GC&);
-  void		waitPause();
+  virtual void		muteGame();
 
 private:
+  void			setColor();
+  void			draw_rect(const int, const int, const GC&);
+  void			waitPause();
   int		_width;
   int		_height;
   int		_oldScore;

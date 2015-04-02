@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 16:50:57 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 17:13:57 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -28,6 +28,7 @@ public:
   virtual Game::Event	eventHandler();
   virtual int		gameOver();
   virtual Game::Event	pause();
+  virtual void		muteGame();
 
 private:
   void			initColors();

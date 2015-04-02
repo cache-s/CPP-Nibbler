@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Apr  2 16:55:03 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 17:22:29 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -108,131 +108,144 @@ void		SDL::resetBackground(int **map, int X, int Y)
       }
 }
 
+void		SDL::initSnakeSpritesHead(snakeSprite *snakeSp)
+{
+  snakeSp->head[0].x = 0;
+  snakeSp->head[0].y = 0;
+  snakeSp->head[1].x = 32;
+  snakeSp->head[1].y = 0;
+  snakeSp->head[2].x = 0;
+  snakeSp->head[2].y = 32;
+  snakeSp->head[3].x = 32;
+  snakeSp->head[3].y = 32;
+  snakeSp->head[4].x = 0;
+  snakeSp->head[4].y = 64;
+  snakeSp->head[5].x = 32;
+  snakeSp->head[5].y = 64;
+  snakeSp->head[6].x = 0;
+  snakeSp->head[6].y = 96;
+  snakeSp->head[7].x = 32;
+  snakeSp->head[7].y = 96;
+}
+
+void            SDL::initSnakeSpritesTail(snakeSprite *snakeSp)
+{
+  snakeSp->tail[0].x = 0;
+  snakeSp->tail[0].y = 0;
+  snakeSp->tail[1].x = 32;
+  snakeSp->tail[1].y = 0;
+  snakeSp->tail[2].x = 64;
+  snakeSp->tail[2].y = 0;
+
+  snakeSp->tail[3].x = 0;
+  snakeSp->tail[3].y = 32;
+  snakeSp->tail[4].x = 64;
+  snakeSp->tail[4].y = 32;
+
+  snakeSp->tail[5].x = 0;
+  snakeSp->tail[5].y = 64;
+  snakeSp->tail[6].x = 32;
+  snakeSp->tail[6].y = 64;
+  snakeSp->tail[7].x = 64;
+  snakeSp->tail[7].y = 64;
+
+  snakeSp->tail[8].x = 0;
+  snakeSp->tail[8].y = 96;
+  snakeSp->tail[9].x = 32;
+  snakeSp->tail[9].y = 96;
+  snakeSp->tail[10].x = 64;
+  snakeSp->tail[10].y = 96;
+
+  snakeSp->tail[11].x = 0;
+  snakeSp->tail[11].y = 128;
+  snakeSp->tail[12].x = 64;
+  snakeSp->tail[12].y = 128;
+
+  snakeSp->tail[13].x = 0;
+  snakeSp->tail[13].y = 160;
+  snakeSp->tail[14].x = 32;
+  snakeSp->tail[14].y = 160;
+  snakeSp->tail[15].x = 64;
+  snakeSp->tail[15].y = 160;
+}
+
+void            SDL::initSnakeSprites(snakeSprite *snakeSp)
+{
+  for (int i = 0; i < 8; i++)
+    snakeSp->head[i].w = snakeSp->head[i].h = 32;
+  for (int i = 0; i < 16; i++)
+    snakeSp->tail[i].w = snakeSp->tail[i].h = 32;
+  initSnakeSpritesHead(snakeSp);
+  initSnakeSpritesTail(snakeSp);
+}
+
 void		SDL::setSnake(std::vector<snk> snake)
 {
-  SDL_Rect      head[8];
-  SDL_Rect      tail[16];
+  snakeSprite	snakeSp;
 
-  for (int i = 0; i < 8; i++)
-    head[i].w = head[i].h = 32;
-  for (int i = 0; i < 16; i++)
-    tail[i].w = tail[i].h = 32;
-  head[0].x = 0;
-  head[0].y = 0;
-  head[1].x = 32;
-  head[1].y = 0;
-  head[2].x = 0;
-  head[2].y = 32;
-  head[3].x = 32;
-  head[3].y = 32;
-  head[4].x = 0;
-  head[4].y = 64;
-  head[5].x = 32;
-  head[5].y = 64;
-  head[6].x = 0;
-  head[6].y = 96;
-  head[7].x = 32;
-  head[7].y = 96;
-
-  tail[0].x = 0;
-  tail[0].y = 0;
-  tail[1].x = 32;
-  tail[1].y = 0;
-  tail[2].x = 64;
-  tail[2].y = 0;
-
-  tail[3].x = 0;
-  tail[3].y = 32;
-  tail[4].x = 64;
-  tail[4].y = 32;
-
-  tail[5].x = 0;
-  tail[5].y = 64;
-  tail[6].x = 32;
-  tail[6].y = 64;
-  tail[7].x = 64;
-  tail[7].y = 64;
-
-  tail[8].x = 0;
-  tail[8].y = 96;
-  tail[9].x = 32;
-  tail[9].y = 96;
-  tail[10].x = 64;
-  tail[10].y = 96;
-
-  tail[11].x = 0;
-  tail[11].y = 128;
-  tail[12].x = 64;
-  tail[12].y = 128;
-
-  tail[13].x = 0;
-  tail[13].y = 160;
-  tail[14].x = 32;
-  tail[14].y = 160;
-  tail[15].x = 64;
-  tail[15].y = 160;
-
+  initSnakeSprites(&snakeSp);
+  
   if (snake[0].dir == DOWN)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &head[7]);
+    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[7]);
   if (snake[0].dir == UP)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &head[4]);
+    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[4]);
   if (snake[0].dir == LEFT)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &head[6]);
+    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[6]);
   if (snake[0].dir == RIGHT)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &head[5]);
+    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[5]);
   for (unsigned int i = 1; i < snake.size(); i++)
     {
       if (snake[i].dir == RIGHT)
 	{
 	  if ((i + 1) < snake.size() && snake[i + 1].dir == UP)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[8]);
+	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[8]);
 	  else
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == DOWN)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[5]);
+	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[5]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[9]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[9]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[6]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[6]);
 	}
       if (snake[i].dir == LEFT)
 	{
 	  if ((i + 1) < snake.size() && snake[i + 1].dir == UP)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[2]);
+	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[2]);
 	  else
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == DOWN)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[15]);
+	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[15]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[14]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[14]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[1]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[1]);
 	}
       if (snake[i].dir == UP)
 	{
 	  if ((i + 1) < snake.size() && snake[i + 1].dir == RIGHT)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[7]);
+	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[7]);
 	  else
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == LEFT)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[13]);
+	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[13]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[11]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[11]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[4]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[4]);
 	}
       if (snake[i].dir == DOWN)
 	{
 	  if ((i + 1) < snake.size() && snake[i + 1].dir == RIGHT)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[10]);
+	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[10]);
 	  else
 	    if ((i + 1) < snake.size() && snake[i + 1].dir == LEFT)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[0]);
+	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[0]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[12]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[12]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &tail[3]);
+		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[3]);
 	}
     }
 }
@@ -276,6 +289,20 @@ void		SDL::setBoost(int boost)
   pos.y = 0;
   SDL_BlitSurface(txt, NULL, _screen, &pos);
   SDL_Flip(_screen);
+}
+
+void		SDL::muteGame()
+{
+  if (Mix_PausedMusic() != 1)
+    {
+      Mix_Volume(-1, 0);
+      Mix_PauseMusic();
+    }
+  else
+    {
+      Mix_Volume(-1, 128);
+      Mix_ResumeMusic();
+    }
 }
 
 Game::Event	SDL::pause()
@@ -337,10 +364,7 @@ Game::Event	SDL::eventHandler()
 	    ret = pause();
 	  return ret;
 	case SDLK_m:
-	  if (Mix_PausedMusic() != 1)
-	    Mix_PauseMusic();
-	  else
-	    Mix_ResumeMusic();
+	  muteGame();
 	  return Game::DEFAULT;
 	case SDLK_ESCAPE:
 	  return Game::QUIT;
