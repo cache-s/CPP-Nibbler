@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Tue Mar 31 13:28:30 2015 Jordan Chazottes
+// Last update Wed Apr  1 12:35:28 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -28,6 +28,7 @@ public:
   virtual void	quit();
   virtual int	eventHandler();
   virtual int	gameOver();
+private:
   int		waitPause();
   void		resetBackground(int**, int, int);
   void		setSnake(std::vector<snk> snake);
@@ -38,7 +39,6 @@ public:
   void		initSprites();
   void		initAudio();
   void		initScore();
-private:
   TTF_Font	*_font;
   SDL_Surface*	_screen;
   SDL_Surface*	_bg;
