@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:36 2015 Pierre Charié
-// Last update Thu Apr  2 17:00:28 2015 Pierre Charié
+// Last update Thu Apr  2 17:05:09 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -163,23 +163,13 @@ void            Xlib::display(data const d)
   for (int y = 0; y < _height; y++)
     for (int x = 0; x < _width; x++)
       {
-	if (_oldScore == -1)
-	  {
-	    switch (d.map[y][x])
-	      {
-	      case 1:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcWall);
-	      	break;
-	      case 6:
-	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcObst);
-		break;
-	      }
-	    std::cout << "draw first" << std::endl;
-	  }
 	    switch (d.map[y][x])
 	      {
 	      case 0:
 	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcGround);
+	      	break;
+	      case 1:
+	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcWall);
 	      	break;
 	      case 2:
 	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcHead);
@@ -193,18 +183,18 @@ void            Xlib::display(data const d)
 	      case 5:
 	      	this->draw_rect((x * PIXSIZE), (y * PIXSIZE), _gcApple);
 	      	break;
+	      case 6:
+	      	this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcObst);
+		break;
+	      }
 	      default:
 		break;
 	      }
 	  }
-  std::ostringstream oss;
-  if (_oldScore != d.score)
-  {
-    this->draw_rect(10 * PIXSIZE, 9 * PIXSIZE, _gcWall);
-    oss << "Score : " << d.score;
-    XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
-  }
-    _oldScore = d.score;
+std::ostringstream oss;
+oss << "Score : " << d.score;
+XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
+_oldScore = d.score;
   XSync(_disp, false);
 }
 
