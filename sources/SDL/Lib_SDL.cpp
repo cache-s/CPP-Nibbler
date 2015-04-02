@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Apr  2 11:51:31 2015 Sebastien Cache-Delanos
+// Last update Thu Apr  2 14:23:34 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -58,7 +58,7 @@ void		SDL::initAudio()
   if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
     std::cout << "Error loading music mixer" << std::endl;
   _music = Mix_LoadMUS("ressources/sounds/nyan.wav");
-  _point = Mix_LoadWAV("ressources/sounds/point.wav");
+  _point = Mix_LoadWAV("ressources/sounds/coin.wav");
   _gameOver = Mix_LoadWAV("ressources/sounds/gameOver.wav");
   _pause = Mix_LoadWAV("ressources/sounds/pause.wav");
   Mix_VolumeMusic(MIX_MAX_VOLUME/2);
@@ -287,7 +287,7 @@ int		SDL::pause()
       Mix_PauseMusic();
       Mix_PlayChannel(1, _pause, -1);
     }
-  sleep(1);
+  usleep(10000);
   SDL_PollEvent(&event);
   switch (event.type)
     {
@@ -303,17 +303,18 @@ int		SDL::pause()
 	case SDLK_ESCAPE:
 	  return -1;
 	default:
-	  pause();
+	  return 0;
 	}
     default:
-      return pause();
+      return 0;
     }
-  return pause();
+  return 0;
 }
 
 int		SDL::eventHandler()
 {
   SDL_Event	event;
+  int		ret = 0;
 
   SDL_PollEvent(&event);
   switch (event.type)
@@ -332,7 +333,9 @@ int		SDL::eventHandler()
 	case SDLK_d:
 	  return 5;
 	case SDLK_p:
-	  return pause();
+	  while (ret != 42 && ret != -1)
+	    ret = pause();
+	  return ret;
 	case SDLK_m:
 	  if (Mix_PausedMusic() != 1)
 	    Mix_PauseMusic();
