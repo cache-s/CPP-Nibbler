@@ -1,11 +1,11 @@
 //
 // game.cpp for nibbler in /home/cache-_s/rendu/cpp_nibbler
-// 
+//
 // Made by Sebastien Cache-Delanos
 // Login   <cache-_s@epitech.net>
-// 
+//
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Tue Mar 31 11:12:31 2015 Jordan Chazottes
+// Last update Tue Mar 31 15:53:16 2015 Pierre Charié
 //
 
 #include				"game.hpp"
@@ -39,18 +39,8 @@ void					Game::updatePath()
   unsigned int				i;
   Direction				tmp = _dir;
 
-  if (tmp == DOWN)
-    for (i = 0; i < _snake.size(); ++i)
-      _snake[i]->addDir(DOWN);
-  if (tmp == UP)
-    for (i = 0; i < _snake.size(); ++i)
-      _snake[i]->addDir(UP);
-  if (tmp == LEFT)
-    for (i = 0; i < _snake.size(); ++i)
-      _snake[i]->addDir(LEFT);
-  if (tmp == RIGHT)
-    for (i = 0; i < _snake.size(); ++i)
-      _snake[i]->addDir(RIGHT);
+  for (i = 0; i < _snake.size(); ++i)
+    _snake[i]->addDir(tmp);
 }
 
 void					Game::addApple()
