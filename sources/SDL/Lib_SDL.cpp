@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Fri Apr  3 10:30:50 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:22:02 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -17,6 +17,51 @@ extern "C"
     return new SDL();
   }
 }
+
+SDL::SDL()
+{
+}
+
+SDL::SDL(const SDL &other)
+{
+  _font = other._font;
+  _screen = other._screen;
+  _bg = other._bg;
+  _snake = other._snake;
+  _tail = other._tail;
+  _music = other._music;
+  _point = other._point;
+  _klaxon = other._klaxon;
+  _gameOver = other._gameOver;
+  _pause = other._pause;
+  _width = other._width;
+  _height = other._height;
+  _curScore = other._curScore;
+}
+
+SDL		&SDL::operator=(const SDL &other)
+{
+  _font = other._font;
+  _screen = other._screen;
+  _bg = other._bg;
+  _snake = other._snake;
+  _tail = other._tail;
+  _music = other._music;
+  _point = other._point;
+  _klaxon = other._klaxon;
+  _gameOver = other._gameOver;
+  _pause = other._pause;
+  _width = other._width;
+  _height = other._height;
+  _curScore = other._curScore;
+  return (*this);
+}
+
+SDL::~SDL()
+{
+}
+
+
 
 void		SDL::init(int x, int y)
 {
@@ -76,7 +121,7 @@ void		SDL::display(const data &d)
   SDL_Flip(_screen);
 }
 
-void		SDL::resetBackground(int **map, int X, int Y)
+void		SDL::resetBackground(int **map, int X, int Y) const
 {
   SDL_Rect	clip[4];
   SDL_Surface	*overlay;
@@ -109,7 +154,7 @@ void		SDL::resetBackground(int **map, int X, int Y)
       }
 }
 
-void		SDL::initSnakeSpritesHead(snakeSprite *snakeSp)
+void		SDL::initSnakeSpritesHead(snakeSprite *snakeSp) const
 {
   snakeSp->head[0].x = 0;
   snakeSp->head[0].y = 0;
@@ -129,7 +174,7 @@ void		SDL::initSnakeSpritesHead(snakeSprite *snakeSp)
   snakeSp->head[7].y = 96;
 }
 
-void            SDL::initSnakeSpritesTail(snakeSprite *snakeSp)
+void            SDL::initSnakeSpritesTail(snakeSprite *snakeSp) const
 {
   snakeSp->tail[0].x = 0;
   snakeSp->tail[0].y = 0;
@@ -170,7 +215,7 @@ void            SDL::initSnakeSpritesTail(snakeSprite *snakeSp)
   snakeSp->tail[15].y = 160;
 }
 
-void            SDL::initSnakeSprites(snakeSprite *snakeSp)
+void            SDL::initSnakeSprites(snakeSprite *snakeSp) const
 {
   for (int i = 0; i < 8; i++)
     snakeSp->head[i].w = snakeSp->head[i].h = 32;
@@ -180,20 +225,13 @@ void            SDL::initSnakeSprites(snakeSprite *snakeSp)
   initSnakeSpritesTail(snakeSp);
 }
 
-void		SDL::setSnake(std::vector<snk> snake)
+void		SDL::setSnake(std::vector<snk> snake) const
 {
   snakeSprite	snakeSp;
 
   initSnakeSprites(&snakeSp);
-  
-  if (snake[0].dir == DOWN)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[7]);
-  if (snake[0].dir == UP)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[4]);
-  if (snake[0].dir == LEFT)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[6]);
-  if (snake[0].dir == RIGHT)
-    applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[5]);
+
+  applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[snake[0].dir]);
   for (unsigned int i = 1; i < snake.size(); i++)
     {
       if (snake[i].dir == RIGHT)
@@ -272,7 +310,7 @@ void		SDL::setScore(int score)
   _curScore = score;
 }
 
-void		SDL::setBoost(int boost)
+void		SDL::setBoost(int boost) const
 {
   std::ostringstream	oss117;
   SDL_Color		color;
@@ -391,7 +429,7 @@ Event	SDL::eventHandler()
   return (DEFAULT);
 }
 
-void		SDL::applySurface(int x, int y, SDL_Surface *src, SDL_Rect *clip)
+void		SDL::applySurface(int x, int y, SDL_Surface *src, SDL_Rect *clip) const
 {
   SDL_Rect	offset;
 
@@ -411,7 +449,7 @@ void		SDL::quit()
   SDL_Quit();
 }
 
-int		SDL::checkRestart()
+int		SDL::checkRestart() const
 {
   SDL_Event	event;
 

@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 10:42:53 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:13:10 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -28,7 +28,7 @@ WINDOW*		NCurses::createWin(int height, int width, int starty, int startx)
   return _win;
 }
 
-void		NCurses::initColors()
+void		NCurses::initColors() const
 {
   start_color();
   init_pair(1, COLOR_GREEN, COLOR_GREEN);

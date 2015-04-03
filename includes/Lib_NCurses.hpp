@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 10:31:29 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:12:32 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -25,13 +25,13 @@ public:
   virtual void		init(int x, int y);
   virtual void		display(const data &d);
   virtual void		quit();
-  virtual Event	eventHandler();
+  virtual Event		eventHandler();
   virtual int		gameOver();
-  virtual Event	pause();
+  virtual Event		pause();
   virtual void		muteGame();
 
 private:
-  void			initColors();
+  void			initColors() const;
   WINDOW*		createWin(int height, int width, int starty, int startx);
 
   WINDOW*		_win;
