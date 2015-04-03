@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 18:47:56 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 13:46:05 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -46,6 +46,7 @@ public:
 
   int				checkNext(int coordY, int coordX);
   void				handleEvent(Event event);
+  void				start(bool doInit);
   void				handleBoost();
   void				spaceBoost();
   void				updatePath();
@@ -55,7 +56,6 @@ public:
   int				checkMap();
   void				addApple();
   data				getData();
-  void				start();
   void				move();
   void				loadLib(Event);
   //INIT

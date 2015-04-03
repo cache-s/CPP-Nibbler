@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 12:50:34 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 13:45:36 2015 Sebastien Cache-Delanos
 //
 
 #include				"Game.hpp"
@@ -256,11 +256,12 @@ data					Game::getData()
   return d;
 }
 
-void					Game::start()
+void					Game::start(bool doInit)
 {
   _external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(_lib, "createLib"));
   _curLib = _external_creator();
-  _curLib->init(_width, _height);
+  if (doInit)
+    _curLib->init(_width, _height);
   while (_isAlive && _quit == false)
     {
       handleEvent(_curLib->eventHandler());
@@ -276,7 +277,7 @@ void					Game::start()
   if (_quit == false && _curLib->gameOver() == 1)
     {
       reinit();
-      start();
+      start(false);
     }
   else
     _curLib->quit();
