@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:11 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 12:23:22 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 11:30:54 2015 Jordan Chazottes
 //
 
 #include			"Snake.hpp"
@@ -51,7 +51,7 @@ void				Snake::setY(int y)
   _y = y;
 }
 
-void				Snake::setDirection(std::deque<Direction> dir)
+void				Snake::setDirection(const std::deque<Direction> &dir)
 {
   _dir = dir;
 }

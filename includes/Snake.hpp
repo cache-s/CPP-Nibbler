@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:45 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 12:23:33 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 11:30:40 2015 Jordan Chazottes
 //
 
 #ifndef					SNAKE_HPP_
@@ -28,7 +28,7 @@ public:
   //SETTERS
   void					setX(int x);
   void					setY(int y);
-  void					setDirection(std::deque<Direction> dir);
+  void					setDirection(const std::deque<Direction> &dir);
 
   //GETTERS
   int					getX() const;
