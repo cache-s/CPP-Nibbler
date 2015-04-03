@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Fri Apr  3 14:03:27 2015 Pierre Charié
+// Last update Fri Apr  3 15:46:18 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -105,14 +105,26 @@ void		Xlib::setColor()
     err++;
   if (XParseColor(_disp, _colormap, "rgb:FF/0/0", &_colApple) == 0)
     err++;
+  if (err > 0)
+    std::cerr << "ERROR : can't load color" << std::endl;       //TODO throw exception
 
-  XAllocColor(_disp, _colormap, &_colGround);
-  XAllocColor(_disp, _colormap, &_colWall);
-  XAllocColor(_disp, _colormap, &_colObst);
-  XAllocColor(_disp, _colormap, &_colHead);
-  XAllocColor(_disp, _colormap, &_colBody);
-  XAllocColor(_disp, _colormap, &_colTail);
-  XAllocColor(_disp, _colormap, &_colApple);
+  if (XAllocColor(_disp, _colormap, &_colGround) == 0)
+    err++;
+  if (XAllocColor(_disp, _colormap, &_colWall) == 0)
+    err++;
+  if (XAllocColor(_disp, _colormap, &_colObst) == 0)
+    err++;
+  if (XAllocColor(_disp, _colormap, &_colHead) == 0)
+    err++;
+  if (XAllocColor(_disp, _colormap, &_colBody) == 0)
+    err++;
+  if (XAllocColor(_disp, _colormap, &_colTail) == 0)
+    err++;
+  if (XAllocColor(_disp, _colormap, &_colApple) == 0)
+    err++;
+
+  if (err > 0)
+    std::cerr << "ERROR : can't alloc color" << std::endl;       //TODO throw exception
 
   XSetForeground(_disp, _gcGround, _colGround.pixel);
   XSetForeground(_disp, _gcWall, _colWall.pixel);
@@ -121,11 +133,6 @@ void		Xlib::setColor()
   XSetForeground(_disp, _gcBody, _colBody.pixel);
   XSetForeground(_disp, _gcTail, _colTail.pixel);
   XSetForeground(_disp, _gcApple, _colApple.pixel);
-  if (err > 0)
-    {
-      std::cerr << "ERROR : can't load color" << std::endl;
-      //TODO throw exception
-    }
 }
 
 void		Xlib::init(int const x, int const y)
@@ -140,8 +147,10 @@ void		Xlib::init(int const x, int const y)
   XColor bgcol;
 
   _colormap = DefaultColormap(_disp, 0);
-  XParseColor(_disp, _colormap, "yellow green", &bgcol);
-  XAllocColor(_disp, _colormap, &bgcol);
+  if (XParseColor(_disp, _colormap, "yellow green", &bgcol) == 0)
+    std::cerr << "ERROR : can't load color" << std::endl;       //TODO throw exception
+  if (XAllocColor(_disp, _colormap, &bgcol) == 0)
+    std::cerr << "ERROR : can't alloc color" << std::endl;       //TODO throw exception
 
   _win = XCreateSimpleWindow(_disp, RootWindow(_disp, 0), 0, 0, _width * PIXSIZE,
 				  _height * PIXSIZE, 0, blackColor, bgcol.pixel);
