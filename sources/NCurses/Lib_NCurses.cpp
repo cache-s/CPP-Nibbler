@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 12:13:10 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:30:57 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -15,9 +15,26 @@ NCurses::NCurses()
 
 }
 
+NCurses::NCurses(const NCurses& other)
+{
+  _win = other._win;
+  _score = other._score;
+  _w = other._w;
+  _h = other._h;
+}
+
 NCurses::~NCurses()
 {
 
+}
+
+NCurses		&NCurses::operator=(const NCurses& other)
+{
+  _win = other._win;
+  _score = other._score;
+  _w = other._w;
+  _h = other._h;
+  return (*this);
 }
 
 WINDOW*		NCurses::createWin(int height, int width, int starty, int startx)

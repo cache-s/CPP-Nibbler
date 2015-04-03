@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Fri Apr  3 12:22:02 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:30:08 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -39,6 +39,10 @@ SDL::SDL(const SDL &other)
   _curScore = other._curScore;
 }
 
+SDL::~SDL()
+{
+}
+
 SDL		&SDL::operator=(const SDL &other)
 {
   _font = other._font;
@@ -56,12 +60,6 @@ SDL		&SDL::operator=(const SDL &other)
   _curScore = other._curScore;
   return (*this);
 }
-
-SDL::~SDL()
-{
-}
-
-
 
 void		SDL::init(int x, int y)
 {
