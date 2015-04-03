@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 13:46:14 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 14:04:07 2015 Sebastien Cache-Delanos
 //
 
 #include			"nibbler.hpp"
@@ -61,7 +61,7 @@ int				main(int ac, char **av)
     return (-1);
   srand(time(NULL));
   s = new Game(width, height, lib);
-  s->start(true);
+  s->start();
   delete (s);
   return (0);
 }

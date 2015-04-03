@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:11 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 12:23:11 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 13:47:28 2015 Sebastien Cache-Delanos
 //
 
 #include			"Snake.hpp"
@@ -34,13 +34,6 @@ void				Snake::addDirFront(Direction dir)
 void				Snake::popDir()
 {
   _dir.pop_front();
-}
-
-//INIT
-void				Snake::initDir(Direction dir, int i)
-{
-  (void)i;
-  _dir.push_back(dir);
 }
 
 //SETTERS

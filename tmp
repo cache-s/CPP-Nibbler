@@ -1,0 +1,70 @@
+==13330== Memcheck, a memory error detector
+==13330== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==13330== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==13330== Command: ./nibbler 20 20 lib_nibbler_NCurses.so
+==13330== Parent PID: 3579
+==13330== 
+==13330== Conditional jump or move depends on uninitialised value(s)
+==13330==    at 0x6008E38: NCurses::display(data const&) (in /home/cache-_s/rendu/cpp_nibbler/lib_nibbler_NCurses.so)
+==13330==    by 0x402D2F: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x402DF7: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x4018BD: main (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330== 
+==13330== Conditional jump or move depends on uninitialised value(s)
+==13330==    at 0x6217C77: werase (in /lib64/libncurses.so.5.9)
+==13330==    by 0x6216888: wclear (in /lib64/libncurses.so.5.9)
+==13330==    by 0x6008E5C: NCurses::display(data const&) (in /home/cache-_s/rendu/cpp_nibbler/lib_nibbler_NCurses.so)
+==13330==    by 0x402D2F: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x402DF7: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x4018BD: main (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330== 
+==13330== Conditional jump or move depends on uninitialised value(s)
+==13330==    at 0x64462C3: _nc_screen_of (in /lib64/libtinfo.so.5.9)
+==13330==    by 0x621F231: vwprintw (in /lib64/libncurses.so.5.9)
+==13330==    by 0x621F3A6: wprintw (in /lib64/libncurses.so.5.9)
+==13330==    by 0x6008E7F: NCurses::display(data const&) (in /home/cache-_s/rendu/cpp_nibbler/lib_nibbler_NCurses.so)
+==13330==    by 0x402D2F: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x402DF7: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x4018BD: main (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330== 
+==13330== Invalid read of size 2
+==13330==    at 0x6223AC7: _nc_printf_string_sp (in /lib64/libncurses.so.5.9)
+==13330==    by 0x621F23F: vwprintw (in /lib64/libncurses.so.5.9)
+==13330==    by 0x621F3A6: wprintw (in /lib64/libncurses.so.5.9)
+==13330==    by 0x6008E7F: NCurses::display(data const&) (in /home/cache-_s/rendu/cpp_nibbler/lib_nibbler_NCurses.so)
+==13330==    by 0x402D2F: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x402DF7: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x4018BD: main (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==  Address 0x74 is not stack'd, malloc'd or (recently) free'd
+==13330== 
+==13330== 
+==13330== Process terminating with default action of signal 11 (SIGSEGV)
+==13330==  Access not within mapped region at address 0x74
+==13330==    at 0x6223AC7: _nc_printf_string_sp (in /lib64/libncurses.so.5.9)
+==13330==    by 0x621F23F: vwprintw (in /lib64/libncurses.so.5.9)
+==13330==    by 0x621F3A6: wprintw (in /lib64/libncurses.so.5.9)
+==13330==    by 0x6008E7F: NCurses::display(data const&) (in /home/cache-_s/rendu/cpp_nibbler/lib_nibbler_NCurses.so)
+==13330==    by 0x402D2F: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x402DF7: Game::start(bool) (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==    by 0x4018BD: main (in /home/cache-_s/rendu/cpp_nibbler/nibbler)
+==13330==  If you believe this happened as a result of a stack
+==13330==  overflow in your program's main thread (unlikely but
+==13330==  possible), you can try to increase the size of the
+==13330==  main thread stack using the --main-stacksize= flag.
+==13330==  The main thread stack size used in this run was 8388608.
+==13330== 
+==13330== HEAP SUMMARY:
+==13330==     in use at exit: 131,475 bytes in 438 blocks
+==13330==   total heap usage: 613 allocs, 175 frees, 170,041 bytes allocated
+==13330== 
+==13330== LEAK SUMMARY:
+==13330==    definitely lost: 32 bytes in 1 blocks
+==13330==    indirectly lost: 0 bytes in 0 blocks
+==13330==      possibly lost: 0 bytes in 0 blocks
+==13330==    still reachable: 131,443 bytes in 437 blocks
+==13330==         suppressed: 0 bytes in 0 blocks
+==13330== Rerun with --leak-check=full to see details of leaked memory
+==13330== 
+==13330== For counts of detected and suppressed errors, rerun with: -v
+==13330== Use --track-origins=yes to see where uninitialised values come from
+==13330== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 2 from 2)
