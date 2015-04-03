@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Fri Apr  3 10:36:19 2015 Jordan Chazottes
+// Last update Fri Apr  3 14:03:27 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -131,7 +131,6 @@ void		Xlib::setColor()
 void		Xlib::init(int const x, int const y)
 {
 
-
   _height = y;
   _width = x;
   _disp = XOpenDisplay(NULL);
@@ -192,7 +191,7 @@ void            Xlib::display(const data &d)
       }
   XSync(_disp, false);
   std::ostringstream oss;
-  oss << "Score : " << d.score;
+  oss << "Score : " << d.score << "             Boost " << d.boost * 10;
   XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
   _oldScore = d.score;
   XSync(_disp, false);
@@ -277,12 +276,12 @@ int		Xlib::gameOver()
   std::string buffer4 = "or \"q\" to leave";
 
   XDrawString(_disp, _win, _gcWall, 30, 50, " ", 1);
-  XDrawString(_disp, _win, _gcWall, 30, 50, buffer.c_str(), strlen(buffer.c_str()));
+  XDrawString(_disp, _win, _gcWall, _width * PIXSIZE / 2 - 10, _height * PIXSIZE / 2 - 55 + 50, buffer.c_str(), strlen(buffer.c_str()));
   usleep(1000);
-  XDrawString(_disp, _win, _gcWall, 30, 70, buffer2.c_str(), strlen(buffer2.c_str()));
+  XDrawString(_disp, _win, _gcWall, _width * PIXSIZE / 2 - 10, _height * PIXSIZE / 2 - 55 + 70, buffer2.c_str(), strlen(buffer2.c_str()));
   usleep(1000);
-  XDrawString(_disp, _win, _gcWall, 30, 90, buffer3.c_str(), strlen(buffer3.c_str()));
-  XDrawString(_disp, _win, _gcWall, 30, 110, buffer4.c_str(), strlen(buffer3.c_str()));
+  XDrawString(_disp, _win, _gcWall, _width * PIXSIZE / 2 - 10, _height * PIXSIZE / 2 - 55 + 90, buffer3.c_str(), strlen(buffer3.c_str()));
+  XDrawString(_disp, _win, _gcWall, _width * PIXSIZE / 2 - 10, _height * PIXSIZE / 2 - 55 + 110, buffer4.c_str(), strlen(buffer3.c_str()));
   XFlush(_disp);
   while (42)
     {

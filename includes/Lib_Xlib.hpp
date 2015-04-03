@@ -5,13 +5,13 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Fri Apr  3 10:31:15 2015 Jordan Chazottes
+// Last update Fri Apr  3 10:53:38 2015 Pierre Charié
 //
 
 #ifndef			LIB_XLIB_HPP_
 # define		LIB_XLIB_HPP_
 
-# define		PIXSIZE 10
+# define		PIXSIZE 20
 
 # include		<X11/Xlib.h>
 # include		<X11/Xutil.h>
