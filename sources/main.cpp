@@ -5,29 +5,34 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 14:04:07 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 16:20:42 2015 Sebastien Cache-Delanos
 //
 
 #include			"nibbler.hpp"
 #include			"Game.hpp"
 
+#include			<stdexcept>
+#include			<sstream>
+
 int				checkSize(int width, int height)
 {
-  int				err;
+  std::ostringstream		widthError;
+  std::ostringstream		heightError;
 
-  err = 0;
-  if (width < MIN_WIDTH || width > MAX_WIDTH)
+  widthError << "Width must be a valid number between " << MIN_WIDTH << " and " << MAX_WIDTH;
+  heightError << "Height must be a valid number between " << MIN_HEIGHT << " and " << MAX_HEIGHT;
+  try
     {
-      std::cout << "Width must be a valid number between " << MIN_WIDTH << " and " << MAX_WIDTH << std::endl;
-      err++;
+      if (width < MIN_WIDTH || width > MAX_WIDTH)
+	throw std::range_error(widthError.str());
+      if (height < MIN_HEIGHT || height > MAX_HEIGHT)
+	throw std::range_error(heightError.str());
     }
-  if (height < MIN_HEIGHT || height > MAX_HEIGHT)
+  catch (const std::range_error& e)
     {
-      std::cout << "Height must be a valid number between " << MIN_HEIGHT << " and " << MAX_HEIGHT << std::endl;
-      err++;
+      std::cout << "Exception : " << e.what() << std::endl;
+      return (-1);
     }
-  if (err > 0)
-    return (-1);
   return (0);
 }
 
@@ -36,10 +41,17 @@ void				*checkLib(const char *lib)
   void				*dlhandle;
   std::string			_lib = lib;
 
-  if (_lib.substr(0, 2) != "./" && _lib.substr(0, 1) != "/")
-    _lib = "./" + _lib;
-  if ((dlhandle = dlopen(_lib.c_str(), RTLD_LAZY)) == NULL)
-    std::cout << "Error while openning the library " << lib << std::endl;
+  try
+    {
+      if (_lib.substr(0, 2) != "./" && _lib.substr(0, 1) != "/")
+	_lib = "./" + _lib;
+      if ((dlhandle = dlopen(_lib.c_str(), RTLD_LAZY)) == NULL)
+	throw std::runtime_error("Error while openning the library");
+    }
+  catch (const std::runtime_error& e)
+    {
+      std::cout << "Exception : " << e.what() << std::endl;
+    }
   return (dlhandle);
 }
 

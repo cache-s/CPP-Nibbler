@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Wed Mar 25 11:42:12 2015 Jordan Chazottes
-// Last update Wed Mar 25 11:51:31 2015 Jordan Chazottes
+// Last update Fri Apr  3 15:47:32 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			EXCEPTION_HPP_
@@ -19,6 +19,7 @@ class Exception : public std::exception
 public:
   explicit Exception(const char* _error) : error(_error)
   {
+
   }
 
   virtual const char* what() const throw()
@@ -34,6 +35,7 @@ class RuntimeError : public virtual std::runtime_error, public Exception
 public:
   explicit RuntimeError(const char *_error) : error(_error)
   {
+
   }
 };
 
