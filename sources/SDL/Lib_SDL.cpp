@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Thu Apr  2 18:24:57 2015 Jordan Chazottes
+// Last update Fri Apr  3 10:30:50 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -67,7 +67,7 @@ void		SDL::initAudio()
   Mix_AllocateChannels(3);
 }
 
-void		SDL::display(data d)
+void		SDL::display(const data &d)
 {
   resetBackground(d.map, _width, _height);
   setSnake(d.snake);

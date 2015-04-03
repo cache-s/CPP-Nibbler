@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 18:45:08 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 10:42:53 2015 Jordan Chazottes
 //
 
 #include	"Lib_NCurses.hpp"
@@ -67,7 +67,7 @@ void		NCurses::init(int x, int y)
   wrefresh(_win);
 }
 
-void		NCurses::display(data d)
+void		NCurses::display(const data &d)
 {
   int		i;
   int		j;
@@ -79,7 +79,7 @@ void		NCurses::display(data d)
   wprintw(_win, "Score : %d\nBoost : ", _score);
   for (i = 0; i < 10; ++i)
     {
-      if (d.boost-- > 0)
+      if ((d.boost - 1) > 0)
 	waddch(_win, ACS_DIAMOND | COLOR_PAIR(8));
       else
 	waddch(_win, ACS_DIAMOND | COLOR_PAIR(9));

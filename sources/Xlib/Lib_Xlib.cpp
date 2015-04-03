@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Thu Apr  2 18:14:01 2015 Jordan Chazottes
+// Last update Fri Apr  3 10:36:19 2015 Jordan Chazottes
 //
 
 #include	<sstream>
@@ -158,7 +158,7 @@ void		Xlib::init(int const x, int const y)
     }
 }
 
-void            Xlib::display(data const d)
+void            Xlib::display(const data &d)
 {
   for (int y = 0; y < _height; y++)
     for (int x = 0; x < _width; x++)
