@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:37:51 2015 Jordan Chazottes
-// Last update Fri Apr  3 10:31:41 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:35:37 2015 Jordan Chazottes
 //
 
 #ifndef		ILIBRARY_HPP_
@@ -31,6 +31,7 @@ public:
   virtual int		gameOver() = 0;
   virtual Event		pause() = 0;
   virtual void		muteGame() = 0;
+  virtual		~ILibrary() {}
 };
 
 #endif		//ILIBRARY_HPP_

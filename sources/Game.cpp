@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 14:03:34 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 16:46:32 2015 Jordan Chazottes
 //
 
 #include				"Game.hpp"
@@ -183,6 +183,7 @@ void					Game::loadLib(Event event)
   if (event == L_NCURSES)
     if ((dlhandle = dlopen("./lib_nibbler_NCurses.so", RTLD_LAZY)) == NULL)
       std::cout << "Error while changing library to NCurses\n";
+  _lib = dlhandle;
   _curLib->quit();
   _external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(dlhandle, "createLib"));
   _curLib = _external_creator();

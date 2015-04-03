@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Fri Apr  3 12:23:16 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:36:08 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -25,7 +25,7 @@ class			SDL : public ILibrary
 public:
   SDL();
   SDL(const SDL& other);
-  ~SDL();
+  virtual		~SDL();
   SDL&			operator=(const SDL& other);
   virtual void		init(int, int);
   virtual void		display(const data &d);
