@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 16:46:32 2015 Jordan Chazottes
+// Last update Fri Apr  3 16:56:55 2015 Pierre Charié
 //
 
 #include				"Game.hpp"
@@ -72,7 +72,7 @@ int					Game::checkMap()
 
 int					Game::checkNext(int coordY, int coordX)
 {
-  if (_map[coordY][coordX] == 0)
+  if (_map[coordY][coordX] == 0 || _map[coordY][coordX] == 4)
     return (0);
   if (_map[coordY][coordX] == 5)
     {
