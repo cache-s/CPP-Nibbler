@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:45 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 11:30:40 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:16:03 2015 Sebastien Cache-Delanos
 //
 
 #ifndef					SNAKE_HPP_
@@ -21,9 +21,12 @@ public:
   Snake(int x, int y);
   ~Snake();
 
-  Direction				getDir();
   void					addDir(Direction dir);
   void					addDirFront(Direction dir);
+  void					popDir();
+
+  //INIT
+  void					initDir(Direction dir, int i);
 
   //SETTERS
   void					setX(int x);
@@ -34,6 +37,7 @@ public:
   int					getX() const;
   int					getY() const;
   std::deque<Direction>			getDirection() const;
+  Direction				getDir() const;
 private:
   int					_x;
   int					_y;

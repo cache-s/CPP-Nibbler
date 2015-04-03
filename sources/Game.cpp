@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Thu Apr  2 19:00:15 2015 Sebastien Cache-Delanos
+// Last update Fri Apr  3 12:50:34 2015 Sebastien Cache-Delanos
 //
 
 #include				"Game.hpp"
@@ -33,15 +33,6 @@ Game::~Game()
   delete [] _map;
   for (i = 0; i < (int)_snake.size(); ++i)
     delete _snake[i];
-}
-
-void					Game::updatePath()
-{
-  unsigned int				i;
-  Direction				tmp = _dir;
-
-  for (i = 0; i < _snake.size(); ++i)
-    _snake[i]->addDir(tmp);
 }
 
 void					Game::addApple()
@@ -94,6 +85,15 @@ int					Game::checkNext(int coordY, int coordX)
   return (-1);
 }
 
+void					Game::updatePath()
+{
+  unsigned int				i;
+
+  _snake[0]->addDir(_dir);
+  for (i = 1; i < _snake.size(); ++i)
+    _snake[i]->addDir(_snake[i - 1]->getDir());
+}
+
 void					Game::move()
 {
   unsigned	int			i;
@@ -103,6 +103,7 @@ void					Game::move()
   Direction				tmp;
 
   tmp = _snake[0]->getDir();
+  _snake[0]->popDir();
   _map[_snake[0]->getY()][_snake[0]->getX()] = 0;
   if (tmp == LEFT && (res = checkNext(_snake[0]->getY(), _snake[0]->getX() - 1)) != -1)
     _snake[0]->setX(_snake[0]->getX() - 1);
@@ -117,6 +118,7 @@ void					Game::move()
       for (i = 1; i < _snake.size(); ++i)
 	{
 	  tmp = _snake[i]->getDir();
+	  _snake[i]->popDir();
 	  y = _snake[i]->getY();
 	  x = _snake[i]->getX();
 	  _map[y][x] = 0;
@@ -132,13 +134,12 @@ void					Game::move()
       if (res == 1)
 	{
 	  _snake.push_back(new Snake(x, y));
-	  _snake[_snake.size() - 1]->setDirection(_snake[_snake.size() - 2]->getDirection());
-	  _snake[_snake.size() - 1]->addDirFront(tmp);
+	  _snake[_snake.size() - 1]->addDir(tmp);
 	  addApple();
 	}
-      return;
     }
-  gameOver();
+  else
+    gameOver();
 }
 
 void					Game::spaceBoost()
@@ -323,17 +324,14 @@ void					Game::initMap()
 
 void					Game::initSnake()
 {
+  unsigned int				i;
+
   _snake.push_back(new Snake((_width / 2) + 2, (_height / 2)));
   _snake.push_back(new Snake((_width / 2) + 1, (_height / 2)));
   _snake.push_back(new Snake((_width / 2) + 0, (_height / 2)));
   _snake.push_back(new Snake((_width / 2) - 1, (_height / 2)));
-  _snake[1]->addDir(_dir);
-  _snake[2]->addDir(_dir);
-  _snake[2]->addDir(_dir);
-  _snake[3]->addDir(_dir);
-  _snake[3]->addDir(_dir);
-  _snake[3]->addDir(_dir);
-  updateMap();
+  for (i = 1; i < _snake.size(); ++i)
+    _snake[i]->addDir(_dir);
 }
 
 void					Game::initObstacle()

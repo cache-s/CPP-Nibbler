@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:11 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 11:30:54 2015 Jordan Chazottes
+// Last update Fri Apr  3 12:23:11 2015 Sebastien Cache-Delanos
 //
 
 #include			"Snake.hpp"
@@ -21,15 +21,6 @@ Snake::~Snake()
 
 }
 
-Direction			Snake::getDir()
-{
-  Direction			tmp;
-
-  tmp = _dir[0];
-  _dir.pop_front();
-  return (tmp);
-}
-
 void				Snake::addDir(Direction dir)
 {
   _dir.push_back(dir);
@@ -38,6 +29,18 @@ void				Snake::addDir(Direction dir)
 void				Snake::addDirFront(Direction dir)
 {
   _dir.push_front(dir);
+}
+
+void				Snake::popDir()
+{
+  _dir.pop_front();
+}
+
+//INIT
+void				Snake::initDir(Direction dir, int i)
+{
+  (void)i;
+  _dir.push_back(dir);
 }
 
 //SETTERS
@@ -70,4 +73,9 @@ int				Snake::getY() const
 std::deque<Direction>		Snake::getDirection() const
 {
   return (_dir);
+}
+
+Direction			Snake::getDir() const
+{
+  return (_dir[0]);
 }

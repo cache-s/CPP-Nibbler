@@ -1,11 +1,6 @@
 Rendu :
-enlever le -g du makefile
 check tout les const + ref
 enlever les .h
-corriger algo
-escape quit
-
-Ne pas mettre d'obstacles pres du snake au débart, start apres un timer (3..2..1..0)
 
 Liste des fonctions à faire dans chaque librairie :
 
