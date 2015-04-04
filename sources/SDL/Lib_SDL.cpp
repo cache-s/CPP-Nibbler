@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Sat Apr  4 15:19:08 2015 Jordan Chazottes
+// Last update Sat Apr  4 17:05:12 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -121,12 +121,12 @@ void		SDL::initAudio()
   Mix_AllocateChannels(3);
 }
 
-void		SDL::display(const data &d)
+void		SDL::display(const Data &d)
 {
-  resetBackground(d.map, _width, _height);
-  setSnake(d.snake);
-  setScore(d.score);
-  setBoost(d.boost);
+  resetBackground(d._map, _width, _height);
+  setSnake(d._snake);
+  setScore(d._score);
+  setBoost(d._boost);
   SDL_Flip(_screen);
 }
 
@@ -234,66 +234,66 @@ void            SDL::initSnakeSprites(snakeSprite *snakeSp) const
   initSnakeSpritesTail(snakeSp);
 }
 
-void		SDL::setSnake(std::vector<snk> snake) const
+void		SDL::setSnake(std::vector<Snk> snake) const
 {
   snakeSprite	snakeSp;
 
   initSnakeSprites(&snakeSp);
 
-  applySurface(snake[0].x*32, snake[0].y*32 + 32, _snake, &snakeSp.head[snake[0].dir]);
+  applySurface(snake[0]._x*32, snake[0]._y*32 + 32, _snake, &snakeSp.head[snake[0]._dir]);
   for (unsigned int i = 1; i < snake.size(); i++)
     {
-      if (snake[i].dir == RIGHT)
+      if (snake[i]._dir == RIGHT)
 	{
-	  if ((i + 1) < snake.size() && snake[i + 1].dir == UP)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[8]);
+	  if ((i + 1) < snake.size() && snake[i + 1]._dir == UP)
+	    applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[8]);
 	  else
-	    if ((i + 1) < snake.size() && snake[i + 1].dir == DOWN)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[5]);
+	    if ((i + 1) < snake.size() && snake[i + 1]._dir == DOWN)
+	      applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[5]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[9]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[9]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[6]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[6]);
 	}
-      if (snake[i].dir == LEFT)
+      if (snake[i]._dir == LEFT)
 	{
-	  if ((i + 1) < snake.size() && snake[i + 1].dir == UP)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[2]);
+	  if ((i + 1) < snake.size() && snake[i + 1]._dir == UP)
+	    applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[2]);
 	  else
-	    if ((i + 1) < snake.size() && snake[i + 1].dir == DOWN)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[15]);
+	    if ((i + 1) < snake.size() && snake[i + 1]._dir == DOWN)
+	      applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[15]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[14]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[14]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[1]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[1]);
 	}
-      if (snake[i].dir == UP)
+      if (snake[i]._dir == UP)
 	{
-	  if ((i + 1) < snake.size() && snake[i + 1].dir == RIGHT)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[7]);
+	  if ((i + 1) < snake.size() && snake[i + 1]._dir == RIGHT)
+	    applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[7]);
 	  else
-	    if ((i + 1) < snake.size() && snake[i + 1].dir == LEFT)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[13]);
+	    if ((i + 1) < snake.size() && snake[i + 1]._dir == LEFT)
+	      applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[13]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[11]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[11]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[4]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[4]);
 	}
-      if (snake[i].dir == DOWN)
+      if (snake[i]._dir == DOWN)
 	{
-	  if ((i + 1) < snake.size() && snake[i + 1].dir == RIGHT)
-	    applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[10]);
+	  if ((i + 1) < snake.size() && snake[i + 1]._dir == RIGHT)
+	    applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[10]);
 	  else
-	    if ((i + 1) < snake.size() && snake[i + 1].dir == LEFT)
-	      applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[0]);
+	    if ((i + 1) < snake.size() && snake[i + 1]._dir == LEFT)
+	      applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[0]);
 	    else
 	      if ((i + 1) == snake.size())
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[12]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[12]);
 	      else
-		applySurface(snake[i].x*32, snake[i].y*32 + 32, _tail, &snakeSp.tail[3]);
+		applySurface(snake[i]._x*32, snake[i]._y*32 + 32, _tail, &snakeSp.tail[3]);
 	}
     }
 }

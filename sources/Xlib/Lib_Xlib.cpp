@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Sat Apr  4 16:44:38 2015 Jordan Chazottes
+// Last update Sat Apr  4 16:59:02 2015 Sebastien Cache-Delanos
 //
 
 #include	<sstream>
@@ -165,14 +165,14 @@ void		Xlib::init(int const x, int const y)
     }
 }
 
-void            Xlib::display(const data &d)
+void            Xlib::display(const Data &d)
 {
   std::ostringstream oss;
 
   for (int y = 0; y < _height; y++)
     for (int x = 0; x < _width; x++)
       {
-	switch (d.map[y][x])
+	switch (d._map[y][x])
 	  {
 	  case EMPTY:
 	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcGround);
@@ -200,9 +200,9 @@ void            Xlib::display(const data &d)
 	  }
       }
   XSync(_disp, false);
-  oss << "Score : " << d.score << "             Boost " << d.boost * 10;
+  oss << "Score : " << d._score << "             Boost " << d._boost * 10;
   XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
-  _oldScore = d.score;
+  _oldScore = d._score;
   XSync(_disp, false);
 }
 

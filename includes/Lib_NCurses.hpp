@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 15:28:10 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 16:59:18 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -29,7 +29,7 @@ public:
   NCurses		&operator=(const NCurses& other);
 
   virtual void		init(int x, int y);
-  virtual void		display(const data &d);
+  virtual void		display(const Data &d);
   virtual void		quit();
   virtual Event		eventHandler();
   virtual int		gameOver();

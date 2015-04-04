@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 16:27:58 2015 Jordan Chazottes
+// Last update Sat Apr  4 17:06:11 2015 Sebastien Cache-Delanos
 //
 
 #include				"Game.hpp"
@@ -21,6 +21,22 @@ Game::Game(int width, int height, void *lib) : _width(width), _height(height), _
   _boost = 10;
   _quit = false;
   initMap();
+}
+
+Game::Game(const Game& game) : _width(game._width), _height(game._height)
+{
+  _boosted = game._boosted;
+  _boost = game._boost;
+  _isAlive = game._isAlive;
+  _quit = game._quit;
+  _speed = game._speed;
+  _snake = game._snake;
+  _score = game._score;
+  _dir = game._dir;
+  _lib = game._lib;
+  _map = game._map;
+  _external_creator = game._external_creator;
+  _curLib = game._curLib;
 }
 
 //DESTRUCTOR
@@ -58,7 +74,7 @@ void					Game::addApple()
   _map[i][j] = APPLE;
 }
 
-int					Game::checkMap()
+int					Game::checkMap() const
 {
   int					i;
   int					j;
@@ -234,33 +250,33 @@ void					Game::reinit()
   initMap();
 }
 
-std::vector<snk>			Game::getSnake()
+std::vector<Snk>			Game::getSnake()
 {
-  std::vector<snk>			s;
+  std::vector<Snk>			s;
   unsigned int				i;
-  snk					tmp;
+  Snk					tmp;
 
   for (i = 0; i < _snake.size(); ++i)
     {
-      tmp.x = _snake[i]->getX();
-      tmp.y = _snake[i]->getY();
+      tmp._x = _snake[i]->getX();
+      tmp._y = _snake[i]->getY();
       if (_snake[i]->getDirection().size() > 0)
-	tmp.dir = _snake[i]->getDirection()[0];
+	tmp._dir = _snake[i]->getDirection()[0];
       else
-	tmp.dir = _dir;
+	tmp._dir = _dir;
       s.push_back(tmp);
     }
   return s;
 }
 
-data					Game::getData()
+Data					Game::getData()
 {
-  data					d;
+  Data					d;
 
-  d.map = _map;
-  d.score = _score;
-  d.boost = _boost;
-  d.snake = getSnake();
+  d._map = _map;
+  d._score = _score;
+  d._boost = _boost;
+  d._snake = getSnake();
   return d;
 }
 
@@ -415,12 +431,12 @@ void					Game::setDirection(int dir)
 }
 
 //GETTERS
-int		const	&		Game::getHeight() const
+int					Game::getHeight() const
 {
   return (_height);
 }
 
-int		const	&		Game::getWidth() const
+int					Game::getWidth() const
 {
   return (_width);
 }

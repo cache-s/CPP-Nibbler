@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 16:10:13 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 16:59:44 2015 Sebastien Cache-Delanos
 //
 
 #include	<sys/ioctl.h>
@@ -70,7 +70,7 @@ void		NCurses::init(int x, int y)
 
   try
     {
-      if (w.ws_row < x + 1 || w.ws_col < y + 1)
+      if (w.ws_row < y + 2 || w.ws_col < x + 2)
 	throw std::runtime_error("Error : Terminal size too short");
     }
   catch (const std::runtime_error & e)
@@ -97,19 +97,19 @@ void		NCurses::init(int x, int y)
   wrefresh(_win);
 }
 
-void		NCurses::display(const data &d)
+void		NCurses::display(const Data &d)
 {
   int		i;
   int		j;
 
-  if (d.score != _score && _muted == false)
+  if (d._score != _score && _muted == false)
     beep();
-  _score = d.score;
+  _score = d._score;
   wclear(_win);
   wprintw(_win, "Score : %d\nBoost : ", _score);
   for (i = 0; i < 10; ++i)
     {
-      if (i < d.boost)
+      if (i < d._boost)
 	waddch(_win, ACS_DIAMOND | COLOR_PAIR(8));
       else
 	waddch(_win, ACS_DIAMOND | COLOR_PAIR(9));
@@ -119,20 +119,20 @@ void		NCurses::display(const data &d)
     {
       for (j = 0; j < _w; ++j)
 	{
-	  if (d.map[i][j] == EMPTY)
+	  if (d._map[i][j] == EMPTY)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(1));
-	  else if (d.map[i][j] == WALL)
+	  else if (d._map[i][j] == WALL)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(2));
-	  else if (d.map[i][j] == HEAD)
+	  else if (d._map[i][j] == HEAD)
 	    waddch(_win, ACS_PI | A_BLINK | COLOR_PAIR(3));
-	  else if (d.map[i][j] == BODY || d.map[i][j] == TAIL)
+	  else if (d._map[i][j] == BODY || d._map[i][j] == TAIL)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(5));
-	  else if (d.map[i][j] == APPLE)
+	  else if (d._map[i][j] == APPLE)
 	    waddch(_win, ACS_DIAMOND | COLOR_PAIR(6));
-	  else if (d.map[i][j] == OBSTACLE)
+	  else if (d._map[i][j] == OBSTACLE)
 	    waddch(_win, ACS_BOARD | A_BOLD | COLOR_PAIR(7));
 	  else
-	    wprintw(_win, "%d", d.map[i][j]);
+	    wprintw(_win, "%d", d._map[i][j]);
 	}
       wprintw(_win, "\n");
     }

@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Sat Apr  4 16:46:54 2015 Jordan Chazottes
+// Last update Sat Apr  4 16:58:09 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -31,7 +31,7 @@ public:
   ~Xlib();
 
   virtual void		init(const int, const int);
-  virtual void		display(const data&);
+  virtual void		display(const Data&);
   virtual void		quit();
   virtual Event		eventHandler();
   virtual int		gameOver();

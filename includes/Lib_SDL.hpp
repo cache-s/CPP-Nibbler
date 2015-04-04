@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Sat Apr  4 15:22:36 2015 Jordan Chazottes
+// Last update Sat Apr  4 17:02:41 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -29,7 +29,7 @@ public:
   virtual		~SDL();
   SDL&			operator=(const SDL& other);
   virtual void		init(int, int);
-  virtual void		display(const data &d);
+  virtual void		display(const Data &d);
   virtual void		quit();
   virtual Event		eventHandler();
   virtual int	       	gameOver();
@@ -45,7 +45,7 @@ private:
 
   void			setScore(int);
   void			setBoost(int) const;
-  void			setSnake(std::vector<snk>) const;
+  void			setSnake(std::vector<Snk>) const;
   void			initAudio();
   void			initScore();
   void			initSprites();

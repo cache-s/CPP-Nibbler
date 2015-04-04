@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 15:26:54 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 17:08:27 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
@@ -15,6 +15,7 @@
 # include			<stdexcept>
 
 # include			"nibbler.hpp"
+# include			"Data.hpp"
 # include			"Snake.hpp"
 # include			"ILibrary.hpp"
 # include			"Event.hpp"
@@ -22,26 +23,12 @@
 
 class ILibrary;
 
-typedef struct  snk
-{
-  int           x;
-  int           y;
-  Direction     dir;
-}               snk;
-
-typedef struct  data
-{
-  int**                 map;
-  int                   score;
-  int			boost;
-  std::vector<snk>	snake;
-}               data;
-
 class				Game
 {
 public:
   //CONSTRUCTOR
   Game(int width, int height, void *lib);
+  Game(const Game& game);
   //DESTRUCTOR
   ~Game();
 
@@ -52,11 +39,11 @@ public:
   void				spaceBoost();
   void				updatePath();
   void				updateMap();
-  std::vector<snk>		getSnake();
+  std::vector<Snk>		getSnake();
   void				gameOver();
-  int				checkMap();
+  int				checkMap() const;
   void				addApple();
-  data				getData();
+  Data				getData();
   void				start();
   void				move();
 
@@ -74,25 +61,25 @@ public:
   void				setDirection(int dir);
 
   //GETTERS
-  int		const&		getHeight() const;
-  int		const&		getWidth() const;
+  int				getHeight() const;
+  int				getWidth() const;
   int**				getMap() const;
   void*				getLib() const;
 
 private:
+  ILibrary			*(*_external_creator)();
   bool				_boosted;
   int				_boost;
   bool				_isAlive;
   bool				_quit;
-  const int			_width;
-  const int			_height;
+  int				_width;
+  int				_height;
   int				_speed;
   std::vector<Snake*>		_snake;
   int				_score;
   Direction			_dir;
   void*				_lib;
   int**				_map;
-  ILibrary			*(*_external_creator)();
   ILibrary			*_curLib;
 };
 
