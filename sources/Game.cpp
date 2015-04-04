@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 15:26:37 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 16:27:58 2015 Jordan Chazottes
 //
 
 #include				"Game.hpp"
@@ -347,12 +347,16 @@ void					Game::initObstacle()
   int					i = 0;
   int					j = 0;
 
-  for (i = 0; i < _height; ++i)
+  for (i = 2; i < _height - 2; ++i)
     {
-      for (j = 0; j < _width; ++j)
+      for (j = 2; j < _width - 2 && i < _height - 2; ++j)
 	{
 	  if (_map[i][j] == 0 && (rand() % 100 + 1) > 98)
-	    _map[i][j] = OBSTACLE;
+	    {
+	      _map[i][j] = OBSTACLE;
+	      ++j;
+	      ++i;
+	    }
 	}
     }
 }
