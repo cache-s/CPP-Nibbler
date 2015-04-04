@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 12:36:26 2015 Jordan Chazottes
+// Last update Sat Apr  4 14:31:31 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -15,6 +15,9 @@
 # include		<ncurses/curses.h>
 # include		"ILibrary.hpp"
 # include		"Game.hpp"
+
+# define	SPACE	32
+# define	ESC	27
 
 class			NCurses : public ILibrary
 {
@@ -40,6 +43,7 @@ private:
   int			_score;
   int			_w;
   int			_h;
+  bool			_muted;
 };
 
 #endif			//LIB_NCURSES_HPP_

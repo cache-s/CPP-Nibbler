@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 14:12:27 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 14:33:09 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_NCurses.hpp"
@@ -89,7 +89,7 @@ void		NCurses::display(const data &d)
   int		i;
   int		j;
 
-  if (d.score != _score)
+  if (d.score != _score && _muted == false)
     beep();
   _score = d.score;
   wclear(_win);
@@ -106,17 +106,17 @@ void		NCurses::display(const data &d)
     {
       for (j = 0; j < _w; ++j)
 	{
-	  if (d.map[i][j] == 0)
+	  if (d.map[i][j] == EMPTY)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(1));
-	  else if (d.map[i][j] == 1)
+	  else if (d.map[i][j] == WALL)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(2));
-	  else if (d.map[i][j] == 2)
+	  else if (d.map[i][j] == HEAD)
 	    waddch(_win, ACS_PI | A_BLINK | COLOR_PAIR(3));
-	  else if (d.map[i][j] == 3 || d.map[i][j] == 4)
+	  else if (d.map[i][j] == BODY || d.map[i][j] == TAIL)
 	    waddch(_win, ACS_BLOCK | COLOR_PAIR(5));
-	  else if (d.map[i][j] == 5)
+	  else if (d.map[i][j] == APPLE)
 	    waddch(_win, ACS_DIAMOND | COLOR_PAIR(6));
-	  else if (d.map[i][j] == 6)
+	  else if (d.map[i][j] == OBSTACLE)
 	    waddch(_win, ACS_BOARD | A_BOLD | COLOR_PAIR(7));
 	  else
 	    wprintw(_win, "%d", d.map[i][j]);
@@ -135,7 +135,7 @@ Event	NCurses::eventHandler()
     return (DEFAULT);
   switch (ch)
     {
-    case 27:
+    case ESC:
       return (QUIT);
     case KEY_LEFT:
       return (ARROW_LEFT);
@@ -158,9 +158,14 @@ Event	NCurses::eventHandler()
       return (pause());
     case 'k':
     case 'K':
-      beep();
+      if (_muted == false)
+	beep();
       break;
-    case 32:
+    case 'm':
+    case 'M':
+      muteGame();
+      break;
+    case SPACE:
       return (BOOST);
     case KEY_F(1):
       return L_SDL;
@@ -226,7 +231,7 @@ Event	NCurses::pause()
       ch = getch();
       switch (ch)
         {
-        case 27:
+        case ESC:
           return QUIT;
         case 'p':
         case 'P':
@@ -238,6 +243,10 @@ Event	NCurses::pause()
 
 void		NCurses::muteGame()
 {
+  if (_muted == false)
+    _muted = true;
+  else
+    _muted = false;
 }
 
 extern "C"

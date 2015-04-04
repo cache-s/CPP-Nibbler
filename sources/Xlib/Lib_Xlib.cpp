@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Sat Apr  4 14:06:17 2015 Pierre Charié
+// Last update Sat Apr  4 14:41:29 2015 Sebastien Cache-Delanos
 //
 
 #include	<sstream>
@@ -138,21 +138,19 @@ void		Xlib::setColor()
 
 void		Xlib::init(int const x, int const y)
 {
+  int		blackColor;
+  XColor	bgcol;
 
   _height = y;
   _width = x;
   _disp = XOpenDisplay(NULL);
   _oldScore = -1;
-
-  int blackColor = BlackPixel(_disp, DefaultScreen(_disp));
-  XColor bgcol;
-
+  blackColor = BlackPixel(_disp, DefaultScreen(_disp));
   _colormap = DefaultColormap(_disp, 0);
   if (XParseColor(_disp, _colormap, "yellow green", &bgcol) == 0)
     throw std::runtime_error("Error : can't load color");
   if (XAllocColor(_disp, _colormap, &bgcol) == 0)
     throw std::runtime_error("Error : can't allocate color");
-
   _win = XCreateSimpleWindow(_disp, RootWindow(_disp, 0), 0, 0, _width * PIXSIZE,
 				  _height * PIXSIZE, 0, blackColor, bgcol.pixel);
   XSelectInput(_disp, _win, ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask);
@@ -169,30 +167,32 @@ void		Xlib::init(int const x, int const y)
 
 void            Xlib::display(const data &d)
 {
+  std::ostringstream oss;
+
   for (int y = 0; y < _height; y++)
     for (int x = 0; x < _width; x++)
       {
 	switch (d.map[y][x])
 	  {
-	  case 0:
+	  case EMPTY:
 	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcGround);
 	    break;
-	  case 1:
+	  case WALL:
 	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcWall);
 	    break;
-	  case 2:
+	  case HEAD:
 	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcHead);
 	    break;
-	  case 3:
+	  case BODY:
 	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcBody);
 	    break;
-	  case 4:
+	  case TAIL:
 	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcTail);
 	    break;
-	  case 5:
+	  case APPLE:
 	    this->draw_rect((x * PIXSIZE), (y * PIXSIZE), _gcApple);
 	    break;
-	  case 6:
+	  case OBSTACLE:
 	    this->draw_rect(x * PIXSIZE, y * PIXSIZE, _gcObst);
 	    break;
 	  default:
@@ -200,7 +200,6 @@ void            Xlib::display(const data &d)
 	  }
       }
   XSync(_disp, false);
-  std::ostringstream oss;
   oss << "Score : " << d.score << "             Boost " << d.boost * 10;
   XDrawString(_disp, _win, _gcObst, 10, 9, oss.str().c_str(), strlen(oss.str().c_str()));
   _oldScore = d.score;
@@ -316,4 +315,5 @@ int		Xlib::gameOver()
 
 void		Xlib::muteGame()
 {
+
 }
