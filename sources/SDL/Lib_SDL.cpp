@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Sat Apr  4 14:52:13 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 15:19:08 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -83,7 +83,7 @@ void		SDL::init(int x, int y)
     }
 }
 
-void		SDL::initScore() throw(std::runtime_error)
+void		SDL::initScore()
 {
   if ((_font = TTF_OpenFont("ressources/fonts/game_over.ttf", 64)) == NULL)
     throw std::runtime_error("Error loading font game_over.ttf");
@@ -91,7 +91,7 @@ void		SDL::initScore() throw(std::runtime_error)
   setScore(0);
 }
 
-void		SDL::initSprites() throw(std::runtime_error)
+void		SDL::initSprites()
 {
   if ((_bg = IMG_Load("ressources/sprites/env.png")) == NULL)
     throw std::runtime_error("Error loading image env.png");
@@ -101,7 +101,7 @@ void		SDL::initSprites() throw(std::runtime_error)
     throw std::runtime_error("Error loading image rainbow.png");
 }
 
-void		SDL::initAudio() throw(std::runtime_error)
+void		SDL::initAudio()
 {
   if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
     throw std::runtime_error("Error while initializing Music mixer");
@@ -452,9 +452,18 @@ void		SDL::quit()
   SDL_FreeSurface(_bg);
   SDL_FreeSurface(_snake);
   SDL_FreeSurface(_screen);
+  SDL_FreeSurface(_tail);
+
   Mix_FreeMusic(_music);
+  Mix_FreeChunk(_point);
+  Mix_FreeChunk(_klaxon);
+  Mix_FreeChunk(_gameOver);
+  Mix_FreeChunk(_pause);
   Mix_CloseAudio();
+
+  TTF_CloseFont(_font);
   TTF_Quit();
+
   SDL_Quit();
 }
 

@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Sat Apr  4 14:44:12 2015 Jordan Chazottes
+// Last update Sat Apr  4 15:22:36 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -46,9 +46,9 @@ private:
   void			setScore(int);
   void			setBoost(int) const;
   void			setSnake(std::vector<snk>) const;
-  void			initAudio() throw(std::runtime_error);
-  void			initScore() throw(std::runtime_error);
-  void			initSprites() throw(std::runtime_error);
+  void			initAudio();
+  void			initScore();
+  void			initSprites();
   void			initSnakeSprites(snakeSprite*) const;
   void			initSnakeSpritesHead(snakeSprite*) const;
   void			initSnakeSpritesTail(snakeSprite*) const;
@@ -57,15 +57,19 @@ private:
   void			applySurface(int, int, SDL_Surface*, SDL_Rect*) const;
 
   TTF_Font*		_font;
+
   SDL_Surface*		_screen;
   SDL_Surface*		_bg;
   SDL_Surface*		_snake;
   SDL_Surface*		_tail;
+
   Mix_Music*		_music;
+
   Mix_Chunk*		_point;
   Mix_Chunk*		_klaxon;
   Mix_Chunk*		_gameOver;
   Mix_Chunk*		_pause;
+
   int			_width;
   int			_height;
   int			_curScore;
