@@ -5,10 +5,11 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Sat Apr  4 13:56:41 2015 Pierre Charié
+// Last update Sat Apr  4 14:06:17 2015 Pierre Charié
 //
 
 #include	<sstream>
+#include        <stdexcept>
 
 #include	"Lib_Xlib.hpp"
 
@@ -150,7 +151,7 @@ void		Xlib::init(int const x, int const y)
   if (XParseColor(_disp, _colormap, "yellow green", &bgcol) == 0)
     throw std::runtime_error("Error : can't load color");
   if (XAllocColor(_disp, _colormap, &bgcol) == 0)
-    throw std::runtime_error("Error : can't load color");
+    throw std::runtime_error("Error : can't allocate color");
 
   _win = XCreateSimpleWindow(_disp, RootWindow(_disp, 0), 0, 0, _width * PIXSIZE,
 				  _height * PIXSIZE, 0, blackColor, bgcol.pixel);
