@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Sat Apr  4 14:46:16 2015 Jordan Chazottes
+// Last update Sat Apr  4 14:52:13 2015 Sebastien Cache-Delanos
 //
 
 #include	"Lib_SDL.hpp"
@@ -154,11 +154,11 @@ void		SDL::resetBackground(int **map, int X, int Y) const
     for (int x = 0; x < X; x++)
       {
 	applySurface(x*32, y*32 + 32, _bg, &clip[0]);
-	if (map[y][x] == 1)
+	if (map[y][x] == WALL)
 	  applySurface(x*32, y*32 + 32, _bg, &clip[3]);
-	if (map[y][x] == 6)
+	if (map[y][x] == OBSTACLE)
 	  applySurface(x*32, y*32 + 32, _bg, &clip[1]);
-	  if (map[y][x] == 5)
+	  if (map[y][x] == APPLE)
 	    applySurface(x*32, y*32 + 32, _bg, &clip[2]);
       }
 }
