@@ -5,20 +5,20 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:25:49 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 14:21:14 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 15:26:54 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				GAME_HPP_
 # define			GAME_HPP_
 
 # include			<vector>
+# include			<stdexcept>
 
 # include			"nibbler.hpp"
 # include			"Snake.hpp"
 # include			"ILibrary.hpp"
 # include			"Event.hpp"
 # include			"Map.hpp"
-
 
 class ILibrary;
 
@@ -47,6 +47,7 @@ public:
 
   int				checkNext(int coordY, int coordX);
   void				handleEvent(Event event);
+  void				loadLib(Event);
   void				handleBoost();
   void				spaceBoost();
   void				updatePath();
@@ -58,7 +59,7 @@ public:
   data				getData();
   void				start();
   void				move();
-  void				loadLib(Event);
+
   //INIT
   void				initObstacle();
   void				initSnake();

@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 14:26:59 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 15:26:37 2015 Sebastien Cache-Delanos
 //
 
 #include				"Game.hpp"
@@ -45,7 +45,7 @@ void					Game::addApple()
 
   for (i = 0; i < _height; ++i)
     for (j = 0; j < _width; ++j)
-      if (_map[i][j] == 5)
+      if (_map[i][j] == APPLE)
 	return;
   for (j = 0, i = 0; _map[i][j] != EMPTY;)
     {
@@ -55,7 +55,7 @@ void					Game::addApple()
       i = (rand() % (h));
       j = (rand() % (w));
     }
-  _map[i][j] = 5;
+  _map[i][j] = APPLE;
 }
 
 int					Game::checkMap()
@@ -174,21 +174,28 @@ void					Game::loadLib(Event event)
 {
   void					*dlhandle;
 
-  if (event == L_SDL)
-    if ((dlhandle = dlopen("./lib_nibbler_SDL.so", RTLD_LAZY)) == NULL)
-      std::cout << "Error while changing library to SDL\n";
-  if (event == L_XLIB)
-    if ((dlhandle = dlopen("./lib_nibbler_Xlib.so", RTLD_LAZY)) == NULL)
-      std::cout << "Error while changing library to Xlib\n";
-  if (event == L_NCURSES)
-    if ((dlhandle = dlopen("./lib_nibbler_NCurses.so", RTLD_LAZY)) == NULL)
-      std::cout << "Error while changing library to NCurses\n";
+  try
+    {
+      if (event == L_SDL)
+	if ((dlhandle = dlopen("./lib_nibbler_SDL.so", RTLD_LAZY)) == NULL)
+	  throw std::runtime_error("Error while changing library to SDL");
+      if (event == L_XLIB)
+	if ((dlhandle = dlopen("./lib_nibbler_Xlib.so", RTLD_LAZY)) == NULL)
+	  throw std::runtime_error("Error while changing library to XLib");
+      if (event == L_NCURSES)
+	if ((dlhandle = dlopen("./lib_nibbler_NCurses.so", RTLD_LAZY)) == NULL)
+	  throw std::runtime_error("Error while changing library to NCurses");
+    }
+  catch (const std::runtime_error& e)
+    {
+      std::cout << "Exception : " << e.what() << std::endl;
+      exit (-1);
+    }
   _lib = dlhandle;
   _curLib->quit();
   _external_creator = reinterpret_cast<ILibrary* (*)()>(dlsym(dlhandle, "createLib"));
   _curLib = _external_creator();
   _curLib->init(_width, _height);
-
 }
 
 void					Game::handleEvent(Event event)

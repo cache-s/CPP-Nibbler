@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Fri Apr  3 10:53:38 2015 Pierre Charié
+// Last update Sat Apr  4 15:28:26 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -34,9 +34,9 @@ public:
   virtual void		init(const int, const int);
   virtual void		display(const data&);
   virtual void		quit();
-  virtual Event	eventHandler();
+  virtual Event		eventHandler();
   virtual int		gameOver();
-  virtual Event	pause();
+  virtual Event		pause();
   virtual void		muteGame();
 
 private:
