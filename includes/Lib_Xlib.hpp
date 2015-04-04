@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Sat Apr  4 16:15:47 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 16:46:54 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -40,31 +40,30 @@ public:
 
 private:
   void			setColor();
-  void			draw_rect(const int, const int, const GC&);
-  void			waitPause();
-  int		_width;
-  int		_height;
-  int		_oldScore;
+  void			draw_rect(const int, const int, const GC&) const;
+  int			_width;
+  int			_height;
+  int			_oldScore;
 
-  Display	*_disp;
-  Window	_win;
-  XEvent	_report;
+  Display		*_disp;
+  Window		_win;
+  XEvent		_report;
 
-  Colormap	_colormap;
-  GC		_gcGround;
-  GC		_gcWall;
-  GC		_gcObst;
-  GC		_gcHead;
-  GC		_gcBody;
-  GC		_gcTail;
-  GC		_gcApple;
-  XColor	_colGround;
-  XColor	_colWall;
-  XColor	_colObst;
-  XColor	_colHead;
-  XColor	_colBody;
-  XColor	_colTail;
-  XColor	_colApple;
+  Colormap		_colormap;
+  GC			_gcGround;
+  GC			_gcWall;
+  GC			_gcObst;
+  GC			_gcHead;
+  GC			_gcBody;
+  GC			_gcTail;
+  GC			_gcApple;
+  XColor		_colGround;
+  XColor		_colWall;
+  XColor		_colObst;
+  XColor		_colHead;
+  XColor		_colBody;
+  XColor		_colTail;
+  XColor		_colApple;
 };
 
-#endif			//LIB_Xlib_HPP_
+#endif			//LIB_XLIB_HPP_

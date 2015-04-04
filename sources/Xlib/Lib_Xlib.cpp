@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Sat Apr  4 16:16:29 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 16:44:38 2015 Jordan Chazottes
 //
 
 #include	<sstream>
@@ -206,7 +206,7 @@ void            Xlib::display(const data &d)
   XSync(_disp, false);
 }
 
-void		Xlib::draw_rect(int const x1, int const y1, GC const &color)
+void		Xlib::draw_rect(int const x1, int const y1, GC const &color) const
 {
   XDrawRectangle(_disp, _win, color, x1, y1, PIXSIZE, PIXSIZE);
   XFillRectangle(_disp, _win, color, x1, y1, PIXSIZE, PIXSIZE);

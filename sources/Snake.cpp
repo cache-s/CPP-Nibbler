@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Wed Mar 25 12:35:11 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 13:47:28 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 16:51:03 2015 Jordan Chazottes
 //
 
 #include			"Snake.hpp"
@@ -63,7 +63,7 @@ int				Snake::getY() const
   return (_y);
 }
 
-std::deque<Direction>		Snake::getDirection() const
+const std::deque<Direction>	&Snake::getDirection() const
 {
   return (_dir);
 }
