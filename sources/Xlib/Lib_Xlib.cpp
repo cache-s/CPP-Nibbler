@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Sat Apr  4 14:41:29 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 15:29:06 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -21,11 +21,11 @@ extern "C"
   }
 }
 
-Xlib::Xlib()
+Xlib::Xlib() throw()
 {
 }
 
-Xlib::Xlib(Xlib const &other)
+Xlib::Xlib(Xlib const &other) throw()
 {
   _width = other._width;
   _height = other._height;
@@ -50,7 +50,7 @@ Xlib::Xlib(Xlib const &other)
   _oldScore = other._oldScore;
 }
 
-Xlib &Xlib::operator=(const Xlib &other)
+Xlib &Xlib::operator=(const Xlib &other) throw()
 {
   _width = other._width;
   _height = other._height;
@@ -76,7 +76,7 @@ Xlib &Xlib::operator=(const Xlib &other)
   return (*this);
 }
 
-Xlib::~Xlib()
+Xlib::~Xlib() throw()
 {
 }
 
@@ -165,7 +165,7 @@ void		Xlib::init(int const x, int const y)
     }
 }
 
-void            Xlib::display(const data &d)
+void            Xlib::display(const data &d) throw()
 {
   std::ostringstream oss;
 
@@ -313,7 +313,7 @@ int		Xlib::gameOver()
   return (0);
 }
 
-void		Xlib::muteGame()
+void		Xlib::muteGame() throw()
 {
 
 }

@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Fri Apr  3 10:53:38 2015 Pierre Charié
+// Last update Sat Apr  4 15:28:45 2015 Pierre Charié
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -25,19 +25,19 @@
 class Xlib : public ILibrary
 {
 public:
-  Xlib();
-  Xlib(Xlib const &);
-  Xlib &operator=(const Xlib &);
-  ~Xlib();
+  Xlib() throw();
+  Xlib(Xlib const &) throw();
+  Xlib &operator=(const Xlib &) throw();
+  ~Xlib() throw();
 
 
   virtual void		init(const int, const int);
-  virtual void		display(const data&);
+  virtual void		display(const data&) throw();
   virtual void		quit();
   virtual Event	eventHandler();
   virtual int		gameOver();
   virtual Event	pause();
-  virtual void		muteGame();
+  virtual void		muteGame() throw();
 
 private:
   void			setColor();
