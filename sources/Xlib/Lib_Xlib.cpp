@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Sat Apr  4 15:29:06 2015 Pierre Charié
+// Last update Sat Apr  4 15:36:45 2015 Pierre Charié
 //
 
 #include	<sstream>
@@ -165,7 +165,7 @@ void		Xlib::init(int const x, int const y)
     }
 }
 
-void            Xlib::display(const data &d) throw()
+void            Xlib::display(const data &d)
 {
   std::ostringstream oss;
 
@@ -313,7 +313,7 @@ int		Xlib::gameOver()
   return (0);
 }
 
-void		Xlib::muteGame() throw()
+void		Xlib::muteGame()
 {
 
 }
