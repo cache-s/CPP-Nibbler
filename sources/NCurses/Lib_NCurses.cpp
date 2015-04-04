@@ -5,9 +5,10 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:56:48 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 14:33:09 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 16:10:13 2015 Sebastien Cache-Delanos
 //
 
+#include	<sys/ioctl.h>
 #include	"Lib_NCurses.hpp"
 
 NCurses::NCurses()
@@ -63,8 +64,20 @@ void		NCurses::initColors() const
 
 void		NCurses::init(int x, int y)
 {
-  int startx, starty, width, height;
+  int		startx, starty, width, height;
+  struct winsize w;
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
+  try
+    {
+      if (w.ws_row < x + 1 || w.ws_col < y + 1)
+	throw std::runtime_error("Error : Terminal size too short");
+    }
+  catch (const std::runtime_error & e)
+    {
+      std::cout << "Exception : " << e.what() << std::endl;
+      exit (-1);
+    }
   initscr();
   cbreak();
   keypad(stdscr, TRUE);

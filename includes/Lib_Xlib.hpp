@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 16:59:04 2015 Pierre Charié
-// Last update Sat Apr  4 15:33:55 2015 Pierre Charié
+// Last update Sat Apr  4 16:15:47 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_XLIB_HPP_
@@ -25,11 +25,10 @@
 class Xlib : public ILibrary
 {
 public:
-  Xlib() throw();
-  Xlib(Xlib const &) throw();
-  Xlib &operator=(const Xlib &) throw();
-  ~Xlib() throw();
-
+  Xlib();
+  Xlib(Xlib const &);
+  Xlib &operator=(const Xlib &);
+  ~Xlib();
 
   virtual void		init(const int, const int);
   virtual void		display(const data&);

@@ -5,7 +5,7 @@
 // Login   <charie_p@epitech.net>
 //
 // Started on  Thu Apr  2 17:08:53 2015 Pierre Charié
-// Last update Sat Apr  4 15:36:45 2015 Pierre Charié
+// Last update Sat Apr  4 16:16:29 2015 Sebastien Cache-Delanos
 //
 
 #include	<sstream>
@@ -21,11 +21,11 @@ extern "C"
   }
 }
 
-Xlib::Xlib() throw()
+Xlib::Xlib()
 {
 }
 
-Xlib::Xlib(Xlib const &other) throw()
+Xlib::Xlib(Xlib const &other)
 {
   _width = other._width;
   _height = other._height;
@@ -50,7 +50,7 @@ Xlib::Xlib(Xlib const &other) throw()
   _oldScore = other._oldScore;
 }
 
-Xlib &Xlib::operator=(const Xlib &other) throw()
+Xlib &Xlib::operator=(const Xlib &other)
 {
   _width = other._width;
   _height = other._height;
@@ -76,7 +76,7 @@ Xlib &Xlib::operator=(const Xlib &other) throw()
   return (*this);
 }
 
-Xlib::~Xlib() throw()
+Xlib::~Xlib()
 {
 }
 
