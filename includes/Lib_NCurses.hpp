@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 // 
 // Started on  Thu Mar 26 17:59:37 2015 Sebastien Cache-Delanos
-// Last update Sat Apr  4 14:31:31 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 15:28:10 2015 Sebastien Cache-Delanos
 //
 
 #ifndef			LIB_NCURSES_HPP_
@@ -24,7 +24,8 @@ class			NCurses : public ILibrary
 public:
   NCurses();
   NCurses(const NCurses& other);
-  virtual		~NCurses();
+  virtual ~NCurses();
+
   NCurses		&operator=(const NCurses& other);
 
   virtual void		init(int x, int y);
