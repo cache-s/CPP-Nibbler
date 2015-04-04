@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:33:04 2015 Jordan Chazottes
-// Last update Fri Apr  3 12:36:08 2015 Jordan Chazottes
+// Last update Sat Apr  4 14:44:12 2015 Jordan Chazottes
 //
 
 #ifndef			LIB_SDL_HPP_
@@ -17,6 +17,7 @@
 # include		<SDL/SDL_ttf.h>
 # include		<SDL/SDL_mixer.h>
 # include		<sstream>
+# include		<stdexcept>
 # include		"ILibrary.hpp"
 # include		"Game.hpp"
 
@@ -45,9 +46,9 @@ private:
   void			setScore(int);
   void			setBoost(int) const;
   void			setSnake(std::vector<snk>) const;
-  void			initAudio();
-  void			initScore();
-  void			initSprites();
+  void			initAudio() throw(std::runtime_error);
+  void			initScore() throw(std::runtime_error);
+  void			initSprites() throw(std::runtime_error);
   void			initSnakeSprites(snakeSprite*) const;
   void			initSnakeSpritesHead(snakeSprite*) const;
   void			initSnakeSpritesTail(snakeSprite*) const;

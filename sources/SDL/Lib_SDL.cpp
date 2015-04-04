@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Tue Mar 24 15:39:44 2015 Jordan Chazottes
-// Last update Fri Apr  3 13:41:30 2015 Jordan Chazottes
+// Last update Sat Apr  4 14:46:16 2015 Jordan Chazottes
 //
 
 #include	"Lib_SDL.hpp"
@@ -65,48 +65,59 @@ void		SDL::init(int x, int y)
 {
   _width = x;
   _height = y;
-  if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
+  try
     {
-      std::cout << "Error : Init SDL : " << SDL_GetError() << std::endl;
-      return;
+      if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
+	throw std::runtime_error("Error while initializing SDL");
+      SDL_WM_SetCaption("Nibbler", "My Nibbler");
+      _screen = SDL_SetVideoMode(x*32, y*32 + 32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+      TTF_Init();
+      initAudio();
+      initSprites();
+      initScore();
     }
-  SDL_WM_SetCaption("Nibbler", "My Nibbler");
-  _screen = SDL_SetVideoMode(x*32, y*32 + 32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  TTF_Init();
-  initAudio();
-  initSprites();
-  initScore();
+  catch (const std::runtime_error& e)
+    {
+      std::cout << "Exception : " << e.what() << std::endl;
+      exit(-1);
+    }
 }
 
-void		SDL::initScore()
+void		SDL::initScore() throw(std::runtime_error)
 {
   if ((_font = TTF_OpenFont("ressources/fonts/game_over.ttf", 64)) == NULL)
-    std::cout << "Error loading Font FKV" << std::endl;
+    throw std::runtime_error("Error loading font game_over.ttf");
   _curScore = 0;
   setScore(0);
 }
 
-void		SDL::initSprites()
+void		SDL::initSprites() throw(std::runtime_error)
 {
   if ((_bg = IMG_Load("ressources/sprites/env.png")) == NULL)
-    std::cout << "Error loading Image Env" << std::endl;
+    throw std::runtime_error("Error loading image env.png");
   if ((_snake = IMG_Load("ressources/sprites/nyan.png")) == NULL)
-    std::cout << "Error loading Image Snake" << std::endl;
+    throw std::runtime_error("Error loading image nyan.png");
   if ((_tail = IMG_Load("ressources/sprites/rainbow.png")) == NULL)
-    std::cout << "Error loading Image Snake" << std::endl;
+    throw std::runtime_error("Error loading image rainbow.png");
 }
 
-void		SDL::initAudio()
+void		SDL::initAudio() throw(std::runtime_error)
 {
   if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
-    std::cout << "Error loading music mixer" << std::endl;
-  _music = Mix_LoadMUS("ressources/sounds/nyan.wav");
-  _klaxon = Mix_LoadWAV("ressources/sounds/klaxon.wav");
-  _point = Mix_LoadWAV("ressources/sounds/coin.wav");
-  _gameOver = Mix_LoadWAV("ressources/sounds/gameOver.wav");
-  _pause = Mix_LoadWAV("ressources/sounds/pause.wav");
+    throw std::runtime_error("Error while initializing Music mixer");
+  if ((_music = Mix_LoadMUS("ressources/sounds/nyan.wav")) == NULL)
+    throw std::runtime_error("Error while loading sound nyan.wav");
+  if ((_klaxon = Mix_LoadWAV("ressources/sounds/klaxon.wav")) == NULL)
+    throw std::runtime_error("Error while loading sound klaxon.wav");
+  if ((_point = Mix_LoadWAV("ressources/sounds/coin.wav")) == NULL)
+    throw std::runtime_error("Error while loading sound coin.wav");
+  if ((_gameOver = Mix_LoadWAV("ressources/sounds/gameOver.wav")) == NULL)
+    throw std::runtime_error("Error while loading sound gameOver.wav");
+  if ((_pause = Mix_LoadWAV("ressources/sounds/pause.wav")) == NULL)
+    throw std::runtime_error("Error while loading sound pause.wav");
   Mix_VolumeMusic(MIX_MAX_VOLUME/2);
-  Mix_PlayMusic(_music, -1);
+  if (Mix_PlayMusic(_music, -1) == -1)
+    throw std::runtime_error("Error while playing music");
   Mix_AllocateChannels(3);
 }
 
