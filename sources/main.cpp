@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Mon Mar 23 13:28:44 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 16:20:42 2015 Sebastien Cache-Delanos
+// Last update Sat Apr  4 13:57:23 2015 Pierre Charié
 //
 
 #include			"nibbler.hpp"
@@ -46,7 +46,7 @@ void				*checkLib(const char *lib)
       if (_lib.substr(0, 2) != "./" && _lib.substr(0, 1) != "/")
 	_lib = "./" + _lib;
       if ((dlhandle = dlopen(_lib.c_str(), RTLD_LAZY)) == NULL)
-	throw std::runtime_error("Error while openning the library");
+	throw std::runtime_error("Error while opening the library");
     }
   catch (const std::runtime_error& e)
     {
