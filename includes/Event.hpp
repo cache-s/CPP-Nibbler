@@ -5,7 +5,7 @@
 // Login   <chazot_a@epitech.net>
 // 
 // Started on  Thu Apr  2 17:48:33 2015 Jordan Chazottes
-// Last update Thu Apr  2 17:49:11 2015 Jordan Chazottes
+// Last update Sat Apr  4 14:12:37 2015 Sebastien Cache-Delanos
 //
 
 #ifndef				EVENT_HPP_
@@ -26,7 +26,7 @@
      L_XLIB            =       9,
      L_NCURSES         =       10,
      DEFAULT           =       42,
-      UNKNOWN
+     UNKNOWN
    };
 
 #endif				/* EVENT_HPP */

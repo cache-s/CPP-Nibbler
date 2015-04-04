@@ -5,7 +5,7 @@
 // Login   <cache-_s@epitech.net>
 //
 // Started on  Fri Mar 27 11:27:59 2015 Sebastien Cache-Delanos
-// Last update Fri Apr  3 16:56:55 2015 Pierre Charié
+// Last update Sat Apr  4 14:26:59 2015 Sebastien Cache-Delanos
 //
 
 #include				"Game.hpp"
@@ -47,7 +47,7 @@ void					Game::addApple()
     for (j = 0; j < _width; ++j)
       if (_map[i][j] == 5)
 	return;
-  for (j = 0, i = 0; _map[i][j] != 0;)
+  for (j = 0, i = 0; _map[i][j] != EMPTY;)
     {
       if (++k > 1000)
 	if (checkMap() == -1)
@@ -72,11 +72,11 @@ int					Game::checkMap()
 
 int					Game::checkNext(int coordY, int coordX)
 {
-  if (_map[coordY][coordX] == 0 || _map[coordY][coordX] == 4)
+  if (_map[coordY][coordX] == EMPTY || _map[coordY][coordX] == TAIL)
     return (0);
-  if (_map[coordY][coordX] == 5)
+  if (_map[coordY][coordX] == APPLE)
     {
-      _map[coordY][coordX] = 0;
+      _map[coordY][coordX] = EMPTY;
       ++_score;
       if (_speed > 80000)
 	_speed -= 1000;
@@ -121,7 +121,7 @@ void					Game::move()
 	  _snake[i]->popDir();
 	  y = _snake[i]->getY();
 	  x = _snake[i]->getX();
-	  _map[y][x] = 0;
+	  _map[y][x] = EMPTY;
 	  if (tmp == LEFT)
 	    _snake[i]->setX(x - 1);
 	  if (tmp == RIGHT)
@@ -287,10 +287,10 @@ void					Game::updateMap()
 {
   unsigned int				i;
 
-  _map[_snake[0]->getY()][_snake[0]->getX()] = 2;
+  _map[_snake[0]->getY()][_snake[0]->getX()] = HEAD;
   for (i = 1; i < _snake.size() - 1; ++i)
-    _map[_snake[i]->getY()][_snake[i]->getX()] = 3;
-  _map[_snake[_snake.size() - 1]->getY()][_snake[_snake.size() - 1]->getX()] = 4;
+    _map[_snake[i]->getY()][_snake[i]->getX()] = BODY;
+  _map[_snake[_snake.size() - 1]->getY()][_snake[_snake.size() - 1]->getX()] = TAIL;
 }
 
 void					Game::gameOver()
@@ -345,7 +345,7 @@ void					Game::initObstacle()
       for (j = 0; j < _width; ++j)
 	{
 	  if (_map[i][j] == 0 && (rand() % 100 + 1) > 98)
-	    _map[i][j] = 6;
+	    _map[i][j] = OBSTACLE;
 	}
     }
 }
