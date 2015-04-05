@@ -1,0 +1,16 @@
+NIBBLER
+=======
+chazot_a, cache-_s, charie_p
+
+Jeu snake sous tois librairies graphiques : SDL, XLib et NCurses
+
+BONUS
+
+	- Changement dynamique de librairie (F1 = SDL, F2 = XLib, F3 = NCurses)
+	- Génération de map aléatoire avec Obstacles
+	- Musique et bruitages (touche m pour mute)
+	- Pause (touche p)
+	- Touches zqsd
+	- Score
+	- Boost de vitesse (touche espace)
+	- Klaxon (touche k)
